@@ -381,7 +381,7 @@ double  node_getSurfArea(int j, double d)
     switch (Node[j].type)
     {
       case STORAGE: return storage_getSurfArea(j, d);
-      default:      return 0.0;        
+      default:      return Node[j].surfaceArea;
     }
 }
 
