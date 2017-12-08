@@ -522,6 +522,7 @@ typedef struct
    TTreatment*   treatment;       // array of treatment data
    TLidOpening*  lidOpening;      // pointer to node lid opening data
    //-----------------------------
+   int           surfCouplingType;// type of surface coupling (enum SurfaceCouplingType)
    int           degree;          // number of outflow links
    char          updated;         // true if state has been updated
    double        crownElev;       // top of highest connecting conduit (ft)

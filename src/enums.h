@@ -471,3 +471,10 @@ enum  NoneAllType {
       NONE,
       ALL,
       SOME};
+
+enum  SurfaceCouplingType {
+      NO_COUPLING,
+      NO_COUPLING_FLOW,
+      ORIFICE_COUPLING,
+      FREE_WEIR_COUPLING,
+      SUBMERGED_WEIR_COUPLING};
