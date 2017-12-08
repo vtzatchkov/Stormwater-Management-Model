@@ -407,7 +407,10 @@ int DLLEXPORT swmm_setNodeParam(int index, int Param, double value)
 		// initDepth
 		case 4: Node[index].initDepth = value / UCF(LENGTH); break;
 		// surfaceArea
-		case 5: Node[index].surfaceArea = value / UCF(LENGTH) * UCF(LENGTH); break;
+		case 5:
+			Node[index].surfaceArea = value / UCF(LENGTH) * UCF(LENGTH);
+			Node[index].fullVolume = Node[index].surfaceArea * Node[index].fullDepth;
+			break;
 		// Type not available
 		default: return(ERR_API_OUTBOUNDS);
 	}
