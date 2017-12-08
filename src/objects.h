@@ -436,6 +436,22 @@ struct ExtInflow
 typedef struct ExtInflow TExtInflow;
 
 
+//------------------------------
+// NODE LID OPENING OBJECT
+//------------------------------
+struct LidOpening
+{
+   int            type;          // type of opening (grate, etc). From an enum
+   double         area;          // area of the opening (ft2)
+   double         length;        // length of the opening (~circumference, ft)
+   double         coeffOrifice;  // orifice coefficient
+   double         coeffFreeWeir; // free weir coefficient
+   double         coeffSubWeir;  // submerged weir coefficient
+   struct LidOpening* next;      // pointer to next opening data object
+};
+typedef struct LidOpening TLidOpening;
+
+
 //-------------------------------
 // DRY WEATHER FLOW INFLOW OBJECT
 //-------------------------------
@@ -504,6 +520,7 @@ typedef struct
    TDwfInflow*   dwfInflow;       // pointer to dry weather flow inflow data
    TRdiiInflow*  rdiiInflow;      // pointer to RDII inflow data
    TTreatment*   treatment;       // array of treatment data
+   TLidOpening*  lidOpening;      // pointer to node lid opening data
    //-----------------------------
    int           degree;          // number of outflow links
    char          updated;         // true if state has been updated
