@@ -87,8 +87,8 @@ static void   divider_validate(int j);
 static double divider_getOutflow(int j, int link);
 
 // --- coupling functions (L. Courty)
-static double node_getCouplingFlow(int j, double tStep,
-                                   double overlandDepth, double overlandSurfArea);
+static void   node_findCouplingFlow(int j, double tStep,
+                                    double overlandDepth, double overlandSurfArea);
 static void   node_setOldCouplingState(int j);
 static int    node_isCoupled(int j);
 static void   node_adjustCouplingInflows(int j, double inflowAdjustingFactor);
@@ -612,14 +612,33 @@ double node_getLosses(int j, double tStep)
 //                   C O U P L I N G   M E T H O D S
 //=============================================================================
 
-double node_getCouplingFlow(int j, double tStep,
-                            double overlandDepth, double overlandSurfArea)
+void node_executeCoupling(double tStep)
+//
+//  Input:   j = node index
+//           tStep = time step of the drainage model (s)
+//  Output:  none
+//  Purpose: 
+//
+{
+    int j;
+    double overlandDepth, overlandSurfArea;
+
+    for ( j = 0; j < Nobjects[NODE]; j++ )
+    {
+        node_findCouplingFlow(j, tStep, overlandDepth, overlandSurfArea);
+    }
+}
+
+//=============================================================================
+
+void node_findCouplingFlow(int j, double tStep,
+                           double overlandDepth, double overlandSurfArea)
 //
 //  Input:   j = node index
 //           tStep = time step of the drainage model (s)
 //           overlandDepth = water depth in the overland model (ft)
 //           overlandSurfArea = surface in the overland model that is coupled to this node (ft2)
-//  Output:  total inflow from coupling (ft3/s)
+//  Output:  none
 //  Purpose: compute the coupling inflow for each node's opening
 //
 {
@@ -637,8 +656,11 @@ double node_getCouplingFlow(int j, double tStep,
     // --- init
     totalCouplingInflow = 0.0;
 
-    opening = Node[j].coverOpening;
+    // --- find coupling types
+    node_findCouplingTypes(j, crestElev, overlandHead, nodeHead);
+
     // --- iterate among the openings. Add each flow to total inflow.
+    opening = Node[j].coverOpening;
     while ( opening )
     {
         opening_findCouplingInflow(opening, nodeHead, crestElev, overlandHead);
@@ -654,7 +676,7 @@ double node_getCouplingFlow(int j, double tStep,
         opening = opening->next;
     }
     // --- inflow cannot drain the overland model
-    if (TotalCouplingInflow > 0.0)
+    if (totalCouplingInflow > 0.0)
     {
         rawMaxInflow = (overlandDepth * overlandSurfArea) / tStep;
         maxInflow = fmin(rawMaxInflow, totalCouplingInflow);
@@ -667,7 +689,7 @@ double node_getCouplingFlow(int j, double tStep,
             opening = opening->next;
         }
     }
-    return(totalCouplingInflow);
+    Node[j].overlandFlow = totalCouplingInflow;
 }
 
 //=============================================================================
