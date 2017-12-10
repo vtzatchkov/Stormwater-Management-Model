@@ -721,18 +721,21 @@ int node_isCoupled(int j)
 //  Purpose: if at least one opening is coupled, return yes.
 //
 {
+    int isCoupled = FALSE;
     TCoverOpening* opening;
 
-    opening = Node[j].coverOpening;
-    // ---  if not any cover, the node is not coupled
-    if ( !opening ) return NO;
     // --- iterate among the openings. If one is coupled, return YES
+    opening = Node[j].coverOpening;
     while ( opening )
     {
-        if ( opening->couplingType != NO_COUPLING ) return YES;
+        if ( opening->couplingType != NO_COUPLING )
+        {
+            isCoupled = TRUE;
+            break;
+        }
         opening = opening->next;
     }
-    return NO;
+    return isCoupled;
 }
 
 //=============================================================================
