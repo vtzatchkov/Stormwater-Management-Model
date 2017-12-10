@@ -9,6 +9,9 @@
 //             08/05/15   (Build 5.1.010)
 //   Authors:   L. Rossman, Laurent Courty
 //
+//   Contributions by Laurent Courty are copyrighted (c)
+//   and distributed under the MIT license (see LICENSE.txt)
+//
 //   Conveyance system node functions.
 //
 //   Build 5.1.007:
