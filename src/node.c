@@ -87,10 +87,11 @@ static void   divider_validate(int j);
 static double divider_getOutflow(int j, int link);
 
 // --- coupling functions (L. Courty)
-static double node_getCouplingFlow(int j, double overlandDepth,
-                                   double overlandSurfArea);
+static double node_getCouplingFlow(int j, double tStep,
+                                   double overlandDepth, double overlandSurfArea);
 static void   node_setOldCouplingState(int j);
 static int    node_isCoupled(int j);
+static void   node_adjustCouplingInflows(int j, double inflowAdjustingFactor);
 static void   node_findCouplingTypes(int j, double crestElev,
                                      double overlandHead, double nodeHead);
 static void   opening_findCouplingType(TCoverOpening* opening, double nodeHead,
@@ -611,17 +612,21 @@ double node_getLosses(int j, double tStep)
 //                   C O U P L I N G   M E T H O D S
 //=============================================================================
 
-double node_getCouplingFlow(int j, double overlandDepth, double overlandSurfArea)
+double node_getCouplingFlow(int j, double tStep,
+                            double overlandDepth, double overlandSurfArea)
 //
 //  Input:   j = node index
+//           tStep = time step of the drainage model (s)
 //           overlandDepth = water depth in the overland model (ft)
 //           overlandSurfArea = surface in the overland model that is coupled to this node (ft2)
 //  Output:  total inflow from coupling (ft3/s)
-//  Purpose: compute the coupling inflow for every openings
+//  Purpose: compute the coupling inflow for each node's opening
 //
 {
     double crestElev, overlandHead, nodeHead;
     double totalCouplingInflow;
+    double rawMaxInflow, maxInflow, inflowAdjustingFactor;
+    int inflow2outflow, outflow2inflow;
     TCoverOpening* opening;
 
     // --- calculate elevations
@@ -637,8 +642,30 @@ double node_getCouplingFlow(int j, double overlandDepth, double overlandSurfArea
     while ( opening )
     {
         opening_findCouplingInflow(opening, nodeHead, crestElev, overlandHead);
+        // --- prevent oscillations
+        inflow2outflow = (opening->oldInflow > 0.0) && (opening->newInflow < 0.0);
+        outflow2inflow = (opening->oldInflow < 0.0) && (opening->newInflow > 0.0);
+        if (inflow2outflow || outflow2inflow)
+        {
+            opening->couplingType = NO_COUPLING_FLOW;
+            opening->newInflow = 0.0;
+        }
         totalCouplingInflow += opening->newInflow;
         opening = opening->next;
+    }
+    // --- inflow cannot drain the overland model
+    if (TotalCouplingInflow > 0.0)
+    {
+        rawMaxInflow = (overlandDepth * overlandSurfArea) / tStep;
+        maxInflow = fmin(rawMaxInflow, totalCouplingInflow);
+        inflowAdjustingFactor = maxInflow / totalCouplingInflow;
+        node_adjustCouplingInflows(j, inflowAdjustingFactor);
+        // --- get adjusted inflows
+            while ( opening )
+        {
+            totalCouplingInflow += opening->newInflow;
+            opening = opening->next;
+        }
     }
     return(totalCouplingInflow);
 }
@@ -684,6 +711,27 @@ int node_isCoupled(int j)
         opening = opening->next;
     }
     return NO;
+}
+
+//=============================================================================
+
+void node_adjustCouplingInflows(int j, double inflowAdjustingFactor)
+//
+//  Input:   j = node index
+//           inflowAdjustingFactor = an inflow adjusting coefficient
+//  Output:  none
+//  Purpose: adjust the inflow according to an adjusting factor
+//
+{
+    TCoverOpening* opening;
+
+    opening = Node[j].coverOpening;
+    // --- iterate among the openings
+    while ( opening )
+    {
+        opening->newInflow = opening->newInflow * inflowAdjustingFactor;
+        opening = opening->next;
+    }
 }
 
 //=============================================================================
