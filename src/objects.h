@@ -1107,3 +1107,14 @@ typedef struct
    char          Enabled;         // TRUE if appears in report table
    int           Precision;       // number of decimal places when reported
 }  TRptField;
+
+
+//--------------------
+// OVERLAND MODEL DATA
+//--------------------
+typedef struct
+{
+   double        surfArea;        // coupling area (ft2)
+   double        depth;           // water depth (ft)
+   double        couplingFlow;    // flow (ft3/s)
+}  TOverlandData;

@@ -613,12 +613,13 @@ double node_getLosses(int j, double tStep)
 //                   C O U P L I N G   M E T H O D S
 //=============================================================================
 
-void node_executeCoupling(double tStep)
+void node_executeCoupling(double tStep, TOverlandData* OverlandData)
 //
-//  Input:   j = node index
-//           tStep = time step of the drainage model (s)
+//  Input:   tStep = time step of the drainage model (s)
+//           OverlandData = an array of TOverlandData
+//           /!\ OverlandData should be same length and order than Node
 //  Output:  none
-//  Purpose: 
+//  Purpose: find coupling flow for each node.
 //
 {
     int j;
@@ -626,7 +627,13 @@ void node_executeCoupling(double tStep)
 
     for ( j = 0; j < Nobjects[NODE]; j++ )
     {
+        if ( !node_isCoupled(j) ) continue;
+        // --- find coupling flow
+        overlandDepth =  OverlandData[j].depth;
+        overlandSurfArea = OverlandData[j].surfArea;
         node_findCouplingFlow(j, tStep, overlandDepth, overlandSurfArea);
+        // --- apply coupling flow to output array
+        OverlandData[j].couplingFlow = Node[j].overlandInflow;
     }
 }
 
@@ -673,6 +680,7 @@ void node_findCouplingFlow(int j, double tStep,
             opening->couplingType = NO_COUPLING_FLOW;
             opening->newInflow = 0.0;
         }
+        // --- add inflow to total inflow
         totalCouplingInflow += opening->newInflow;
         opening = opening->next;
     }
@@ -684,7 +692,8 @@ void node_findCouplingFlow(int j, double tStep,
         inflowAdjustingFactor = maxInflow / totalCouplingInflow;
         node_adjustCouplingInflows(j, inflowAdjustingFactor);
         // --- get adjusted inflows
-            while ( opening )
+        opening = Node[j].coverOpening;
+        while ( opening )
         {
             totalCouplingInflow += opening->newInflow;
             opening = opening->next;
@@ -704,8 +713,8 @@ void node_setOldCouplingState(int j)
 {
     TCoverOpening* opening;
 
-    opening = Node[j].coverOpening;
     // --- iterate among the openings.
+    opening = Node[j].coverOpening;
     while ( opening )
     {
         opening->oldInflow = opening->newInflow;
@@ -751,8 +760,8 @@ void node_adjustCouplingInflows(int j, double inflowAdjustingFactor)
 {
     TCoverOpening* opening;
 
-    opening = Node[j].coverOpening;
     // --- iterate among the openings
+    opening = Node[j].coverOpening;
     while ( opening )
     {
         opening->newInflow = opening->newInflow * inflowAdjustingFactor;
@@ -774,8 +783,8 @@ void node_findCouplingTypes(int j, double crestElev, double overlandHead, double
 {
     TCoverOpening* opening;
 
-    opening = Node[j].coverOpening;
     // --- iterate among the openings and find coupling
+    opening = Node[j].coverOpening;
     while ( opening )
     {
         opening_findCouplingType(opening, nodeHead, crestElev, overlandHead);
