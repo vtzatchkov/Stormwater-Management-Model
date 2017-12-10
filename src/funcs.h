@@ -393,6 +393,10 @@ double  node_getMaxOutflow(int node, double q, double tStep);
 double  node_getSystemOutflow(int node, int *isFlooded);
 void    node_getResults(int node, double wt, float x[]);
 
+// --- coupling functions
+void    coupling_execute(double tStep);
+void    node_deleteOpenings(int node);
+
 //-----------------------------------------------------------------------------
 //   Conveyance System Inflow Methods
 //-----------------------------------------------------------------------------

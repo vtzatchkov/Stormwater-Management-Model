@@ -613,11 +613,9 @@ double node_getLosses(int j, double tStep)
 //                   C O U P L I N G   M E T H O D S
 //=============================================================================
 
-void node_executeCoupling(double tStep, TOverlandData* OverlandData)
+void coupling_execute(double tStep)
 //
 //  Input:   tStep = time step of the drainage model (s)
-//           OverlandData = an array of TOverlandData
-//           /!\ OverlandData should be same length and order than Node
 //  Output:  none
 //  Purpose: find coupling flow for each node.
 //
@@ -789,6 +787,26 @@ void node_findCouplingTypes(int j, double crestElev, double overlandHead, double
     {
         opening_findCouplingType(opening, nodeHead, crestElev, overlandHead);
         opening = opening->next;
+    }
+}
+
+//=============================================================================
+
+void node_deleteOpenings(int j)
+//
+//  Input:   j = node index
+//  Output:  none
+//  Purpose: deletes all opening data for a node.
+//
+{
+    TCoverOpening* opening1;
+    TCoverOpening* opening2;
+    opening1 = Node[j].coverOpening;
+    while ( opening1 )
+    {
+        opening2 = opening1->next;
+        free(opening1);
+        opening1 = opening2;
     }
 }
 

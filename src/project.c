@@ -731,6 +731,7 @@ void initPointers()
     Gage     = NULL;
     Subcatch = NULL;
     Node     = NULL;
+    OverlandData = NULL;
     Outfall  = NULL;
     Divider  = NULL;
     Storage  = NULL;
@@ -963,6 +964,7 @@ void createObjects()
     Gage     = (TGage *)     calloc(Nobjects[GAGE],     sizeof(TGage));
     Subcatch = (TSubcatch *) calloc(Nobjects[SUBCATCH], sizeof(TSubcatch));
     Node     = (TNode *)     calloc(Nobjects[NODE],     sizeof(TNode));
+    OverlandData = (TOverlandData *) calloc(Nobjects[NODE], sizeof(TOverlandData));
     Outfall  = (TOutfall *)  calloc(Nnodes[OUTFALL],    sizeof(TOutfall));
     Divider  = (TDivider *)  calloc(Nnodes[DIVIDER],    sizeof(TDivider));
     Storage  = (TStorage *)  calloc(Nnodes[STORAGE],    sizeof(TStorage));
@@ -1021,6 +1023,7 @@ void createObjects()
         Node[j].dwfInflow = NULL;
         Node[j].rdiiInflow = NULL;
         Node[j].treatment = NULL;
+        Node[j].coverOpening = NULL;
     }
     for (j = 0; j < Nobjects[LINK]; j++)
     {
@@ -1200,6 +1203,7 @@ void deleteObjects()
         inflow_deleteDwfInflows(j);
         rdii_deleteRdiiInflow(j);
         treatmnt_delete(j);
+        node_deleteOpenings(j);
     }
 
     // --- delete table entries for curves and time series
@@ -1221,6 +1225,7 @@ void deleteObjects()
     FREE(Gage);
     FREE(Subcatch);
     FREE(Node);
+    FREE(OverlandData);
     FREE(Outfall);
     FREE(Divider);
     FREE(Storage);
