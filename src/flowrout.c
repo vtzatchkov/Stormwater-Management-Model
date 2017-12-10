@@ -160,7 +160,9 @@ int flowrout_execute(int links[], int routingModel, double tStep)
     // --- execute dynamic wave routing if called for
     if ( routingModel == DW )
     {
-        return dynwave_execute(tStep);
+        steps = dynwave_execute(tStep);
+        coupling_execute(tStep);                                          //coupling
+        return steps;
     }
 
     // --- otherwise examine each link, moving from upstream to downstream
