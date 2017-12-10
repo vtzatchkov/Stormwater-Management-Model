@@ -89,11 +89,11 @@ static double divider_getOutflow(int j, int link);
 static double node_getCouplingFlow(int j, double d);
 static int    node_isCoupled(int j);
 static void   node_findCouplingTypes(int j, double crestElev,
-                                     double surfaceElev, double nodeHead);
+                                     double surfaceHead, double nodeHead);
 static void   opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                                       double crestElev, double surfaceElev);
+                                       double crestElev, double surfaceHead);
 static double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                        double crestElev, double surfaceElev);
+                                        double crestElev, double surfaceHead);
 
 //=============================================================================
 
@@ -614,14 +614,14 @@ double node_getCouplingFlow(int j, double d)
 //  Purpose: compute the coupling inflow for every openings
 //
 {
-    double crestElev, surfaceElev, nodeHead;
+    double crestElev, surfaceHead, nodeHead;
     double totalCouplingInflow;
     TCoverOpening* opening;
 
     // --- calculate elevations
     crestElev = Node[j].invertElev + Node[j].fullDepth;
     nodeHead = Node[j].invertElev + Node[j].newDepth;
-    surfaceElev = crestElev + d;
+    surfaceHead = crestElev + d;
 
     // --- init
     totalCouplingInflow = 0.0;
@@ -631,7 +631,7 @@ double node_getCouplingFlow(int j, double d)
     while ( opening )
     {
         totalCouplingInflow += opening_getCouplingInflow(opening, nodeHead,
-                                                         crestElev, surfaceElev);
+                                                         crestElev, surfaceHead);
         opening = opening->next;
     }
     return(totalCouplingInflow);
@@ -662,12 +662,12 @@ int node_isCoupled(int j)
 
 //=============================================================================
 
-void node_findCouplingTypes(int j, double crestElev, double surfaceElev, double nodeHead)
+void node_findCouplingTypes(int j, double crestElev, double surfaceHead, double nodeHead)
 //
 //  Input:   j = node index
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceElev = water elevation on the surface (ft)
+//           surfaceHead = water elevation on the surface (ft)
 //  Output:  none
 //  Purpose: calculate all coupling types of a node
 //
@@ -678,7 +678,7 @@ void node_findCouplingTypes(int j, double crestElev, double surfaceElev, double 
     // --- iterate among the openings and find coupling
     while ( opening )
     {
-        opening_findCouplingType(opening, nodeHead, crestElev, surfaceElev);
+        opening_findCouplingType(opening, nodeHead, crestElev, surfaceHead);
         opening = opening->next;
     }
 }
@@ -686,12 +686,12 @@ void node_findCouplingTypes(int j, double crestElev, double surfaceElev, double 
 //=============================================================================
 
 void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                              double crestElev, double surfaceElev)
+                              double crestElev, double surfaceHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceElev = water elevation on the surface (ft)
+//           surfaceHead = water elevation on the surface (ft)
 //  Output:  nothing
 //  Purpose: determine the coupling type of an opening
 //           according the the relative water elevations in node and surface
@@ -703,12 +703,12 @@ void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
     double overflowArea = opening->area;
     double weirWidth = opening->length;
 
-    surfaceDepth = surfaceElev - crestElev;
+    surfaceDepth = surfaceHead - crestElev;
     weirRatio = overflowArea / weirWidth;
 
     // --- boolean cases. See DOI 10.1016/j.jhydrol.2017.06.024
-    overflow = nodeHead > surfaceElev;
-    drainage = nodeHead < surfaceElev;
+    overflow = nodeHead > surfaceHead;
+    drainage = nodeHead < surfaceHead;
     overflowOrifice = overflow;
     drainageOrifice = drainage &&
                       ((nodeHead > crestElev) && (surfaceDepth > weirRatio));
@@ -728,12 +728,12 @@ void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
 //=============================================================================
 
 double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                 double crestElev, double surfaceElev)
+                                 double crestElev, double surfaceHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceElev = water elevation on the surface (ft)
+//           surfaceHead = water elevation on the surface (ft)
 //  Output:  the flow entering through the opening (ft3/s)
 //  Purpose: computes the coupling flow of the opening
 //
@@ -748,8 +748,8 @@ double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
     overflowArea = opening->area;
     weirWidth = opening->length;
 
-    headUp = fmax(surfaceElev, nodeHead);
-    headDown = fmin(surfaceElev, nodeHead);
+    headUp = fmax(surfaceHead, nodeHead);
+    headDown = fmin(surfaceHead, nodeHead);
     headDiff = headUp - headDown;
     depthUp =  headUp - crestElev;
 
@@ -766,7 +766,7 @@ double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
             couplingFlow = subWeirCoeff * weirWidth * depthUp * sweir_v;
         default: couplingFlow =  0.0;
     }
-    return(copysign(couplingFlow, surfaceElev-nodeHead));
+    return(copysign(couplingFlow, surfaceHead-nodeHead));
 }
 
 //=============================================================================
