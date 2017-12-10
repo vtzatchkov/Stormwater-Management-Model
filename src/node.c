@@ -262,6 +262,7 @@ void node_initState(int j)
     Node[j].oldLatFlow = 0.0;
     Node[j].newLatFlow = 0.0;
     Node[j].losses = 0.0;                                                      //(5.1.007)
+    Node[j].overlandInflow = 0.0;                                              //coupling
 
 
 ////  Following code section added to release 5.1.007.  ////                   //(5.1.007)
@@ -689,7 +690,7 @@ void node_findCouplingFlow(int j, double tStep,
             opening = opening->next;
         }
     }
-    Node[j].overlandFlow = totalCouplingInflow;
+    Node[j].overlandInflow = totalCouplingInflow;
 }
 
 //=============================================================================

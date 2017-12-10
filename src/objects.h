@@ -539,7 +539,7 @@ typedef struct
    double        newDepth;        // current water depth (ft)
    double        oldLatFlow;      // previous lateral inflow (cfs)
    double        newLatFlow;      // current lateral inflow (cfs)
-   double        overlandFlow;    // flow from the overland model(cfs)
+   double        overlandInflow;  // flow from the overland model(cfs)
    double*       oldQual;         // previous quality state
    double*       newQual;         // current quality state
    double        oldFlowInflow;   // previous flow inflow
