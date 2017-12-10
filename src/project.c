@@ -296,6 +296,7 @@ int  project_init(void)
     for (j=0; j<Nobjects[GAGE]; j++)     gage_initState(j);
     for (j=0; j<Nobjects[SUBCATCH]; j++) subcatch_initState(j);
     for (j=0; j<Nobjects[NODE]; j++)     node_initState(j);
+    for (j=0; j<Nobjects[NODE]; j++)     coupling_initOverlandData(j);          //coupling
     for (j=0; j<Nobjects[LINK]; j++)     link_initState(j);
     return ErrorCode;
 }

@@ -35,6 +35,20 @@ static void   opening_findCouplingInflow(TCoverOpening* opening, double crestEle
 
 //=============================================================================
 
+void coupling_initOverlandData(int j)
+//
+//  Input:   j = node index
+//  Output:  none
+//  Purpose: initializes a OverlandData's value variables at start of simulation.
+//
+{
+    OverlandData[j].surfArea = 0.0;
+    OverlandData[j].depth = 0.0;
+    OverlandData[j].couplingFlow = 0.0;
+}
+
+//=============================================================================
+
 void coupling_execute(double tStep)
 //
 //  Input:   tStep = time step of the drainage model (s)

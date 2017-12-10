@@ -394,6 +394,7 @@ double  node_getSystemOutflow(int node, int *isFlooded);
 void    node_getResults(int node, double wt, float x[]);
 
 // --- coupling functions
+void    coupling_initOverlandData(int node);
 void    coupling_execute(double tStep);
 void    coupling_deleteOpenings(int node);
 void    coupling_setOldState(int j);
