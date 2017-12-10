@@ -395,8 +395,8 @@ void    node_getResults(int node, double wt, float x[]);
 
 // --- coupling functions
 void    coupling_execute(double tStep);
-void    node_deleteOpenings(int node);
-void    node_setOldCouplingState(int j);
+void    coupling_deleteOpenings(int node);
+void    coupling_setOldState(int j);
 
 //-----------------------------------------------------------------------------
 //   Conveyance System Inflow Methods

@@ -7,7 +7,7 @@
 //             09/15/14   (Build 5.1.007)
 //             04/02/15   (Build 5.1.008)
 //             08/05/15   (Build 5.1.010)
-//   Authors:   Laurent Courty
+//   Authors:  Laurent Courty
 //
 //   Copyrighted (c) distributed under the MIT license (see LICENSE.txt)
 //
@@ -24,16 +24,14 @@
 //-----------------------------------------------------------------------------
 //  Local functions
 //-----------------------------------------------------------------------------
-static void   node_findCouplingFlow(int j, double tStep,
+static void   coupling_findNodeInflow(int j, double tStep,
                                     double overlandDepth, double overlandSurfArea);
-static int    node_isCoupled(int j);
-static void   node_adjustCouplingInflows(int j, double inflowAdjustingFactor);
-static void   node_findCouplingTypes(int j, double crestElev,
-                                     double overlandHead, double nodeHead);
-static void   opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                                       double crestElev, double overlandHead);
-static void   opening_findCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                         double crestElev, double overlandHead);
+static int    coupling_isNodeCoupled(int j);
+static void   coupling_adjustInflows(int j, double inflowAdjustingFactor);
+static void   opening_findCouplingType(TCoverOpening* opening, double crestElev,
+                                       double nodeHead, double overlandHead);
+static void   opening_findCouplingInflow(TCoverOpening* opening, double crestElev,
+                                         double nodeHead, double overlandHead);
 
 //=============================================================================
 
@@ -49,11 +47,11 @@ void coupling_execute(double tStep)
 
     for ( j = 0; j < Nobjects[NODE]; j++ )
     {
-        if ( !node_isCoupled(j) ) continue;
+        if ( !coupling_isNodeCoupled(j) ) continue;
         // --- find coupling flow
         overlandDepth =  OverlandData[j].depth;
         overlandSurfArea = OverlandData[j].surfArea;
-        node_findCouplingFlow(j, tStep, overlandDepth, overlandSurfArea);
+        coupling_findNodeInflow(j, tStep, overlandDepth, overlandSurfArea);
         // --- apply coupling flow to output array
         OverlandData[j].couplingFlow = Node[j].overlandInflow;
     }
@@ -61,7 +59,7 @@ void coupling_execute(double tStep)
 
 //=============================================================================
 
-void node_findCouplingFlow(int j, double tStep,
+void coupling_findNodeInflow(int j, double tStep,
                            double overlandDepth, double overlandSurfArea)
 //
 //  Input:   j = node index
@@ -86,14 +84,13 @@ void node_findCouplingFlow(int j, double tStep,
     // --- init
     totalCouplingInflow = 0.0;
 
-    // --- find coupling types
-    node_findCouplingTypes(j, crestElev, overlandHead, nodeHead);
-
-    // --- iterate among the openings. Add each flow to total inflow.
+    // --- iterate among the openings
     opening = Node[j].coverOpening;
     while ( opening )
     {
-        opening_findCouplingInflow(opening, nodeHead, crestElev, overlandHead);
+        // --- compute types and inflows
+        opening_findCouplingType(opening, crestElev, nodeHead, overlandHead);
+        opening_findCouplingInflow(opening, crestElev, nodeHead, overlandHead);
         // --- prevent oscillations
         inflow2outflow = (opening->oldInflow > 0.0) && (opening->newInflow < 0.0);
         outflow2inflow = (opening->oldInflow < 0.0) && (opening->newInflow > 0.0);
@@ -112,7 +109,7 @@ void node_findCouplingFlow(int j, double tStep,
         rawMaxInflow = (overlandDepth * overlandSurfArea) / tStep;
         maxInflow = fmin(rawMaxInflow, totalCouplingInflow);
         inflowAdjustingFactor = maxInflow / totalCouplingInflow;
-        node_adjustCouplingInflows(j, inflowAdjustingFactor);
+        coupling_adjustInflows(j, inflowAdjustingFactor);
         // --- get adjusted inflows
         opening = Node[j].coverOpening;
         while ( opening )
@@ -126,7 +123,7 @@ void node_findCouplingFlow(int j, double tStep,
 
 //=============================================================================
 
-void node_setOldCouplingState(int j)
+void coupling_setOldState(int j)
 //
 //  Input:   j = node index
 //  Output:  none
@@ -146,7 +143,7 @@ void node_setOldCouplingState(int j)
 
 //=============================================================================
 
-int node_isCoupled(int j)
+int coupling_isNodeCoupled(int j)
 //
 //  Input:   j = node index
 //  Output:  returns the coupling status of a node (yes/no)
@@ -172,7 +169,7 @@ int node_isCoupled(int j)
 
 //=============================================================================
 
-void node_adjustCouplingInflows(int j, double inflowAdjustingFactor)
+void coupling_adjustInflows(int j, double inflowAdjustingFactor)
 //
 //  Input:   j = node index
 //           inflowAdjustingFactor = an inflow adjusting coefficient
@@ -193,30 +190,7 @@ void node_adjustCouplingInflows(int j, double inflowAdjustingFactor)
 
 //=============================================================================
 
-void node_findCouplingTypes(int j, double crestElev, double overlandHead, double nodeHead)
-//
-//  Input:   j = node index
-//           nodeHead = water elevation in the node (ft)
-//           crestElev = elevation of the node crest (= ground) (ft)
-//           overlandHead = water elevation in the overland model (ft)
-//  Output:  none
-//  Purpose: calculate all coupling types of a node
-//
-{
-    TCoverOpening* opening;
-
-    // --- iterate among the openings and find coupling
-    opening = Node[j].coverOpening;
-    while ( opening )
-    {
-        opening_findCouplingType(opening, nodeHead, crestElev, overlandHead);
-        opening = opening->next;
-    }
-}
-
-//=============================================================================
-
-void node_deleteOpenings(int j)
+void coupling_deleteOpenings(int j)
 //
 //  Input:   j = node index
 //  Output:  none
@@ -236,8 +210,8 @@ void node_deleteOpenings(int j)
 
 //=============================================================================
 
-void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                              double crestElev, double overlandHead)
+void opening_findCouplingType(TCoverOpening* opening, double crestElev,
+                              double nodeHead, double overlandHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)
@@ -278,8 +252,8 @@ void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
 
 //=============================================================================
 
-void opening_findCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                double crestElev, double overlandHead)
+void opening_findCouplingInflow(TCoverOpening* opening, double crestElev,
+                                double nodeHead, double overlandHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)

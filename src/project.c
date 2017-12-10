@@ -1203,7 +1203,7 @@ void deleteObjects()
         inflow_deleteDwfInflows(j);
         rdii_deleteRdiiInflow(j);
         treatmnt_delete(j);
-        node_deleteOpenings(j);
+        coupling_deleteOpenings(j);                                            //(coupling)
     }
 
     // --- delete table entries for curves and time series

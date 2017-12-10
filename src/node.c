@@ -289,8 +289,7 @@ void node_setOldHydState(int j)
 {
     Node[j].oldDepth    = Node[j].newDepth;
     Node[j].oldVolume   = Node[j].newVolume;
-    // --- do it for overland model coupling
-    node_setOldCouplingState(j);
+    coupling_setOldState(j);                                              //coupling
 }
 
 //=============================================================================
