@@ -224,6 +224,60 @@ void coupling_deleteOpenings(int j)
 
 //=============================================================================
 
+void coupling_setOpening(int j, int idx, int oType, double A, double l,
+                         double Co, double Cfw, double Csw)
+// Purpose: Assigns property values to the node opening object
+// Inputs:  j     = Node index
+//          idx   =  opening's index
+//          otype =  type of opening (grate, etc). From an enum
+//          A     = area of the opening (ft2)
+//          l     = length of the opening (~circumference, ft)
+//          Co    = orifice coefficient
+//          Cfw   = free weir coefficient
+//          Csw   = submerged weir coefficient
+// Return:  error code
+{
+    int errcode = 0;
+    TCoverOpening* opening;  // opening object
+
+    // --- check if an opening object with this index already exists
+    opening = Node[j].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+
+    // --- if it doesn't exist, then create it
+    if ( opening == NULL )
+    {
+        opening = (TCoverOpening *) malloc(sizeof(TCoverOpening));
+        if ( opening == NULL )
+        {
+            return error_setInpError(ERR_MEMORY, "");
+        }
+        opening->next = Node[j].coverOpening;
+        Node[j].coverOpening = opening;
+    }
+
+    // Assign values to the opening object
+    opening->ID            = idx;
+    opening->type          = oType;
+    opening->area          = A;
+    opening->length        = l;
+    opening->coeffOrifice  = Co;
+    opening->coeffFreeWeir = Cfw;
+    opening->coeffSubWeir  = Csw;
+    // --- default values
+    opening->couplingType  = NO_COUPLING_FLOW;
+    opening->oldInflow     = 0.0;
+    opening->newInflow     = 0.0;
+
+    return(errcode);
+}
+
+//=============================================================================
+
 void opening_findCouplingType(TCoverOpening* opening, double crestElev,
                               double nodeHead, double overlandHead)
 //

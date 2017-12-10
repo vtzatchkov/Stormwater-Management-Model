@@ -441,6 +441,7 @@ typedef struct ExtInflow TExtInflow;
 //------------------------------
 struct CoverOpening
 {
+   int            ID;              // opening index number
    int            type;            // type of opening (grate, etc). From an enum
    int            couplingType;    // type of surface coupling (enum SurfaceCouplingType)
    double         area;            // area of the opening (ft2)
