@@ -86,14 +86,17 @@ static int    divider_readParams(int j, int k, char* tok[], int ntoks);
 static void   divider_validate(int j);
 static double divider_getOutflow(int j, int link);
 
-static double node_getCouplingFlow(int j, double d);
+// --- coupling functions (L. Courty)
+static double node_getCouplingFlow(int j, double overlandDepth,
+                                   double overlandSurfArea);
+static void   node_setOldCouplingState(int j);
 static int    node_isCoupled(int j);
 static void   node_findCouplingTypes(int j, double crestElev,
-                                     double surfaceHead, double nodeHead);
+                                     double overlandHead, double nodeHead);
 static void   opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                                       double crestElev, double surfaceHead);
-static double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                        double crestElev, double surfaceHead);
+                                       double crestElev, double overlandHead);
+static void   opening_findCouplingInflow(TCoverOpening* opening, double nodeHead,
+                                         double crestElev, double overlandHead);
 
 //=============================================================================
 
@@ -300,6 +303,8 @@ void node_setOldHydState(int j)
 {
     Node[j].oldDepth    = Node[j].newDepth;
     Node[j].oldVolume   = Node[j].newVolume;
+    // --- do it for overland model coupling
+    node_setOldCouplingState(j);
 }
 
 //=============================================================================
@@ -606,35 +611,56 @@ double node_getLosses(int j, double tStep)
 //                   C O U P L I N G   M E T H O D S
 //=============================================================================
 
-double node_getCouplingFlow(int j, double d)
+double node_getCouplingFlow(int j, double overlandDepth, double overlandSurfArea)
 //
 //  Input:   j = node index
-//           d = water depth on the surface, above the node crest  (ft)
+//           overlandDepth = water depth in the overland model (ft)
+//           overlandSurfArea = surface in the overland model that is coupled to this node (ft2)
 //  Output:  total inflow from coupling (ft3/s)
 //  Purpose: compute the coupling inflow for every openings
 //
 {
-    double crestElev, surfaceHead, nodeHead;
+    double crestElev, overlandHead, nodeHead;
     double totalCouplingInflow;
     TCoverOpening* opening;
 
     // --- calculate elevations
     crestElev = Node[j].invertElev + Node[j].fullDepth;
     nodeHead = Node[j].invertElev + Node[j].newDepth;
-    surfaceHead = crestElev + d;
+    overlandHead = crestElev + overlandDepth;
 
     // --- init
     totalCouplingInflow = 0.0;
 
     opening = Node[j].coverOpening;
-     // --- iterate among the openings. Add each flow to total inflow.
+    // --- iterate among the openings. Add each flow to total inflow.
     while ( opening )
     {
-        totalCouplingInflow += opening_getCouplingInflow(opening, nodeHead,
-                                                         crestElev, surfaceHead);
+        opening_findCouplingInflow(opening, nodeHead, crestElev, overlandHead);
+        totalCouplingInflow += opening->newInflow;
         opening = opening->next;
     }
     return(totalCouplingInflow);
+}
+
+//=============================================================================
+
+void node_setOldCouplingState(int j)
+//
+//  Input:   j = node index
+//  Output:  none
+//  Purpose: replaces a node's old hydraulic coupling state values with new ones.
+//
+{
+    TCoverOpening* opening;
+
+    opening = Node[j].coverOpening;
+    // --- iterate among the openings.
+    while ( opening )
+    {
+        opening->oldInflow = opening->newInflow;
+        opening = opening->next;
+    }
 }
 
 //=============================================================================
@@ -662,12 +688,12 @@ int node_isCoupled(int j)
 
 //=============================================================================
 
-void node_findCouplingTypes(int j, double crestElev, double surfaceHead, double nodeHead)
+void node_findCouplingTypes(int j, double crestElev, double overlandHead, double nodeHead)
 //
 //  Input:   j = node index
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceHead = water elevation on the surface (ft)
+//           overlandHead = water elevation in the overland model (ft)
 //  Output:  none
 //  Purpose: calculate all coupling types of a node
 //
@@ -678,7 +704,7 @@ void node_findCouplingTypes(int j, double crestElev, double surfaceHead, double 
     // --- iterate among the openings and find coupling
     while ( opening )
     {
-        opening_findCouplingType(opening, nodeHead, crestElev, surfaceHead);
+        opening_findCouplingType(opening, nodeHead, crestElev, overlandHead);
         opening = opening->next;
     }
 }
@@ -686,12 +712,12 @@ void node_findCouplingTypes(int j, double crestElev, double surfaceHead, double 
 //=============================================================================
 
 void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
-                              double crestElev, double surfaceHead)
+                              double crestElev, double overlandHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceHead = water elevation on the surface (ft)
+//           overlandHead = water elevation in the overland model (ft)
 //  Output:  nothing
 //  Purpose: determine the coupling type of an opening
 //           according the the relative water elevations in node and surface
@@ -703,12 +729,12 @@ void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
     double overflowArea = opening->area;
     double weirWidth = opening->length;
 
-    surfaceDepth = surfaceHead - crestElev;
+    surfaceDepth = overlandHead - crestElev;
     weirRatio = overflowArea / weirWidth;
 
     // --- boolean cases. See DOI 10.1016/j.jhydrol.2017.06.024
-    overflow = nodeHead > surfaceHead;
-    drainage = nodeHead < surfaceHead;
+    overflow = nodeHead > overlandHead;
+    drainage = nodeHead < overlandHead;
     overflowOrifice = overflow;
     drainageOrifice = drainage &&
                       ((nodeHead > crestElev) && (surfaceDepth > weirRatio));
@@ -727,20 +753,20 @@ void opening_findCouplingType(TCoverOpening* opening, double nodeHead,
 
 //=============================================================================
 
-double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
-                                 double crestElev, double surfaceHead)
+void opening_findCouplingInflow(TCoverOpening* opening, double nodeHead,
+                                double crestElev, double overlandHead)
 //
 //  Input:   opening = a node opening data structure
 //           nodeHead = water elevation in the node (ft)
 //           crestElev = elevation of the node crest (= ground) (ft)
-//           surfaceHead = water elevation on the surface (ft)
+//           overlandHead = water elevation in the overland model (ft)
 //  Output:  the flow entering through the opening (ft3/s)
 //  Purpose: computes the coupling flow of the opening
 //
 {
     double orificeCoeff, freeWeirCoeff, subWeirCoeff, overflowArea, weirWidth;
     double headUp, headDown, headDiff, depthUp;
-    double orif_v, sweir_v, couplingFlow;
+    double orif_v, sweir_v, u_couplingFlow;
 
     orificeCoeff = opening->coeffOrifice;
     freeWeirCoeff = opening->coeffFreeWeir;
@@ -748,8 +774,8 @@ double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
     overflowArea = opening->area;
     weirWidth = opening->length;
 
-    headUp = fmax(surfaceHead, nodeHead);
-    headDown = fmin(surfaceHead, nodeHead);
+    headUp = fmax(overlandHead, nodeHead);
+    headDown = fmin(overlandHead, nodeHead);
     headDiff = headUp - headDown;
     depthUp =  headUp - crestElev;
 
@@ -757,16 +783,17 @@ double opening_getCouplingInflow(TCoverOpening* opening, double nodeHead,
     {
         case ORIFICE_COUPLING:
             orif_v = sqrt(2 * GRAVITY * headDiff);
-            couplingFlow = orificeCoeff * overflowArea * orif_v;
+            u_couplingFlow = orificeCoeff * overflowArea * orif_v;
         case FREE_WEIR_COUPLING:
-            couplingFlow = ((2/3.) * freeWeirCoeff * weirWidth *
-                            pow(depthUp, 3/2.) * sqrt(2 * GRAVITY));
+            u_couplingFlow = (2/3.) * freeWeirCoeff * weirWidth *
+                             pow(depthUp, 3/2.) * sqrt(2 * GRAVITY);
         case SUBMERGED_WEIR_COUPLING:
             sweir_v = sqrt(2. * GRAVITY * depthUp);
-            couplingFlow = subWeirCoeff * weirWidth * depthUp * sweir_v;
-        default: couplingFlow =  0.0;
+            u_couplingFlow = subWeirCoeff * weirWidth * depthUp * sweir_v;
+        default: u_couplingFlow =  0.0;
     }
-    return(copysign(couplingFlow, surfaceHead-nodeHead));
+    // --- Flow into the node is positive
+    opening->newInflow = copysign(u_couplingFlow, overlandHead - nodeHead);
 }
 
 //=============================================================================

@@ -448,6 +448,8 @@ struct CoverOpening
    double         coeffOrifice;    // orifice coefficient
    double         coeffFreeWeir;   // free weir coefficient
    double         coeffSubWeir;    // submerged weir coefficient
+   double         oldInflow;       // inflow during last time-step
+   double         newInflow;       // current inflow
    struct CoverOpening* next;      // pointer to next opening data object
 };
 typedef struct CoverOpening TCoverOpening;
