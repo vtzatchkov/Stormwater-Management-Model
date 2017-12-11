@@ -204,26 +204,6 @@ void coupling_adjustInflows(int j, double inflowAdjustingFactor)
 
 //=============================================================================
 
-void coupling_deleteOpenings(int j)
-//
-//  Input:   j = node index
-//  Output:  none
-//  Purpose: deletes all opening data for a node.
-//
-{
-    TCoverOpening* opening1;
-    TCoverOpening* opening2;
-    opening1 = Node[j].coverOpening;
-    while ( opening1 )
-    {
-        opening2 = opening1->next;
-        free(opening1);
-        opening1 = opening2;
-    }
-}
-
-//=============================================================================
-
 void coupling_setOpening(int j, int idx, int oType, double A, double l,
                          double Co, double Cfw, double Csw)
 // Purpose: Assigns property values to the node opening object
@@ -274,6 +254,45 @@ void coupling_setOpening(int j, int idx, int oType, double A, double l,
     opening->newInflow     = 0.0;
 
     return(errcode);
+}
+//=============================================================================
+
+void coupling_deleteOpening(int j, int idx)
+//
+//  Input:   j = node index
+//           idx = opening index
+//  Output:  none
+//  Purpose: deletes an opening from a node.
+//
+{
+    TCoverOpening* opening;
+
+    opening = Node[j].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) free(opening);
+        opening = opening->next;
+    }
+}
+
+//=============================================================================
+
+void coupling_deleteOpenings(int j)
+//
+//  Input:   j = node index
+//  Output:  none
+//  Purpose: deletes all opening data for a node.
+//
+{
+    TCoverOpening* opening1;
+    TCoverOpening* opening2;
+    opening1 = Node[j].coverOpening;
+    while ( opening1 )
+    {
+        opening2 = opening1->next;
+        free(opening1);
+        opening1 = opening2;
+    }
 }
 
 //=============================================================================
