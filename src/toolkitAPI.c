@@ -1251,14 +1251,14 @@ int DLLEXPORT swmm_setOutfallStage(int index, double stage)
 int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
                                   double l, double Co, double Cfw, double Csw)
 //
-// Input:   nodeID = Index of desired ID
-//          idx   = opening's index
-//          otype = type of opening (grate, etc). Not used yet
-//          A     = area of the opening (ft2)
-//          l     = length of the opening (~circumference, ft)
-//          Co    = orifice coefficient
-//          Cfw   = free weir coefficient
-//          Csw   = submerged weir coefficient
+// Input:   nodeID = Index of desired node
+//          idx    = opening's index
+//          otype  = type of opening (grate, etc). Not used yet
+//          A      = area of the opening (ft2)
+//          l      = length of the opening (~circumference, ft)
+//          Co     = orifice coefficient
+//          Cfw    = free weir coefficient
+//          Csw    = submerged weir coefficient
 
 // Return:  API Error
 // Purpose: Sets Node opening parameters.
@@ -1272,7 +1272,61 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
 
     errcode = coupling_setOpening(nodeID, idx, oType,
-                                  A / UCF(LENGTH) * UCF(LENGTH), l / UCF(LENGTH),
+                                  A / ( UCF(LENGTH) * UCF(LENGTH) ),
+                                  l / UCF(LENGTH),
                                   Co, Cfw, Csw);
     return(errcode);
+}
+
+int DLLEXPORT swmm_setOverlandParam(int nodeID, int Param, double value)
+//
+// Input:   nodeID = Index of desired node
+//          Param  = Parameter desired (From enum OverlandDataType)
+//          value  = value to be input
+// Return:  API Error
+// Purpose: Sets Node opening parameters.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if Simulation is Running
+    if(swmm_IsStartedFlag() == TRUE) return(ERR_API_SIM_NRUNNING);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    switch(Param)
+    {
+        // surfArea
+        case OVERLAND_AREA:
+        {
+            OverlandData[nodeID].surfArea = value / ( UCF(LENGTH) * UCF(LENGTH) );
+            break;
+        }
+        // fullDepth
+        case OVERLAND_DEPTH:
+        {
+            Node[nodeID].fullDepth = value / UCF(LENGTH);
+            break;
+        }
+        // Type not available
+        default: return(ERR_API_OUTBOUNDS);
+    }
+    return(0);
+}
+
+int DLLEXPORT swmm_getCouplingFlow(int nodeID, double *value)
+//
+// Input:   nodeID = Index of desired node
+// Output   value = coupling flow
+// Return:  API Error
+// Purpose: get overland coupling flow. >0 if entering the drainage.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if Simulation is Running
+    if(swmm_IsStartedFlag() == TRUE) return(ERR_API_SIM_NRUNNING);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    *value = OverlandData[nodeID].couplingFlow * UCF(FLOW);
+    return(0);
 }
