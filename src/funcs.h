@@ -395,7 +395,7 @@ void    node_getResults(int node, double wt, float x[]);
 
 // --- coupling functions
 void    coupling_initOverlandData(int node);
-void    coupling_setOpening(int j, int idx, int oType, double A, double l,
+int     coupling_setOpening(int j, int idx, int oType, double A, double l,
                             double Co, double Cfw, double Csw);
 void    coupling_deleteOpening(int j, int idx);
 void    coupling_execute(double tStep);

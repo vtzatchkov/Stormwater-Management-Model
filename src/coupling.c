@@ -204,8 +204,8 @@ void coupling_adjustInflows(int j, double inflowAdjustingFactor)
 
 //=============================================================================
 
-void coupling_setOpening(int j, int idx, int oType, double A, double l,
-                         double Co, double Cfw, double Csw)
+int coupling_setOpening(int j, int idx, int oType, double A, double l,
+                        double Co, double Cfw, double Csw)
 // Purpose: Assigns property values to the node opening object
 // Inputs:  j     = Node index
 //          idx   =  opening's index
