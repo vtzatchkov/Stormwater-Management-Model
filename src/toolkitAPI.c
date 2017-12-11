@@ -1302,7 +1302,7 @@ int DLLEXPORT swmm_setOverlandParam(int nodeID, int Param, double value)
         // fullDepth
         case OVERLAND_DEPTH:
         {
-            Node[nodeID].fullDepth = value / UCF(LENGTH);
+            OverlandData[nodeID].depth = value / UCF(LENGTH);
             break;
         }
         // Type not available
@@ -1335,7 +1335,7 @@ int DLLEXPORT swmm_getOverlandParam(int nodeID, int Param, double *value)
         // fullDepth
         case OVERLAND_DEPTH:
         {
-            *value = Node[nodeID].fullDepth * UCF(LENGTH);
+            *value = OverlandData[nodeID].depth * UCF(LENGTH);
             break;
         }
         // Type not available
