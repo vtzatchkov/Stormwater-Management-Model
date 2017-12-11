@@ -393,10 +393,13 @@ double  node_getMaxOutflow(int node, double q, double tStep);
 double  node_getSystemOutflow(int node, int *isFlooded);
 void    node_getResults(int node, double wt, float x[]);
 
-// --- coupling functions
+//-----------------------------------------------------------------------------
+//   Coupling Methods
+//-----------------------------------------------------------------------------
 int     coupling_setOpening(int j, int idx, int oType, double A, double l,
                             double Co, double Cfw, double Csw);
 void    coupling_deleteOpening(int j, int idx);
+int     coupling_isNodeCoupled(int j);
 void    coupling_execute(double tStep);
 void    coupling_deleteOpenings(int node);
 void    coupling_setOldState(int j);

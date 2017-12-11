@@ -25,7 +25,6 @@
 //  Local functions
 //-----------------------------------------------------------------------------
 static void   coupling_findNodeInflow(int j, double tStep);
-static int    coupling_isNodeCoupled(int j);
 static void   coupling_adjustInflows(int j, double inflowAdjustingFactor);
 static void   opening_findCouplingType(TCoverOpening* opening, double crestElev,
                                        double nodeHead, double overlandHead);

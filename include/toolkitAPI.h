@@ -90,6 +90,14 @@ int DLLEXPORT swmm_setLinkSetting(int index, double setting);
 int DLLEXPORT swmm_setNodeInflow(int index, double flowrate);
 int DLLEXPORT swmm_setOutfallStage(int index, double stage);
 
+//-------------------------------
+// Coupling API
+//-------------------------------
+
+int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
+                                  double l, double Co, double Cfw, double Csw);
+int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled);
+
 #ifdef __cplusplus
 }    // matches the linkage specification from above */
 #endif

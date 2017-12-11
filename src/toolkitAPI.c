@@ -1285,3 +1285,17 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
                                   Co, Cfw, Csw);
     return(errcode);
 }
+
+int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled)
+//
+// Input:   nodeID = Index of desired node
+// Return:  API error
+// Purpose: Get the coupling status of a node.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+    *iscoupled = coupling_isNodeCoupled(nodeID);
+    return(0);
+}
