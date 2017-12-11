@@ -374,6 +374,10 @@ int DLLEXPORT swmm_getNodeParam(int index, int Param, double *value)
 		case 4: *value = Node[index].initDepth * UCF(LENGTH); break;
 		// surfaceArea
 		case 5: *value = Node[index].surfaceArea * UCF(LENGTH) * UCF(LENGTH); break;
+		// couplingArea
+		case 6: *value = Node[index].couplingArea * UCF(LENGTH) * UCF(LENGTH); break;
+		// overlandDepth
+		case 7: *value = Node[index].overlandDepth * UCF(LENGTH); break;
 		// Type not available
 		default: return(ERR_API_OUTBOUNDS);
 	}
