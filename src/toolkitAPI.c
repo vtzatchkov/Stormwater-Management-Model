@@ -1288,8 +1288,6 @@ int DLLEXPORT swmm_setOverlandParam(int nodeID, int Param, double value)
 {
     // Check if Open
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
-    // Check if Simulation is Running
-    if(swmm_IsStartedFlag() == TRUE) return(ERR_API_SIM_NRUNNING);
     // Check if object index is within bounds
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
 
@@ -1305,6 +1303,39 @@ int DLLEXPORT swmm_setOverlandParam(int nodeID, int Param, double value)
         case OVERLAND_DEPTH:
         {
             Node[nodeID].fullDepth = value / UCF(LENGTH);
+            break;
+        }
+        // Type not available
+        default: return(ERR_API_OUTBOUNDS);
+    }
+    return(0);
+}
+
+int DLLEXPORT swmm_getOverlandParam(int nodeID, int Param, double *value)
+//
+// Input:   nodeID = Index of desired node
+//          Param  = Parameter desired (From enum OverlandDataType)
+// Output   value  = value
+// Return:  API Error
+// Purpose: Sets Node opening parameters.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    switch(Param)
+    {
+        // surfArea
+        case OVERLAND_AREA:
+        {
+            *value = OverlandData[nodeID].surfArea * ( UCF(LENGTH) * UCF(LENGTH) );
+            break;
+        }
+        // fullDepth
+        case OVERLAND_DEPTH:
+        {
+            *value = Node[nodeID].fullDepth * UCF(LENGTH);
             break;
         }
         // Type not available
