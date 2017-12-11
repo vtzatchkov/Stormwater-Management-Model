@@ -1296,12 +1296,12 @@ int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *v
 // Return:  API Error
 // Purpose: Get Node opening parameters.
 {
-    TCoverOpening* opening;
-
     // Check if Open
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
     // Check if object index is within bounds
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    TCoverOpening* opening;
 
     // --- check if an opening with this index exists
     opening = Node[nodeID].coverOpening;
@@ -1312,7 +1312,6 @@ int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *v
     }
      // --- if it doesn't, return an error
     if ( opening == NULL ) return(ERR_API_OBJECT_INDEX);
-
 
     switch(Param)
     {
