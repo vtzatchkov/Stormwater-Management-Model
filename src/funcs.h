@@ -398,6 +398,7 @@ void    node_getResults(int node, double wt, float x[]);
 //-----------------------------------------------------------------------------
 int     coupling_setOpening(int j, int idx, int oType, double A, double l,
                             double Co, double Cfw, double Csw);
+int     coupling_countOpenings(int j);
 void    coupling_deleteOpening(int j, int idx);
 int     coupling_isNodeCoupled(int j);
 void    coupling_execute(double tStep);

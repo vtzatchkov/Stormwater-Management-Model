@@ -1420,6 +1420,24 @@ int DLLEXPORT swmm_getOpeningCouplingType(int nodeID, int idx, int *coupling)
     return(0);
 }
 
+int DLLEXPORT swmm_getOpeningsNum(int nodeID, int *num)
+//
+// Input:   nodeID   = Index of desired node
+//          idx      = opening's index
+// Output   coupling = coupling type to be output
+// Return:  API Error
+// Purpose: Get opening coupling type.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    *num = coupling_countOpenings(nodeID);
+
+    return(0);
+}
+
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled)
 //
 // Input:   nodeID = Index of desired node

@@ -138,7 +138,7 @@ int coupling_isNodeCoupled(int j)
 //
 //  Input:   j = node index
 //  Output:  returns the coupling status of a node (yes/no)
-//  Purpose: if at least one opening is coupled, return yes.
+//  Purpose: if at least one opening is coupled, return TRUE.
 //
 {
     int isCoupled = FALSE;
@@ -232,6 +232,28 @@ int coupling_setOpening(int j, int idx, int oType, double A, double l,
 
     return(errcode);
 }
+
+//=============================================================================
+
+int coupling_countOpenings(int j)
+//
+//  Input:   j = node index
+//  Output:  number of openings in the node
+//  Purpose: count the number of openings a node have.
+//
+{
+    int openingCounter = 0;
+    TCoverOpening* opening;
+
+    opening = Node[j].coverOpening;
+    while ( opening )
+    {
+        if ( opening ) openingCounter++;
+        opening = opening->next;
+    }
+    return(openingCounter);
+}
+
 //=============================================================================
 
 void coupling_deleteOpening(int j, int idx)
