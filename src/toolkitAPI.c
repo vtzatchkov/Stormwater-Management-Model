@@ -1272,6 +1272,8 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
 // Purpose: Sets Node opening parameters.
 {
     int errcode;
+    double u_A, u_l;
+
     // Check if Open
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
     // Check if Simulation is Running
@@ -1279,10 +1281,9 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
     // Check if object index is within bounds
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
 
-    errcode = coupling_setOpening(nodeID, idx, oType,
-                                  A / ( UCF(LENGTH) * UCF(LENGTH) ),
-                                  l / UCF(LENGTH),
-                                  Co, Cfw, Csw);
+    u_A = A / ( UCF(LENGTH) * UCF(LENGTH) );
+    u_l = l / UCF(LENGTH);
+    errcode = coupling_setOpening(nodeID, idx, oType, u_A, u_l, Co, Cfw, Csw);
     return(errcode);
 }
 
