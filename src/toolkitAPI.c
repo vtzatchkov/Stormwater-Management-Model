@@ -1287,6 +1287,51 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
     return(errcode);
 }
 
+int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *value)
+//
+// Input:   nodeID = Index of desired node
+//          idx    = opening's index
+//          Param  = parameter to get (enum OpeningParams, type excluded)
+// Output   value  = value to be output
+// Return:  API Error
+// Purpose: Get Node opening parameters.
+{
+    TCoverOpening* opening;
+
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    // --- check if an opening with this index exists
+    opening = Node[nodeID].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+     // --- if it doesn't, return an error
+    if ( opening == NULL ) return(ERR_API_OBJECT_INDEX);
+
+
+    switch(Param)
+    {
+        // area
+        case OPENING_AREA: *value = opening->area * UCF(LENGTH) * UCF(LENGTH); break;
+        // length
+        case OPENING_LENGTH: *value = opening->length * UCF(LENGTH); break;
+        // coeffOrifice
+        case ORIFICE_COEFF: *value = opening->coeffOrifice; break;
+        // coeffFreeWeir
+        case FREE_WEIR_COEFF: *value = opening->coeffFreeWeir; break;
+        // coeffSubWeir
+        case SUBMERGED_WEIR_COEFF: *value = opening->coeffSubWeir; break;
+        // Type not available
+        default: return(ERR_API_OUTBOUNDS);
+    }
+    return(0);
+}
+
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled)
 //
 // Input:   nodeID = Index of desired node
