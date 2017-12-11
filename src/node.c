@@ -247,6 +247,8 @@ void node_initState(int j)
     Node[j].oldLatFlow = 0.0;
     Node[j].newLatFlow = 0.0;
     Node[j].losses = 0.0;                                                      //(5.1.007)
+    Node[j].couplingArea = 0.0;                                                //coupling
+    Node[j].overlandDepth = 0.0;                                               //coupling
     Node[j].couplingInflow = 0.0;                                              //coupling
 
 
