@@ -1331,6 +1331,95 @@ int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *v
     return(0);
 }
 
+int DLLEXPORT swmm_getNodeOpeningFlow(int nodeID, int idx, double *inflow)
+//
+// Input:   nodeID = Index of desired node
+//          idx    = opening's index
+// Output   inflow  = inflow to be output
+// Return:  API Error
+// Purpose: Get opening inflow.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if Simulation is Running
+    if(swmm_IsStartedFlag() == FALSE) return(ERR_API_SIM_NRUNNING);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    TCoverOpening* opening;
+
+    // --- check if an opening with this index exists
+    opening = Node[nodeID].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+     // --- if it doesn't, return an error
+    if ( opening == NULL ) return(ERR_API_OBJECT_INDEX);
+
+    *inflow = opening->newInflow * UCF(FLOW);
+    return(0);
+}
+
+int DLLEXPORT swmm_getNodeOpeningType(int nodeID, int idx, int *type)
+//
+// Input:   nodeID = Index of desired node
+//          idx    = opening's index
+// Output   type  = opening type to be output
+// Return:  API Error
+// Purpose: Get opening type.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    TCoverOpening* opening;
+
+    // --- check if an opening with this index exists
+    opening = Node[nodeID].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+     // --- if it doesn't, return an error
+    if ( opening == NULL ) return(ERR_API_OBJECT_INDEX);
+
+    *type = opening->type;
+    return(0);
+}
+
+int DLLEXPORT swmm_getOpeningCouplingType(int nodeID, int idx, int *coupling)
+//
+// Input:   nodeID   = Index of desired node
+//          idx      = opening's index
+// Output   coupling = coupling type to be output
+// Return:  API Error
+// Purpose: Get opening coupling type.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    TCoverOpening* opening;
+
+    // --- check if an opening with this index exists
+    opening = Node[nodeID].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+     // --- if it doesn't, return an error
+    if ( opening == NULL ) return(ERR_API_OBJECT_INDEX);
+
+    *coupling = opening->couplingType;
+    return(0);
+}
+
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled)
 //
 // Input:   nodeID = Index of desired node

@@ -97,6 +97,9 @@ int DLLEXPORT swmm_setOutfallStage(int index, double stage);
 int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
                                   double l, double Co, double Cfw, double Csw);
 int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *value);
+int DLLEXPORT swmm_getNodeOpeningFlow(int nodeID, int idx, double *inflow);
+int DLLEXPORT swmm_getNodeOpeningType(int nodeID, int idx, int *type);
+int DLLEXPORT swmm_getOpeningCouplingType(int nodeID, int idx, int *coupling);
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled);
 
 #ifdef __cplusplus
