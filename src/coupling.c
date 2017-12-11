@@ -347,13 +347,16 @@ void opening_findCouplingInflow(TCoverOpening* opening, double crestElev,
         case ORIFICE_COUPLING:
             orif_v = sqrt(2 * GRAVITY * headDiff);
             u_couplingFlow = orificeCoeff * overflowArea * orif_v;
+            break;
         case FREE_WEIR_COUPLING:
             u_couplingFlow = (2/3.) * freeWeirCoeff * weirWidth *
                              pow(depthUp, 3/2.) * sqrt(2 * GRAVITY);
+            break;
         case SUBMERGED_WEIR_COUPLING:
             sweir_v = sqrt(2. * GRAVITY * depthUp);
             u_couplingFlow = subWeirCoeff * weirWidth * depthUp * sweir_v;
-        default: u_couplingFlow =  0.0;
+            break;
+        default: u_couplingFlow = 0.0; break;
     }
     // --- Flow into the node is positive
     opening->newInflow = copysign(u_couplingFlow, overlandHead - nodeHead);
