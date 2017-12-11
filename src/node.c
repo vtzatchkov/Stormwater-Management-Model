@@ -7,7 +7,7 @@
 //             09/15/14   (Build 5.1.007)
 //             04/02/15   (Build 5.1.008)
 //             08/05/15   (Build 5.1.010)
-//   Authors:   L. Rossman
+//   Author:   L. Rossman
 //
 //   Conveyance system node functions.
 //
@@ -82,6 +82,7 @@ static double storage_getLosses(int j, double tStep);
 static int    divider_readParams(int j, int k, char* tok[], int ntoks);
 static void   divider_validate(int j);
 static double divider_getOutflow(int j, int link);
+
 
 //=============================================================================
 
