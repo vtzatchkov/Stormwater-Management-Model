@@ -1329,7 +1329,7 @@ int DLLEXPORT swmm_getOverlandParam(int nodeID, int Param, double *value)
         // surfArea
         case OVERLAND_AREA:
         {
-            *value = OverlandData[nodeID].surfArea * ( UCF(LENGTH) * UCF(LENGTH) );
+            *value = OverlandData[nodeID].surfArea * UCF(LENGTH) * UCF(LENGTH);
             break;
         }
         // fullDepth
