@@ -4,7 +4,8 @@
 //   Project: EPA SWMM5
 //   Version: 5.1
 //   Date:    08/30/2016
-//   Author:  B. McDonnell (EmNet LLC)
+//   Authors: B. McDonnell (EmNet LLC)
+//            Laurent Courty
 //
 //   Exportable Functions for Project Definition API.
 //
@@ -693,6 +694,8 @@ int DLLEXPORT swmm_getNodeResult(int index, int type, double *result)
 		case 6: *result = (Node[index].newDepth + Node[index].invertElev) * UCF(LENGTH); break;
 		// Current Lateral Inflow
 		case 7: *result = Node[index].newLatFlow * UCF(FLOW); break;
+		// Inflow from/to the overland model
+		case 8: *result = Node[index].overlandInflow * UCF(FLOW); break;
 		// Type not available
 		default: return(ERR_API_OUTBOUNDS);
 	}
@@ -1238,5 +1241,38 @@ int DLLEXPORT swmm_setOutfallStage(int index, double stage)
         }
         Outfall[k].outfallStage = stage / UCF(LENGTH);
     }
+    return(errcode);
+}
+
+//======================================================================
+// COUPLING FUNCTIONS
+//======================================================================
+
+int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
+                                  double l, double Co, double Cfw, double Csw)
+//
+// Input:   nodeID = Index of desired ID
+//          idx   = opening's index
+//          otype = type of opening (grate, etc). Not used yet
+//          A     = area of the opening (ft2)
+//          l     = length of the opening (~circumference, ft)
+//          Co    = orifice coefficient
+//          Cfw   = free weir coefficient
+//          Csw   = submerged weir coefficient
+
+// Return:  API Error
+// Purpose: Sets Node opening parameters.
+{
+    int errcode;
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if Simulation is Running
+    if(swmm_IsStartedFlag() == TRUE) return(ERR_API_SIM_NRUNNING);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    errcode = coupling_setOpening(nodeID, idx, oType,
+                                  A / UCF(LENGTH) * UCF(LENGTH), l / UCF(LENGTH),
+                                  Co, Cfw, Csw);
     return(errcode);
 }
