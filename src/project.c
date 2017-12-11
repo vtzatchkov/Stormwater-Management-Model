@@ -296,7 +296,6 @@ int  project_init(void)
     for (j=0; j<Nobjects[GAGE]; j++)     gage_initState(j);
     for (j=0; j<Nobjects[SUBCATCH]; j++) subcatch_initState(j);
     for (j=0; j<Nobjects[NODE]; j++)     node_initState(j);
-    for (j=0; j<Nobjects[NODE]; j++)     coupling_initOverlandData(j);          //coupling
     for (j=0; j<Nobjects[LINK]; j++)     link_initState(j);
     return ErrorCode;
 }
@@ -732,7 +731,6 @@ void initPointers()
     Gage     = NULL;
     Subcatch = NULL;
     Node     = NULL;
-    OverlandData = NULL;
     Outfall  = NULL;
     Divider  = NULL;
     Storage  = NULL;
@@ -965,7 +963,6 @@ void createObjects()
     Gage     = (TGage *)     calloc(Nobjects[GAGE],     sizeof(TGage));
     Subcatch = (TSubcatch *) calloc(Nobjects[SUBCATCH], sizeof(TSubcatch));
     Node     = (TNode *)     calloc(Nobjects[NODE],     sizeof(TNode));
-    OverlandData = (TOverlandData *) calloc(Nobjects[NODE], sizeof(TOverlandData));
     Outfall  = (TOutfall *)  calloc(Nnodes[OUTFALL],    sizeof(TOutfall));
     Divider  = (TDivider *)  calloc(Nnodes[DIVIDER],    sizeof(TDivider));
     Storage  = (TStorage *)  calloc(Nnodes[STORAGE],    sizeof(TStorage));
@@ -1226,7 +1223,6 @@ void deleteObjects()
     FREE(Gage);
     FREE(Subcatch);
     FREE(Node);
-    FREE(OverlandData);
     FREE(Outfall);
     FREE(Divider);
     FREE(Storage);

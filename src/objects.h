@@ -524,7 +524,11 @@ typedef struct
    TDwfInflow*   dwfInflow;       // pointer to dry weather flow inflow data
    TRdiiInflow*  rdiiInflow;      // pointer to RDII inflow data
    TTreatment*   treatment;       // array of treatment data
-   TCoverOpening* coverOpening;   // pointer to node cover opening data
+   //-----------------------------
+   TCoverOpening* coverOpening;   // pointer to node opening data
+   double        couplingArea;    // coupling area in the overland model (ft2)
+   double        overlandDepth;   // water depth in the overland model (ft)
+   double        couplingInflow;  // flow from the overland model (cfs)
    //-----------------------------
    int           degree;          // number of outflow links
    char          updated;         // true if state has been updated
@@ -540,7 +544,6 @@ typedef struct
    double        newDepth;        // current water depth (ft)
    double        oldLatFlow;      // previous lateral inflow (cfs)
    double        newLatFlow;      // current lateral inflow (cfs)
-   double        overlandInflow;  // flow from the overland model(cfs)
    double*       oldQual;         // previous quality state
    double*       newQual;         // current quality state
    double        oldFlowInflow;   // previous flow inflow
@@ -1108,14 +1111,3 @@ typedef struct
    char          Enabled;         // TRUE if appears in report table
    int           Precision;       // number of decimal places when reported
 }  TRptField;
-
-
-//--------------------
-// OVERLAND MODEL DATA
-//--------------------
-typedef struct
-{
-   double        surfArea;        // coupling area (ft2)
-   double        depth;           // water depth (ft)
-   double        couplingFlow;    // flow (ft3/s)
-}  TOverlandData;

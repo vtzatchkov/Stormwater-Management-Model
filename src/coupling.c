@@ -24,28 +24,13 @@
 //-----------------------------------------------------------------------------
 //  Local functions
 //-----------------------------------------------------------------------------
-static void   coupling_findNodeInflow(int j, double tStep,
-                                    double overlandDepth, double overlandSurfArea);
+static void   coupling_findNodeInflow(int j, double tStep);
 static int    coupling_isNodeCoupled(int j);
 static void   coupling_adjustInflows(int j, double inflowAdjustingFactor);
 static void   opening_findCouplingType(TCoverOpening* opening, double crestElev,
                                        double nodeHead, double overlandHead);
 static void   opening_findCouplingInflow(TCoverOpening* opening, double crestElev,
                                          double nodeHead, double overlandHead);
-
-//=============================================================================
-
-void coupling_initOverlandData(int j)
-//
-//  Input:   j = node index
-//  Output:  none
-//  Purpose: initializes a OverlandData's value variables at start of simulation.
-//
-{
-    OverlandData[j].surfArea = 0.0;
-    OverlandData[j].depth = 0.0;
-    OverlandData[j].couplingFlow = 0.0;
-}
 
 //=============================================================================
 
@@ -57,24 +42,17 @@ void coupling_execute(double tStep)
 //
 {
     int j;
-    double overlandDepth, overlandSurfArea;
 
     for ( j = 0; j < Nobjects[NODE]; j++ )
     {
         if ( !coupling_isNodeCoupled(j) ) continue;
-        // --- find coupling flow
-        overlandDepth =  OverlandData[j].depth;
-        overlandSurfArea = OverlandData[j].surfArea;
-        coupling_findNodeInflow(j, tStep, overlandDepth, overlandSurfArea);
-        // --- apply coupling flow to output array
-        OverlandData[j].couplingFlow = Node[j].overlandInflow;
+        coupling_findNodeInflow(j, tStep);
     }
 }
 
 //=============================================================================
 
-void coupling_findNodeInflow(int j, double tStep,
-                           double overlandDepth, double overlandSurfArea)
+void coupling_findNodeInflow(int j, double tStep)
 //
 //  Input:   j = node index
 //           tStep = time step of the drainage model (s)
@@ -93,7 +71,7 @@ void coupling_findNodeInflow(int j, double tStep,
     // --- calculate elevations
     crestElev = Node[j].invertElev + Node[j].fullDepth;
     nodeHead = Node[j].invertElev + Node[j].newDepth;
-    overlandHead = crestElev + overlandDepth;
+    overlandHead = crestElev + Node[j].overlandDepth;
 
     // --- init
     totalCouplingInflow = 0.0;
@@ -120,7 +98,7 @@ void coupling_findNodeInflow(int j, double tStep,
     // --- inflow cannot drain the overland model
     if (totalCouplingInflow > 0.0)
     {
-        rawMaxInflow = (overlandDepth * overlandSurfArea) / tStep;
+        rawMaxInflow = (Node[j].overlandDepth * Node[j].couplingArea) / tStep;
         maxInflow = fmin(rawMaxInflow, totalCouplingInflow);
         inflowAdjustingFactor = maxInflow / totalCouplingInflow;
         coupling_adjustInflows(j, inflowAdjustingFactor);
@@ -132,7 +110,7 @@ void coupling_findNodeInflow(int j, double tStep,
             opening = opening->next;
         }
     }
-    Node[j].overlandInflow = totalCouplingInflow;
+    Node[j].couplingInflow = totalCouplingInflow;
 }
 
 //=============================================================================

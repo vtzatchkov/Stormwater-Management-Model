@@ -478,7 +478,3 @@ enum  SurfaceCouplingType {
       ORIFICE_COUPLING,
       FREE_WEIR_COUPLING,
       SUBMERGED_WEIR_COUPLING};
-
-enum  OverlandDataType {
-      OVERLAND_AREA,
-      OVERLAND_DEPTH};

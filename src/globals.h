@@ -142,7 +142,6 @@ EXTERN TSubcatch* Subcatch;                 // Array of subcatchments
 EXTERN TAquifer*  Aquifer;                  // Array of groundwater aquifers
 EXTERN TUnitHyd*  UnitHyd;                  // Array of unit hydrographs
 EXTERN TNode*     Node;                     // Array of nodes
-EXTERN TOverlandData* OverlandData;         // Array of overland model data
 EXTERN TOutfall*  Outfall;                  // Array of outfall nodes
 EXTERN TDivider*  Divider;                  // Array of divider nodes
 EXTERN TStorage*  Storage;                  // Array of storage nodes
