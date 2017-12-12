@@ -261,17 +261,10 @@ void coupling_deleteOpening(int j, int idx)
 //  Input:   j = node index
 //           idx = opening index
 //  Output:  none
-//  Purpose: deletes an opening from a node.
+//  Purpose: delete an opening from a node.
 //
 {
-    TCoverOpening* opening;
-
-    opening = Node[j].coverOpening;
-    while ( opening )
-    {
-        if ( opening->ID == idx ) free(opening);
-        opening = opening->next;
-    }
+    // need to find the correct way to do it and preserve linked list.
 }
 
 //=============================================================================

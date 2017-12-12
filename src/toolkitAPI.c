@@ -1287,6 +1287,24 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
     return(errcode);
 }
 
+int DLLEXPORT swmm_deleteNodeOpening(int nodeID, int idx)
+//
+// Input:   nodeID = Index of desired node
+//          idx    = opening's index
+// Return:  API Error
+// Purpose: Sets Node opening parameters.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if Simulation is Running
+    if(swmm_IsStartedFlag() == TRUE) return(ERR_API_SIM_NRUNNING);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
+    coupling_deleteOpening(nodeID, idx);
+    return(0);
+}
+
 int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *value)
 //
 // Input:   nodeID = Index of desired node
