@@ -1426,7 +1426,7 @@ int DLLEXPORT swmm_getOpeningsNum(int nodeID, int *num)
 //          idx      = opening's index
 // Output   coupling = coupling type to be output
 // Return:  API Error
-// Purpose: Get opening coupling type.
+// Purpose: Get the number of openings of a node.
 {
     // Check if Open
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
@@ -1434,6 +1434,40 @@ int DLLEXPORT swmm_getOpeningsNum(int nodeID, int *num)
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
 
     *num = coupling_countOpenings(nodeID);
+
+    return(0);
+}
+
+int DLLEXPORT swmm_getOpeningsIndices(int nodeID, int arr_size, int *arr)
+//
+// Input:   nodeID   = Index of desired node
+//          arr_size = number of openings
+// Output   arr      = an array of size arr_size
+// Return:  API Error
+// Purpose: Get the indices of all the openings in the node.
+{
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
+    // Check if object index is within bounds
+    if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+    // Check if array size is correct
+    int num;
+    swmm_getOpeningsNum(nodeID, &num);
+    if (num != arr_size) return(ERR_API_OBJECT_INDEX);
+
+    int i = 0;
+    TCoverOpening* opening;
+
+    opening = Node[nodeID].coverOpening;
+    while ( opening )
+    {
+        if ( opening )
+        {
+            arr[i] = opening->ID;
+            i++;
+        }
+        opening = opening->next;
+    }
 
     return(0);
 }

@@ -101,6 +101,7 @@ int DLLEXPORT swmm_getNodeOpeningFlow(int nodeID, int idx, double *inflow);
 int DLLEXPORT swmm_getNodeOpeningType(int nodeID, int idx, int *type);
 int DLLEXPORT swmm_getOpeningCouplingType(int nodeID, int idx, int *coupling);
 int DLLEXPORT swmm_getOpeningsNum(int nodeID, int *num);
+int DLLEXPORT swmm_getOpeningsIndices(int nodeID, int arr_size, int *arr);
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled);
 
 #ifdef __cplusplus
