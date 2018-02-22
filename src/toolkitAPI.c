@@ -1422,8 +1422,8 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
 // Input:   nodeID = Index of desired node
 //          idx    = opening's index
 //          otype  = type of opening (grate, etc). Not used yet
-//          A      = area of the opening (ft2)
-//          l      = length of the opening (~circumference, ft)
+//          A      = area of the opening
+//          l      = length of the opening (~circumference)
 //          Co     = orifice coefficient
 //          Cfw    = free weir coefficient
 //          Csw    = submerged weir coefficient
@@ -1451,8 +1451,8 @@ int DLLEXPORT swmm_deleteNodeOpening(int nodeID, int idx)
 //
 // Input:   nodeID = Index of desired node
 //          idx    = opening's index
-// Return:  API Error
-// Purpose: Sets Node opening parameters.
+// Return:  Error code
+// Purpose: Remove an opening from a node.
 {
     // Check if Open
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
