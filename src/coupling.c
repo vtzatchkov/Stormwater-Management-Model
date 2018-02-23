@@ -79,6 +79,8 @@ void coupling_findNodeInflow(int j, double tStep)
     opening = Node[j].coverOpening;
     while ( opening )
     {
+        // --- do nothing if not coupled
+        if ( opening->couplingType == NO_COUPLING ) continue;
         // --- compute types and inflows
         opening_findCouplingType(opening, crestElev, nodeHead, overlandHead);
         opening_findCouplingInflow(opening, crestElev, nodeHead, overlandHead);
@@ -156,6 +158,68 @@ int coupling_isNodeCoupled(int j)
         opening = opening->next;
     }
     return isCoupled;
+}
+
+//=============================================================================
+
+int coupling_closeOpening(int j, int idx)
+//
+//  Input:   j = node index
+//           idx = opening index
+//  Output:  Error code
+//  Purpose: Close an opening
+//
+{
+    int errcode = 0;
+    TCoverOpening* opening;  // opening object
+
+    // --- Find the opening
+    opening = Node[j].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+    // --- if opening doesn't exist, return an error
+    if ( opening == NULL )
+    {
+        return(ERR_API_OBJECT_INDEX);
+    }
+
+    // --- Close the opening
+    opening->couplingType  = NO_COUPLING;
+    return 0;
+}
+
+//=============================================================================
+
+int coupling_openOpening(int j, int idx)
+//
+//  Input:   j = node index
+//           idx = opening index
+//  Output:  Error code
+//  Purpose: Open an opening
+//
+{
+    int errcode = 0;
+    TCoverOpening* opening;  // opening object
+
+    // --- Find the opening
+    opening = Node[j].coverOpening;
+    while ( opening )
+    {
+        if ( opening->ID == idx ) break;
+        opening = opening->next;
+    }
+    // --- if opening doesn't exist, return an error
+    if ( opening == NULL )
+    {
+        return(ERR_API_OBJECT_INDEX);
+    }
+
+    // --- Open the opening
+    opening->couplingType  = NO_COUPLING_FLOW;
+    return 0;
 }
 
 //=============================================================================

@@ -661,6 +661,22 @@ int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
                                   double l, double Co, double Cfw, double Csw);
 
 /**
+ @brief Open an opening that was previously closed.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @return Error code
+*/
+int DLLEXPORT swmm_openOpening(int nodeID, int idx);
+
+/**
+ @brief Close an opening.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @return Error code
+*/
+int DLLEXPORT swmm_closeOpening(int nodeID, int idx);
+
+/**
  @brief Remove an opening from a node.
  @param nodeID The index of a node
  @param idx    The index of an opening

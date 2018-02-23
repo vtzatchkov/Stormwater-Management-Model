@@ -1660,6 +1660,58 @@ int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled)
     if(swmm_IsOpenFlag() == FALSE) return(ERR_API_INPUTNOTOPEN);
     // Check if object index is within bounds
     if (nodeID < 0 || nodeID >= Nobjects[NODE]) return(ERR_API_OBJECT_INDEX);
+
     *iscoupled = coupling_isNodeCoupled(nodeID);
+
     return(0);
+}
+
+
+int DLLEXPORT swmm_closeOpening(int nodeID, int idx)
+//
+// Input:   nodeID = Index of desired node
+// Return:  API error
+// Purpose: Close an opening.
+{
+    int errcode = 0;
+
+    // Check if Open
+    if (swmm_IsOpenFlag() == FALSE)
+    {
+        errcode = ERR_API_INPUTNOTOPEN;
+    }
+    // Check if object index is within bounds
+    else if (nodeID < 0 || nodeID >= Nobjects[NODE])
+    {
+        errcode = ERR_API_OBJECT_INDEX;
+    }
+
+    // Close the opening
+    errcode = coupling_closeOpening(nodeID, idx);
+    return errcode;
+}
+
+
+int DLLEXPORT swmm_openOpening(int nodeID, int idx)
+//
+// Input:   nodeID = Index of desired node
+// Return:  API error
+// Purpose: Open an opening.
+{
+    int errcode = 0;
+
+    // Check if Open
+    if (swmm_IsOpenFlag() == FALSE)
+    {
+        errcode = ERR_API_INPUTNOTOPEN;
+    }
+    // Check if object index is within bounds
+    else if (nodeID < 0 || nodeID >= Nobjects[NODE])
+    {
+        errcode = ERR_API_OBJECT_INDEX;
+    }
+
+    // Close the opening
+    errcode = coupling_closeOpening(nodeID, idx);
+    return errcode;
 }
