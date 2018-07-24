@@ -1268,6 +1268,62 @@ int DLLEXPORT swmm_getSystemRunoffStats(SM_RunoffTotals *runoffTot)
     return(errorcode);
 }
 
+int DLLEXPORT swmm_getGagePrecip(int index, double *rainfall, double *snowfall, double *total)
+//
+// Input:   index = Index of desired ID
+// Output:  Rainfall intensity and snow for the gage
+// Return:  API Error
+// Purpose: Gets the precipitaion value in the gage. 
+{
+    int errcode = 0;
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE)
+    {
+	    errcode = ERR_API_INPUTNOTOPEN;
+    }
+    // Check if object index is within bounds
+    else if (index < 0 || index >= Nobjects[GAGE])
+    {
+	    errcode = ERR_API_OBJECT_INDEX;
+    }
+    // Read the rainfall value
+    else
+    {
+        *total = gage_getPrecip(index, rainfall, snowfall);
+    }
+    return(errcode);
+}
+
+int DLLEXPORT swmm_setGagePrecip(int index, double value)
+//
+// Input:   index = Index of desired ID
+//          value = rainfall intensity to be set
+// Return:  API Error
+// Purpose: Sets the precipitation in from the external database
+{
+    int errcode = 0;
+    // Check if Open
+    if(swmm_IsOpenFlag() == FALSE)
+    {
+	    errcode = ERR_API_INPUTNOTOPEN;
+    }
+    // Check if object index is within bounds
+    else if (index < 0 || index >= Nobjects[GAGE])
+    {
+	    errcode = ERR_API_OBJECT_INDEX;
+    }
+    // Read the rainfall value
+    else
+    {
+        if (Gage[index].dataSource != RAIN_API)
+        {
+            Gage[index].dataSource = RAIN_API;
+        }
+	    Gage[index].externalRain = value * UCF(RAINFALL);
+    }
+    return(errcode);
+}
+
 
 //-------------------------------
 // Setters API
@@ -1411,6 +1467,7 @@ int DLLEXPORT swmm_setOutfallStage(int index, double stage)
     }
     return(errcode);
 }
+
 
 //======================================================================
 // COUPLING FUNCTIONS
@@ -1715,3 +1772,4 @@ int DLLEXPORT swmm_openOpening(int nodeID, int idx)
     errcode = coupling_closeOpening(nodeID, idx);
     return errcode;
 }
+

@@ -291,6 +291,7 @@ void node_setOldHydState(int j)
 //
 {
     Node[j].oldDepth    = Node[j].newDepth;
+    Node[j].oldLatFlow  = Node[j].newLatFlow;
     Node[j].oldVolume   = Node[j].newVolume;
     coupling_setOldState(j);                                              //coupling
 }

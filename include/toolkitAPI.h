@@ -574,6 +574,16 @@ int DLLEXPORT swmm_getLinkStats(int index, SM_LinkStats *linkStats);
  @return Error code
 */
 int DLLEXPORT swmm_getPumpStats(int index, SM_PumpStats *pumpStats);
+    
+/**
+@brief Get rainfall rates for a gage.
+@param index The index of gage
+@param[out] rainfall rainfall rate
+@param[out] snowfall snowfall rate
+@param[out] total total precipitation rate
+@return Error code
+*/
+int DLLEXPORT swmm_getGagePrecip(int index, double *rainfall, double *snowfall, double *total);
 
 /**
  @brief Get subcatchment statistics.
@@ -745,6 +755,15 @@ int DLLEXPORT swmm_getOpeningsIndices(int nodeID, int arr_size, int *arr);
  @return Error code
 */
 int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled);
+
+/**
+@brief Set an rainfall intensity to the gage.
+@param index The gage index.
+@param value The new rainfall intensity.
+@return Error code
+*/
+int DLLEXPORT swmm_setGagePrecip(int index, double value);
+
 
 #ifdef __cplusplus
 }    // matches the linkage specification from above */
