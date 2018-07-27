@@ -346,7 +346,7 @@ void addExternalInflows(DateTime currentDate)
     for (j = 0; j < Nobjects[NODE]; j++)
     {
         inflow = Node[j].extInflow;
-        if ( !inflow ) continue;
+        if ( !inflow && Node[j].couplingInflow == 0.0 ) continue;         //coupling
 
         // --- get flow inflow
         q = 0.0;
@@ -359,6 +359,10 @@ void addExternalInflows(DateTime currentDate)
             }
             else inflow = inflow->next;
         }
+        // --- add overland inflow to inflow q                            //coupling
+        q += Node[j].couplingInflow;
+        Node[j].couplingInflow = 0.0;
+
         if ( fabs(q) < FLOW_TOL ) q = 0.0;
 
         // --- add flow inflow to node's lateral inflow

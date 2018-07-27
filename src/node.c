@@ -247,6 +247,9 @@ void node_initState(int j)
     Node[j].oldLatFlow = 0.0;
     Node[j].newLatFlow = 0.0;
     Node[j].losses = 0.0;                                                      //(5.1.007)
+    Node[j].couplingArea = 0.0;                                                //coupling
+    Node[j].overlandDepth = 0.0;                                               //coupling
+    Node[j].couplingInflow = 0.0;                                              //coupling
 
 
 ////  Following code section added to release 5.1.007.  ////                   //(5.1.007)
@@ -290,6 +293,7 @@ void node_setOldHydState(int j)
     Node[j].oldDepth    = Node[j].newDepth;
     Node[j].oldLatFlow  = Node[j].newLatFlow;
     Node[j].oldVolume   = Node[j].newVolume;
+    coupling_setOldState(j);                                              //coupling
 }
 
 //=============================================================================
@@ -364,7 +368,7 @@ double node_getVolume(int j, double d)
 
       default:
         if ( Node[j].fullDepth > 0.0 )
-            return Node[j].fullVolume * (d / Node[j].fullDepth);
+            return Node[j].surfaceArea * d;
         else return 0.0;
     }
 }
@@ -382,7 +386,7 @@ double  node_getSurfArea(int j, double d)
     switch (Node[j].type)
     {
       case STORAGE: return storage_getSurfArea(j, d);
-      default:      return 0.0;        
+      default:      return Node[j].surfaceArea;
     }
 }
 

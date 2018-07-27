@@ -114,6 +114,9 @@ typedef enum {
     SM_SURCHDEPTH   = 2,  /**< Surcharge Depth */
     SM_PONDAREA     = 3,  /**< Ponding Area */
     SM_INITDEPTH    = 4,  /**< Initial Depth */
+    SM_SURFAREA     = 5,  /**< Node Area */
+    SM_COUPAREA     = 6,  /**< Overland Area */
+    SM_OVERLANDDEPTH= 7,  /**< Overland Depth */
 } SM_NodeProperty;
 
 /// Link property codes
@@ -145,7 +148,8 @@ typedef enum {
     SM_NODEFLOOD      = 4,  /**< Flooding Rate */
     SM_NODEDEPTH      = 5,  /**< Node Depth */
     SM_NODEHEAD       = 6,  /**< Node Head */
-    SM_LATINFLOW      = 7   /**< Lateral Inflow Rate */
+    SM_LATINFLOW      = 7,   /**< Lateral Inflow Rate */
+    SM_COUPINFLOW     = 8   /**< Coupling Inflow Rate */
 } SM_NodeResult;
 
 /// Link result property codes
@@ -647,6 +651,111 @@ int DLLEXPORT swmm_setNodeInflow(int index, double flowrate);
 */
 int DLLEXPORT swmm_setOutfallStage(int index, double stage);
 
+//-------------------------------
+// Coupling API
+//-------------------------------
+
+/**
+ @brief Set an opening for specified node.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @param oType  The opening's type
+ @param A      The opening's area
+ @param l      The opening's length
+ @param Co     The opening's orifice coefficient
+ @param Cfw    The opening's free weir coefficient
+ @param Csw    The opening's submerged weir coefficient
+ @return Error code
+*/
+int DLLEXPORT swmm_setNodeOpening(int nodeID, int idx, int oType, double A,
+                                  double l, double Co, double Cfw, double Csw);
+
+/**
+ @brief Open an opening that was previously closed.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @return Error code
+*/
+int DLLEXPORT swmm_openOpening(int nodeID, int idx);
+
+/**
+ @brief Close an opening.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @return Error code
+*/
+int DLLEXPORT swmm_closeOpening(int nodeID, int idx);
+
+/**
+ @brief Remove an opening from a node.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @return Error code
+*/
+int DLLEXPORT swmm_deleteNodeOpening(int nodeID, int idx);
+
+/**
+ @brief Get a node opening's parameter.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @param Param  The opening's parameter to be retrieved (from enum @ref OpeningParams)
+ @param[out] value The value of the opening's property
+ @return Error code
+*/
+int DLLEXPORT swmm_getNodeOpeningParam(int nodeID, int idx, int Param, double *value);
+
+/**
+ @brief Get a node opening's inflow rate.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @param[out] inflow The inflow rate
+ @return Error code
+*/
+int DLLEXPORT swmm_getNodeOpeningFlow(int nodeID, int idx, double *inflow);
+
+/**
+ @brief Get a node opening's type.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @param[out] type The opening type
+ @return Error code
+*/
+int DLLEXPORT swmm_getNodeOpeningType(int nodeID, int idx, int *type);
+
+/**
+ @brief Get a node opening's coupling type.
+ @param nodeID The index of a node
+ @param idx    The index of an opening
+ @param[out] coupling The opening coupling type (from enum @ref OverlandCouplingType)
+ @return Error code
+*/
+int DLLEXPORT swmm_getOpeningCouplingType(int nodeID, int idx, int *coupling);
+
+/**
+ @brief Get the number of openings in a node.
+ @param nodeID The index of a node
+ @param[out] num The number of openings in the given node.
+ @return Error code
+*/
+int DLLEXPORT swmm_getOpeningsNum(int nodeID, int *num);
+
+/**
+ @brief Get the indices of all the openings in a node.
+ @param nodeID The index of a node
+ @param arr_size The size of the results array (from @ref swmm_getOpeningsNum)
+ @param[out] arr An array of the openings indices
+ @return Error code
+*/
+int DLLEXPORT swmm_getOpeningsIndices(int nodeID, int arr_size, int *arr);
+
+/**
+ @brief Get the coupling status of a node.
+ @param nodeID The index of a node
+ @param[out] iscoupled The coupling status of the node.
+ @return Error code
+*/
+int DLLEXPORT swmm_getNodeIsCoupled(int nodeID, int *iscoupled);
+
 /**
 @brief Set an rainfall intensity to the gage.
 @param index The gage index.
@@ -654,6 +763,7 @@ int DLLEXPORT swmm_setOutfallStage(int index, double stage);
 @return Error code
 */
 int DLLEXPORT swmm_setGagePrecip(int index, double value);
+
 
 #ifdef __cplusplus
 }    // matches the linkage specification from above */

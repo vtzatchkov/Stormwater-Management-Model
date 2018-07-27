@@ -437,6 +437,26 @@ struct ExtInflow
 typedef struct ExtInflow TExtInflow;
 
 
+//------------------------------
+// NODE COVER OPENING OBJECT
+//------------------------------
+struct CoverOpening
+{
+   int            ID;              // opening index number
+   int            type;            // type of opening (grate, etc). From an enum
+   int            couplingType;    // type of surface coupling (enum SurfaceCouplingType)
+   double         area;            // area of the opening (ft2)
+   double         length;          // length of the opening (~circumference, ft)
+   double         coeffOrifice;    // orifice coefficient
+   double         coeffFreeWeir;   // free weir coefficient
+   double         coeffSubWeir;    // submerged weir coefficient
+   double         oldInflow;       // inflow during last time-step
+   double         newInflow;       // current inflow
+   struct CoverOpening* next;      // pointer to next opening data object
+};
+typedef struct CoverOpening TCoverOpening;
+
+
 //-------------------------------
 // DRY WEATHER FLOW INFLOW OBJECT
 //-------------------------------
@@ -500,10 +520,16 @@ typedef struct
    double        fullDepth;       // dist. from invert to surface (ft)
    double        surDepth;        // added depth under surcharge (ft)
    double        pondedArea;      // area filled by ponded water (ft2)
+   double        surfaceArea;     // area used to calculate node's volume (ft2)
    TExtInflow*   extInflow;       // pointer to external inflow data
    TDwfInflow*   dwfInflow;       // pointer to dry weather flow inflow data
    TRdiiInflow*  rdiiInflow;      // pointer to RDII inflow data
    TTreatment*   treatment;       // array of treatment data
+   //-----------------------------
+   TCoverOpening* coverOpening;   // pointer to node opening data
+   double        couplingArea;    // coupling area in the overland model (ft2)
+   double        overlandDepth;   // water depth in the overland model (ft)
+   double        couplingInflow;  // flow from the overland model (cfs)
    //-----------------------------
    int           degree;          // number of outflow links
    char          updated;         // true if state has been updated

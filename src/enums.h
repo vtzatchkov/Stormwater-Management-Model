@@ -472,3 +472,18 @@ enum  NoneAllType {
       NONE,
       ALL,
       SOME};
+
+enum  OverlandCouplingType {
+      NO_COUPLING,
+      NO_COUPLING_FLOW,
+      ORIFICE_COUPLING,
+      FREE_WEIR_COUPLING,
+      SUBMERGED_WEIR_COUPLING};
+
+enum  OpeningParams {
+      OPENING_TYPE,
+      OPENING_AREA,
+      OPENING_LENGTH,
+      ORIFICE_COEFF,
+      FREE_WEIR_COEFF,
+      SUBMERGED_WEIR_COEFF};

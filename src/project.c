@@ -1021,6 +1021,7 @@ void createObjects()
         Node[j].dwfInflow = NULL;
         Node[j].rdiiInflow = NULL;
         Node[j].treatment = NULL;
+        Node[j].coverOpening = NULL;
     }
     for (j = 0; j < Nobjects[LINK]; j++)
     {
@@ -1200,6 +1201,7 @@ void deleteObjects()
         inflow_deleteDwfInflows(j);
         rdii_deleteRdiiInflow(j);
         treatmnt_delete(j);
+        coupling_deleteOpenings(j);                                            //(coupling)
     }
 
     // --- delete table entries for curves and time series
