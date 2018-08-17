@@ -1,7 +1,0 @@
-<map id="TNode" name="TNode">
-<area shape="rect" id="node2" href="$d5/d70/struct_t_rdii_inflow.html" title="TRdiiInflow" alt="" coords="5,97,88,124"/>
-<area shape="rect" id="node3" href="$da/dd1/struct_ext_inflow.html" title="ExtInflow" alt="" coords="112,97,187,124"/>
-<area shape="rect" id="node4" href="$db/dfa/struct_t_treatment.html" title="TTreatment" alt="" coords="265,97,351,124"/>
-<area shape="rect" id="node5" href="$d7/d3d/struct_expr_node.html" title="ExprNode" alt="" coords="269,7,347,33"/>
-<area shape="rect" id="node6" href="$d6/dff/struct_dwf_inflow.html" title="DwfInflow" alt="" coords="376,97,451,124"/>
-</map>

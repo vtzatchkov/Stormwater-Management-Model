@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SWMM-Docs
-   &#160;<span id="projectnumber">5.2.0.dev3</span>
+   &#160;<span id="projectnumber">5.2.0.dev4</span>
    </div>
    <div id="projectbrief">Stormwater Management Model</div>
   </td>
@@ -82,6 +82,9 @@ $(function() {
 <li>SM_AVELOSS
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a0bd558d9182b64e31019b799246d85e9a2bc1e8bf4035a72ccab24b22cbecf849">toolkitAPI.h</a>
 </li>
+<li>SM_BUILDUP
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597">toolkitAPI.h</a>
+</li>
 <li>SM_CONDUIT
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a8b036322279a1e830f4c67a741f199f0a389e804448ba81316c5a4badfbdce851">toolkitAPI.h</a>
 </li>
@@ -90,6 +93,9 @@ $(function() {
 </li>
 <li>SM_COURANTFACTOR
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a412c2966ae21bca5060e1dc9a69d9ac7a9d6c796b63c8962bc00973bd6be421fe">toolkitAPI.h</a>
+</li>
+<li>SM_CPONDED
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f">toolkitAPI.h</a>
 </li>
 <li>SM_CURBLEN
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ae6c515161005c511d85505bd1df5eea1ab4702254170f4bc65f52e6341a0d1863">toolkitAPI.h</a>
@@ -274,6 +280,9 @@ $(function() {
 <li>SM_QUALERROR
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a412c2966ae21bca5060e1dc9a69d9ac7a78dcf8e3197d8878ea27877ff694e403">toolkitAPI.h</a>
 </li>
+<li>SM_RAINFALL
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a">toolkitAPI.h</a>
+</li>
 <li>SM_REPORTDATE
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ac563914fcc472c280a0710be9d75b2a7a7c01366cc41e237405c3c2ff70f6f795">toolkitAPI.h</a>
 </li>
@@ -301,6 +310,9 @@ $(function() {
 <li>SM_SLOPE
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ae6c515161005c511d85505bd1df5eea1adbd68d9b4bbbd8141d5d0ea8082372d5">toolkitAPI.h</a>
 </li>
+<li>SM_SNOWFALL
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff">toolkitAPI.h</a>
+</li>
 <li>SM_SNOWMELT
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a1c1a5cece690c3dbb5d743336b88e0e4a83e816ae1e42dc76072375bf32e4b5e9">toolkitAPI.h</a>
 </li>
@@ -321,6 +333,9 @@ $(function() {
 </li>
 <li>SM_SUBCINFIL
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ab8ea3904bf690674e03651e94ea79095afb46ad8de16dd7cbc2e25b466eecb749">toolkitAPI.h</a>
+</li>
+<li>SM_SubcPollut
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907">toolkitAPI.h</a>
 </li>
 <li>SM_SubcProperty
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#ae6c515161005c511d85505bd1df5eea1">toolkitAPI.h</a>
@@ -364,6 +379,9 @@ $(function() {
 <li>SM_TOTALOUTFLOW
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#aa5c50a52f0aa8cb1bcbb5130e8fa64e2a22d59dcab8ebb4454ea482c1adfe528c">toolkitAPI.h</a>
 </li>
+<li>SM_TOTALPRECIP
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73">toolkitAPI.h</a>
+</li>
 <li>SM_TRANSECT
 : <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a1c1a5cece690c3dbb5d743336b88e0e4a84bc600ef1ab7baee9e768ab7ae5e2b3">toolkitAPI.h</a>
 </li>
@@ -396,9 +414,6 @@ $(function() {
 </li>
 <li>swmm_freeOutfallStats()
 : <a class="el" href="d2/da4/group__tkfuncs.html#ga24874b7dc37c161521f0c14899c2157d">toolkitAPI.h</a>
-</li>
-<li>swmm_freeSubcatchStats()
-: <a class="el" href="d2/da4/group__tkfuncs.html#gaf24dfaf8bcd92298782f2449aa18a2f5">toolkitAPI.h</a>
 </li>
 <li>swmm_getAPIError()
 : <a class="el" href="da/d78/group___simulation_settings.html#gad0599614140f8c3edb3e44fa4ce6914b">toolkitAPI.h</a>
@@ -480,6 +495,9 @@ $(function() {
 </li>
 <li>swmm_getSubcatchParam()
 : <a class="el" href="d6/d2f/group___network_info.html#ga20fcc911e1b6dbf4393a8e404d840963">toolkitAPI.h</a>
+</li>
+<li>swmm_getSubcatchPollut()
+: <a class="el" href="dc/dce/toolkit_a_p_i_8h.html#a6af9dbfcd63cd844d58b62f2b137d937">toolkitAPI.h</a>
 </li>
 <li>swmm_getSubcatchResult()
 : <a class="el" href="d2/da4/group__tkfuncs.html#ga32311167c22094c1eb9aa69edee29d63">toolkitAPI.h</a>

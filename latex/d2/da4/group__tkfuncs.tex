@@ -27,8 +27,6 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gafb2a5a295fb4a038edb2a36e
 \begin{DoxyCompactList}\small\item\em Get pump statistics. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga07cf0c633357b86bfcd0886fed0ae2fb}{swmm\+\_\+get\+Subcatch\+Stats} (int index, \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$subcatch\+Stats)
 \begin{DoxyCompactList}\small\item\em Get subcatchment statistics. \end{DoxyCompactList}\item 
-void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gaf24dfaf8bcd92298782f2449aa18a2f5}{swmm\+\_\+free\+Subcatch\+Stats} (\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$subcatch\+Stats)
-\begin{DoxyCompactList}\small\item\em Free subcatchment statistics structure. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}{swmm\+\_\+get\+System\+Routing\+Stats} (\hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals} $\ast$routing\+Tot)
 \begin{DoxyCompactList}\small\item\em Get system routing statistics. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}{swmm\+\_\+get\+System\+Runoff\+Stats} (\hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals} $\ast$runoff\+Tot)
@@ -65,29 +63,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1139 of file toolkit\+A\+P\+I.\+c.
-
-\mbox{\Hypertarget{group__tkfuncs_gaf24dfaf8bcd92298782f2449aa18a2f5}\label{group__tkfuncs_gaf24dfaf8bcd92298782f2449aa18a2f5}} 
-\index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+free\+Subcatch\+Stats@{swmm\+\_\+free\+Subcatch\+Stats}}
-\index{swmm\+\_\+free\+Subcatch\+Stats@{swmm\+\_\+free\+Subcatch\+Stats}!Toolkit Functions@{Toolkit Functions}}
-\subsubsection{\texorpdfstring{swmm\+\_\+free\+Subcatch\+Stats()}{swmm\_freeSubcatchStats()}}
-{\footnotesize\ttfamily int swmm\+\_\+free\+Subcatch\+Stats (\begin{DoxyParamCaption}\item[{\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$}]{subcatch\+Stats }\end{DoxyParamCaption})}
-
-
-
-Free subcatchment statistics structure. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em subcatch\+Stats} & The outfall Stats struct. This frees any allocated pollutants array. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error code 
-\end{DoxyReturn}
-
-
-Definition at line 1265 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1193 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}\label{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Current\+Date\+Time\+Str@{swmm\+\_\+get\+Current\+Date\+Time\+Str}}
@@ -159,7 +135,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1151 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1205 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}\label{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Node\+Result@{swmm\+\_\+get\+Node\+Result}}
@@ -209,7 +185,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1019 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1073 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}\label{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Node\+Total\+Inflow@{swmm\+\_\+get\+Node\+Total\+Inflow}}
@@ -233,7 +209,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1055 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1109 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}\label{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Outfall\+Stats@{swmm\+\_\+get\+Outfall\+Stats}}
@@ -257,7 +233,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1100 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1154 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}\label{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Pump\+Stats@{swmm\+\_\+get\+Pump\+Stats}}
@@ -281,7 +257,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1189 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1243 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}\label{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Storage\+Stats@{swmm\+\_\+get\+Storage\+Stats}}
@@ -305,7 +281,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1073 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1127 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}\label{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Subcatch\+Result@{swmm\+\_\+get\+Subcatch\+Result}}
@@ -347,7 +323,7 @@ Get subcatchment statistics.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of a subcatchment \\
 \hline
-\mbox{\tt out}  & {\em subcatch\+Stats} & The link Stats struct (see \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}). pre-\/allocated by the caller. Caller is also responsible for freeing the \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} structure using \hyperlink{group__tkfuncs_gaf24dfaf8bcd92298782f2449aa18a2f5}{swmm\+\_\+free\+Subcatch\+Stats()}. This frees any pollutants array. \\
+\mbox{\tt out}  & {\em subcatch\+Stats} & The link Stats struct (see \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}). pre-\/allocated by the caller. Caller is also responsible for freeing the \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} structure using swmm\+\_\+free\+Subcatch\+Stats(). This frees any pollutants array. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -355,7 +331,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1220 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1274 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}\label{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+System\+Routing\+Stats@{swmm\+\_\+get\+System\+Routing\+Stats}}
@@ -377,7 +353,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1275 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1304 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}\label{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+System\+Runoff\+Stats@{swmm\+\_\+get\+System\+Runoff\+Stats}}
@@ -399,7 +375,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1310 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1339 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}\label{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Link\+Setting@{swmm\+\_\+set\+Link\+Setting}}
@@ -423,7 +399,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1350 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1379 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}\label{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Node\+Inflow@{swmm\+\_\+set\+Node\+Inflow}}
@@ -447,7 +423,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1393 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1422 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}\label{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Outfall\+Stage@{swmm\+\_\+set\+Outfall\+Stage}}
@@ -471,5 +447,5 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1454 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1483 of file toolkit\+A\+P\+I.\+c.
 

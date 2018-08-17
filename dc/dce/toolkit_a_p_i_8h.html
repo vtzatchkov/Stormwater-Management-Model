@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SWMM-Docs
-   &#160;<span id="projectnumber">5.2.0.dev3</span>
+   &#160;<span id="projectnumber">5.2.0.dev4</span>
    </div>
    <div id="projectbrief">Stormwater Management Model</div>
   </td>
@@ -269,7 +269,15 @@ Enumerations</h2></td></tr>
  }<tr class="memdesc:ab8ea3904bf690674e03651e94ea79095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subcatchment result property codes.  <a href="../../dc/dce/toolkit_a_p_i_8h.html#ab8ea3904bf690674e03651e94ea79095">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:ab8ea3904bf690674e03651e94ea79095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6955352fb2e1079b26956b80b75e4d"><td class="memItemLeft" align="right" valign="top"><a id="a2c6955352fb2e1079b26956b80b75e4d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4d">SM_GagePrecip</a> <tr class="memdesc:a2c6955352fb2e1079b26956b80b75e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gage precip array property codes. <br /></td></tr>
+<tr class="memitem:ab825b92697a44853475c632bc1c2e907"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907">SM_SubcPollut</a> { <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597">SM_BUILDUP</a> = 0, 
+<a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f">SM_CPONDED</a> = 1
+ }<tr class="memdesc:ab825b92697a44853475c632bc1c2e907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subcatchment pollutant result property codes.  <a href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ab825b92697a44853475c632bc1c2e907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c6955352fb2e1079b26956b80b75e4d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4d">SM_GagePrecip</a> { <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73">SM_TOTALPRECIP</a> = 0, 
+<a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a">SM_RAINFALL</a> = 1, 
+<a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff">SM_SNOWFALL</a> = 2
+ }<tr class="memdesc:a2c6955352fb2e1079b26956b80b75e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gage precip array property codes.  <a href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4d">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a2c6955352fb2e1079b26956b80b75e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -347,6 +355,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga32311167c22094c1eb9aa69edee29d63"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da4/group__tkfuncs.html#ga32311167c22094c1eb9aa69edee29d63">swmm_getSubcatchResult</a> (int index, int type, double *result)</td></tr>
 <tr class="memdesc:ga32311167c22094c1eb9aa69edee29d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a result value for specified subcatchment.  <a href="../../d2/da4/group__tkfuncs.html#ga32311167c22094c1eb9aa69edee29d63">More...</a><br /></td></tr>
 <tr class="separator:ga32311167c22094c1eb9aa69edee29d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af9dbfcd63cd844d58b62f2b137d937"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a6af9dbfcd63cd844d58b62f2b137d937">swmm_getSubcatchPollut</a> (int index, int type, double **PollutArray)</td></tr>
+<tr class="memdesc:a6af9dbfcd63cd844d58b62f2b137d937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets pollutant values for a specified subcatchment.  <a href="#a6af9dbfcd63cd844d58b62f2b137d937">More...</a><br /></td></tr>
+<tr class="separator:a6af9dbfcd63cd844d58b62f2b137d937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae618b633fecd1b9d1df93b013f93153e"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ae618b633fecd1b9d1df93b013f93153e">swmm_getGagePrecip</a> (int index, double **GageArray)</td></tr>
 <tr class="memdesc:ae618b633fecd1b9d1df93b013f93153e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get precipitation rates for a gage.  <a href="#ae618b633fecd1b9d1df93b013f93153e">More...</a><br /></td></tr>
 <tr class="separator:ae618b633fecd1b9d1df93b013f93153e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -374,9 +385,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga07cf0c633357b86bfcd0886fed0ae2fb"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da4/group__tkfuncs.html#ga07cf0c633357b86bfcd0886fed0ae2fb">swmm_getSubcatchStats</a> (int index, <a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html">SM_SubcatchStats</a> *subcatchStats)</td></tr>
 <tr class="memdesc:ga07cf0c633357b86bfcd0886fed0ae2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get subcatchment statistics.  <a href="../../d2/da4/group__tkfuncs.html#ga07cf0c633357b86bfcd0886fed0ae2fb">More...</a><br /></td></tr>
 <tr class="separator:ga07cf0c633357b86bfcd0886fed0ae2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf24dfaf8bcd92298782f2449aa18a2f5"><td class="memItemLeft" align="right" valign="top">void DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da4/group__tkfuncs.html#gaf24dfaf8bcd92298782f2449aa18a2f5">swmm_freeSubcatchStats</a> (<a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html">SM_SubcatchStats</a> *subcatchStats)</td></tr>
-<tr class="memdesc:gaf24dfaf8bcd92298782f2449aa18a2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free subcatchment statistics structure.  <a href="../../d2/da4/group__tkfuncs.html#gaf24dfaf8bcd92298782f2449aa18a2f5">More...</a><br /></td></tr>
-<tr class="separator:gaf24dfaf8bcd92298782f2449aa18a2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8e4dcd4d9243ac428633e7cdabf0712a"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/da4/group__tkfuncs.html#ga8e4dcd4d9243ac428633e7cdabf0712a">swmm_getSystemRoutingStats</a> (<a class="el" href="../../d3/d17/struct_s_m___routing_totals.html">SM_RoutingTotals</a> *routingTot)</td></tr>
 <tr class="memdesc:ga8e4dcd4d9243ac428633e7cdabf0712a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get system routing statistics.  <a href="../../d2/da4/group__tkfuncs.html#ga8e4dcd4d9243ac428633e7cdabf0712a">More...</a><br /></td></tr>
 <tr class="separator:ga8e4dcd4d9243ac428633e7cdabf0712a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -407,6 +415,32 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../dc/dce/toolkit_a_p_i_8h_source.html">toolkitAPI.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a2c6955352fb2e1079b26956b80b75e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c6955352fb2e1079b26956b80b75e4d">&#9670;&nbsp;</a></span>SM_GagePrecip</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a2c6955352fb2e1079b26956b80b75e4d">SM_GagePrecip</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gage precip array property codes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73"></a>SM_TOTALPRECIP&#160;</td><td class="fielddoc"><p>Total Precipitation Rate </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a"></a>SM_RAINFALL&#160;</td><td class="fielddoc"><p>Rainfall Rate </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff"></a>SM_SNOWFALL&#160;</td><td class="fielddoc"><p>Snowfall Rate </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dce/toolkit_a_p_i_8h_source.html#l00182">182</a> of file <a class="el" href="../../dc/dce/toolkit_a_p_i_8h_source.html">toolkitAPI.h</a>.</p>
+
+</div>
+</div>
 <a id="a0bd558d9182b64e31019b799246d85e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bd558d9182b64e31019b799246d85e9">&#9670;&nbsp;</a></span>SM_LinkProperty</h2>
 
@@ -733,6 +767,30 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab825b92697a44853475c632bc1c2e907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab825b92697a44853475c632bc1c2e907">&#9670;&nbsp;</a></span>SM_SubcPollut</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907">SM_SubcPollut</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subcatchment pollutant result property codes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597"></a>SM_BUILDUP&#160;</td><td class="fielddoc"><p>Pollutant Buildup Load </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f"></a>SM_CPONDED&#160;</td><td class="fielddoc"><p>Ponded Pollutant Concentration </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dce/toolkit_a_p_i_8h_source.html#l00176">176</a> of file <a class="el" href="../../dc/dce/toolkit_a_p_i_8h_source.html">toolkitAPI.h</a>.</p>
+
+</div>
+</div>
 <a id="ae6c515161005c511d85505bd1df5eea1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6c515161005c511d85505bd1df5eea1">&#9670;&nbsp;</a></span>SM_SubcProperty</h2>
 
@@ -868,7 +926,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01540">1540</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01569">1569</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -902,13 +960,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of gage </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">Fage</td><td>precipitation rates array [total, rainfall, snowfall] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Gage</td><td>precipitation rates array [total, rainfall, snowfall] </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00980">980</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01034">1034</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -959,6 +1017,53 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6af9dbfcd63cd844d58b62f2b137d937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6af9dbfcd63cd844d58b62f2b137d937">&#9670;&nbsp;</a></span>swmm_getSubcatchPollut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DLLEXPORT swmm_getSubcatchPollut </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>PollutArray</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets pollutant values for a specified subcatchment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a subcatchment </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">result</td><td>The property type code (see <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab825b92697a44853475c632bc1c2e907">SM_SubcPollut</a>) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Pollutant</td><td>result array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00980">980</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+
+</div>
+</div>
 <a id="a900b152b178db57bd6bd48fd4423a22c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a900b152b178db57bd6bd48fd4423a22c">&#9670;&nbsp;</a></span>swmm_setGagePrecip()</h2>
 
@@ -995,7 +1100,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01489">1489</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01518">1518</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>

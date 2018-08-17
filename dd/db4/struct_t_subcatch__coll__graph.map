@@ -1,8 +1,0 @@
-<map id="TSubcatch" name="TSubcatch">
-<area shape="rect" id="node2" href="$d2/d72/struct_t_land_factor.html" title="TLandFactor" alt="" coords="5,96,100,123"/>
-<area shape="rect" id="node3" href="$d7/d3d/struct_expr_node.html" title="ExprNode" alt="" coords="124,96,203,123"/>
-<area shape="rect" id="node4" href="$d8/db7/struct_t_subarea.html" title="TSubarea" alt="" coords="279,96,357,123"/>
-<area shape="rect" id="node5" href="$d8/dd0/struct_t_groundwater.html" title="TGroundwater" alt="" coords="381,96,484,123"/>
-<area shape="rect" id="node6" href="$db/dd5/struct_t_g_water_stats.html" title="TGWaterStats" alt="" coords="380,5,485,32"/>
-<area shape="rect" id="node7" href="$dd/df0/struct_t_snowpack.html" title="TSnowpack" alt="" coords="508,96,597,123"/>
-</map>

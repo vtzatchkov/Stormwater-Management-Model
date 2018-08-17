@@ -1,8 +1,0 @@
-<map id="TLidProc" name="TLidProc">
-<area shape="rect" id="node2" href="$df/dc9/struct_t_surface_layer.html" title="TSurfaceLayer" alt="" coords="5,5,111,32"/>
-<area shape="rect" id="node3" href="$d3/d34/struct_t_soil_layer.html" title="TSoilLayer" alt="" coords="135,5,218,32"/>
-<area shape="rect" id="node4" href="$d3/d81/struct_t_drain_layer.html" title="TDrainLayer" alt="" coords="242,5,333,32"/>
-<area shape="rect" id="node5" href="$d5/d61/struct_t_drain_mat_layer.html" title="TDrainMatLayer" alt="" coords="357,5,471,32"/>
-<area shape="rect" id="node6" href="$db/d40/struct_t_storage_layer.html" title="TStorageLayer" alt="" coords="495,5,602,32"/>
-<area shape="rect" id="node7" href="$d0/d6b/struct_t_pavement_layer.html" title="TPavementLayer" alt="" coords="627,5,745,32"/>
-</map>

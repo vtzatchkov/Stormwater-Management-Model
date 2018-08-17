@@ -169,8 +169,14 @@ enum \hyperlink{toolkit_a_p_i_8h_ab8ea3904bf690674e03651e94ea79095}{S\+M\+\_\+\+
 \hyperlink{toolkit_a_p_i_8h_ab8ea3904bf690674e03651e94ea79095ac921e6305284c4feac8d6bbd47a9b274}{S\+M\+\_\+\+S\+U\+B\+C\+S\+N\+OW} = 5
  \}\begin{DoxyCompactList}\small\item\em Subcatchment result property codes. \end{DoxyCompactList}
 \item 
-\mbox{\Hypertarget{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}\label{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}} 
-enum \hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}{S\+M\+\_\+\+Gage\+Precip} \begin{DoxyCompactList}\small\item\em Gage precip array property codes. \end{DoxyCompactList}
+enum \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}{S\+M\+\_\+\+Subc\+Pollut} \{ \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597}{S\+M\+\_\+\+B\+U\+I\+L\+D\+UP} = 0, 
+\hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f}{S\+M\+\_\+\+C\+P\+O\+N\+D\+ED} = 1
+ \}\begin{DoxyCompactList}\small\item\em Subcatchment pollutant result property codes. \end{DoxyCompactList}
+\item 
+enum \hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}{S\+M\+\_\+\+Gage\+Precip} \{ \hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73}{S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP} = 0, 
+\hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a}{S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL} = 1, 
+\hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff}{S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL} = 2
+ \}\begin{DoxyCompactList}\small\item\em Gage precip array property codes. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -223,6 +229,8 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga578a49668d519c8b4cdcab22
 \begin{DoxyCompactList}\small\item\em Get a result value for specified link. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}{swmm\+\_\+get\+Subcatch\+Result} (int index, int type, double $\ast$result)
 \begin{DoxyCompactList}\small\item\em Get a result value for specified subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8h_a6af9dbfcd63cd844d58b62f2b137d937}{swmm\+\_\+get\+Subcatch\+Pollut} (int index, int type, double $\ast$$\ast$Pollut\+Array)
+\begin{DoxyCompactList}\small\item\em Gets pollutant values for a specified subcatchment. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8h_ae618b633fecd1b9d1df93b013f93153e}{swmm\+\_\+get\+Gage\+Precip} (int index, double $\ast$$\ast$Gage\+Array)
 \begin{DoxyCompactList}\small\item\em Get precipitation rates for a gage. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}{swmm\+\_\+get\+Node\+Stats} (int index, \hyperlink{struct_s_m___node_stats}{S\+M\+\_\+\+Node\+Stats} $\ast$node\+Stats)
@@ -241,8 +249,6 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gafb2a5a295fb4a038edb2a36e
 \begin{DoxyCompactList}\small\item\em Get pump statistics. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga07cf0c633357b86bfcd0886fed0ae2fb}{swmm\+\_\+get\+Subcatch\+Stats} (int index, \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$subcatch\+Stats)
 \begin{DoxyCompactList}\small\item\em Get subcatchment statistics. \end{DoxyCompactList}\item 
-void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gaf24dfaf8bcd92298782f2449aa18a2f5}{swmm\+\_\+free\+Subcatch\+Stats} (\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$subcatch\+Stats)
-\begin{DoxyCompactList}\small\item\em Free subcatchment statistics structure. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}{swmm\+\_\+get\+System\+Routing\+Stats} (\hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals} $\ast$routing\+Tot)
 \begin{DoxyCompactList}\small\item\em Get system routing statistics. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}{swmm\+\_\+get\+System\+Runoff\+Stats} (\hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals} $\ast$runoff\+Tot)
@@ -274,6 +280,34 @@ B. Mc\+Donnell (Em\+Net L\+LC), Open\+Water\+Analytics members\+: see \href{http
 
 
 \subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}\label{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}} 
+\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Gage\+Precip@{S\+M\+\_\+\+Gage\+Precip}}
+\index{S\+M\+\_\+\+Gage\+Precip@{S\+M\+\_\+\+Gage\+Precip}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{S\+M\+\_\+\+Gage\+Precip}{SM\_GagePrecip}}
+{\footnotesize\ttfamily enum \hyperlink{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4d}{S\+M\+\_\+\+Gage\+Precip}}
+
+
+
+Gage precip array property codes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP@{S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP@{S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73}\label{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4dab11800cc4b6c74dd6a5e5f405671ee73}} 
+S\+M\+\_\+\+T\+O\+T\+A\+L\+P\+R\+E\+C\+IP&Total Precipitation Rate \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL@{S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL@{S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a}\label{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4da36b9c77d01cb0f7b2b45682037f7544a}} 
+S\+M\+\_\+\+R\+A\+I\+N\+F\+A\+LL&Rainfall Rate \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL@{S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL@{S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff}\label{toolkit_a_p_i_8h_a2c6955352fb2e1079b26956b80b75e4daa20c94c026305e38ce316b1b5ff173ff}} 
+S\+M\+\_\+\+S\+N\+O\+W\+F\+A\+LL&Snowfall Rate \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 182 of file toolkit\+A\+P\+I.\+h.
+
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a0bd558d9182b64e31019b799246d85e9}\label{toolkit_a_p_i_8h_a0bd558d9182b64e31019b799246d85e9}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Link\+Property@{S\+M\+\_\+\+Link\+Property}}
 \index{S\+M\+\_\+\+Link\+Property@{S\+M\+\_\+\+Link\+Property}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
@@ -710,6 +744,30 @@ S\+M\+\_\+\+L\+A\+T\+F\+L\+O\+W\+T\+OL&Tolerance for steady nodal inflow \\
 
 Definition at line 95 of file toolkit\+A\+P\+I.\+h.
 
+\mbox{\Hypertarget{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}\label{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}} 
+\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Subc\+Pollut@{S\+M\+\_\+\+Subc\+Pollut}}
+\index{S\+M\+\_\+\+Subc\+Pollut@{S\+M\+\_\+\+Subc\+Pollut}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{S\+M\+\_\+\+Subc\+Pollut}{SM\_SubcPollut}}
+{\footnotesize\ttfamily enum \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}{S\+M\+\_\+\+Subc\+Pollut}}
+
+
+
+Subcatchment pollutant result property codes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+B\+U\+I\+L\+D\+UP@{S\+M\+\_\+\+B\+U\+I\+L\+D\+UP}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+B\+U\+I\+L\+D\+UP@{S\+M\+\_\+\+B\+U\+I\+L\+D\+UP}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597}\label{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907a60a9cf337bc6f463a2a7e66b97f2f597}} 
+S\+M\+\_\+\+B\+U\+I\+L\+D\+UP&Pollutant Buildup Load \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+C\+P\+O\+N\+D\+ED@{S\+M\+\_\+\+C\+P\+O\+N\+D\+ED}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+C\+P\+O\+N\+D\+ED@{S\+M\+\_\+\+C\+P\+O\+N\+D\+ED}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f}\label{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907acde81a461d66baa04b2a2d074c4a616f}} 
+S\+M\+\_\+\+C\+P\+O\+N\+D\+ED&Ponded Pollutant Concentration \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 176 of file toolkit\+A\+P\+I.\+h.
+
 \mbox{\Hypertarget{toolkit_a_p_i_8h_ae6c515161005c511d85505bd1df5eea1}\label{toolkit_a_p_i_8h_ae6c515161005c511d85505bd1df5eea1}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Subc\+Property@{S\+M\+\_\+\+Subc\+Property}}
 \index{S\+M\+\_\+\+Subc\+Property@{S\+M\+\_\+\+Subc\+Property}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
@@ -854,7 +912,7 @@ Helper function to free memory array allocated in S\+W\+MM.
 \end{DoxyParams}
 
 
-Definition at line 1540 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1569 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_ae618b633fecd1b9d1df93b013f93153e}\label{toolkit_a_p_i_8h_ae618b633fecd1b9d1df93b013f93153e}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Gage\+Precip@{swmm\+\_\+get\+Gage\+Precip}}
@@ -870,7 +928,7 @@ Get precipitation rates for a gage.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of gage \\
 \hline
-\mbox{\tt out}  & {\em Fage} & precipitation rates array \mbox{[}total, rainfall, snowfall\mbox{]} \\
+\mbox{\tt out}  & {\em Gage} & precipitation rates array \mbox{[}total, rainfall, snowfall\mbox{]} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -878,7 +936,7 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 980 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1034 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a158e2086f5dc8e4515637cad0a15f7b5}\label{toolkit_a_p_i_8h_a158e2086f5dc8e4515637cad0a15f7b5}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Object\+Index@{swmm\+\_\+get\+Object\+Index}}
@@ -906,6 +964,32 @@ Object Injdex
 
 Definition at line 294 of file toolkit\+A\+P\+I.\+c.
 
+\mbox{\Hypertarget{toolkit_a_p_i_8h_a6af9dbfcd63cd844d58b62f2b137d937}\label{toolkit_a_p_i_8h_a6af9dbfcd63cd844d58b62f2b137d937}} 
+\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Subcatch\+Pollut@{swmm\+\_\+get\+Subcatch\+Pollut}}
+\index{swmm\+\_\+get\+Subcatch\+Pollut@{swmm\+\_\+get\+Subcatch\+Pollut}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{swmm\+\_\+get\+Subcatch\+Pollut()}{swmm\_getSubcatchPollut()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Subcatch\+Pollut (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{type,  }\item[{double $\ast$$\ast$}]{Pollut\+Array }\end{DoxyParamCaption})}
+
+
+
+Gets pollutant values for a specified subcatchment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em result} & The property type code (see \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}{S\+M\+\_\+\+Subc\+Pollut}) \\
+\hline
+\mbox{\tt out}  & {\em Pollutant} & result array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 980 of file toolkit\+A\+P\+I.\+c.
+
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a900b152b178db57bd6bd48fd4423a22c}\label{toolkit_a_p_i_8h_a900b152b178db57bd6bd48fd4423a22c}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+set\+Gage\+Precip@{swmm\+\_\+set\+Gage\+Precip}}
 \index{swmm\+\_\+set\+Gage\+Precip@{swmm\+\_\+set\+Gage\+Precip}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
@@ -928,5 +1012,5 @@ Error code
 \end{DoxyReturn}
 
 
-Definition at line 1489 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1518 of file toolkit\+A\+P\+I.\+c.
 
