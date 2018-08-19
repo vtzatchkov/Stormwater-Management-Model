@@ -11,7 +11,7 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga9ec64a87307
 \begin{DoxyCompactList}\small\item\em Gets Simulation Analysis Setting. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga3f3a35c715f9d618efabb85bed6e2d08}{swmm\+\_\+get\+Simulation\+Param} (int type, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Gets Simulation Analysis Setting. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gaccc662920215c153b43181055c1f3c8f}{swmm\+\_\+get\+Simulation\+Date\+Time} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$seconds)
+int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}{swmm\+\_\+get\+Simulation\+Date\+Time} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$second)
 \begin{DoxyCompactList}\small\item\em Get the current simulation datetime information. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga2539c5004593b674f972e757828a0759}{swmm\+\_\+set\+Simulation\+Date\+Time} (int timetype, char $\ast$dtimestr)
 \begin{DoxyCompactList}\small\item\em Set simulation datetime information. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -35,12 +35,12 @@ Get the text of an error code.
 \begin{DoxyParams}[1]{Parameters}
  & {\em errcode} & The error code \\
 \hline
-\mbox{\tt out}  & {\em s} & The error string represented by the code \\
+\mbox{\tt out}  & {\em s} & The error string represented by the code\\
 \hline
 \end{DoxyParams}
+Input\+: errcode = error code Output\+: errmessage String Return\+: A\+PI Error Purpose\+: Get an error message 
 
-
-Definition at line 42 of file toolkit\+A\+P\+I.\+c.
+Definition at line 40 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___simulation_settings_ga9ec64a873071a584734f8202582dbe2c}\label{group___simulation_settings_ga9ec64a873071a584734f8202582dbe2c}} 
 \index{Simulation Options@{Simulation Options}!swmm\+\_\+get\+Simulation\+Analysis\+Setting@{swmm\+\_\+get\+Simulation\+Analysis\+Setting}}
@@ -60,17 +60,17 @@ Gets Simulation Analysis Setting.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: type = analysis type Output\+: setting True or False Returns\+: A\+PI Error Purpose\+: get simulation analysis setting 
 
+Definition at line 184 of file toolkit\+A\+P\+I.\+c.
 
-Definition at line 186 of file toolkit\+A\+P\+I.\+c.
-
-\mbox{\Hypertarget{group___simulation_settings_gaccc662920215c153b43181055c1f3c8f}\label{group___simulation_settings_gaccc662920215c153b43181055c1f3c8f}} 
+\mbox{\Hypertarget{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}\label{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}} 
 \index{Simulation Options@{Simulation Options}!swmm\+\_\+get\+Simulation\+Date\+Time@{swmm\+\_\+get\+Simulation\+Date\+Time}}
 \index{swmm\+\_\+get\+Simulation\+Date\+Time@{swmm\+\_\+get\+Simulation\+Date\+Time}!Simulation Options@{Simulation Options}}
 \subsubsection{\texorpdfstring{swmm\+\_\+get\+Simulation\+Date\+Time()}{swmm\_getSimulationDateTime()}}
-{\footnotesize\ttfamily int swmm\+\_\+get\+Simulation\+Date\+Time (\begin{DoxyParamCaption}\item[{int}]{timetype,  }\item[{int $\ast$}]{year,  }\item[{int $\ast$}]{month,  }\item[{int $\ast$}]{day,  }\item[{int $\ast$}]{hour,  }\item[{int $\ast$}]{minute,  }\item[{int $\ast$}]{seconds }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int swmm\+\_\+get\+Simulation\+Date\+Time (\begin{DoxyParamCaption}\item[{int}]{timetype,  }\item[{int $\ast$}]{year,  }\item[{int $\ast$}]{month,  }\item[{int $\ast$}]{day,  }\item[{int $\ast$}]{hour,  }\item[{int $\ast$}]{minute,  }\item[{int $\ast$}]{second }\end{DoxyParamCaption})}
 
 
 
@@ -78,7 +78,7 @@ Get the current simulation datetime information.
 
 
 \begin{DoxyParams}[1]{Parameters}
- & {\em Param} & timetype The property type code (See \hyperlink{toolkit_a_p_i_8h_ac563914fcc472c280a0710be9d75b2a7}{S\+M\+\_\+\+Time\+Propety}) \\
+ & {\em timetype} & The property type code (See \hyperlink{toolkit_a_p_i_8h_ac563914fcc472c280a0710be9d75b2a7}{S\+M\+\_\+\+Time\+Propety}) \\
 \hline
 \mbox{\tt out}  & {\em year} & The year \\
 \hline
@@ -90,15 +90,15 @@ Get the current simulation datetime information.
 \hline
 \mbox{\tt out}  & {\em minute} & The minute \\
 \hline
-\mbox{\tt out}  & {\em seconds} & The seconds \\
+\mbox{\tt out}  & {\em second} & The seconds \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: timetype = time type to return Output\+: year, month, day, hours, minutes, seconds = int Return\+: A\+PI Error Purpose\+: Get the simulation start, end and report date times 
 
-
-Definition at line 53 of file toolkit\+A\+P\+I.\+c.
+Definition at line 51 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___simulation_settings_ga3f3a35c715f9d618efabb85bed6e2d08}\label{group___simulation_settings_ga3f3a35c715f9d618efabb85bed6e2d08}} 
 \index{Simulation Options@{Simulation Options}!swmm\+\_\+get\+Simulation\+Param@{swmm\+\_\+get\+Simulation\+Param}}
@@ -118,11 +118,11 @@ Gets Simulation Analysis Setting.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: type = analysis type Output\+: Simulation Parameter Returns\+: error code Purpose\+: Get simulation analysis parameter 
 
-
-Definition at line 227 of file toolkit\+A\+P\+I.\+c.
+Definition at line 225 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___simulation_settings_ga2c45b28a68a6661f55dd108d0ee22950}\label{group___simulation_settings_ga2c45b28a68a6661f55dd108d0ee22950}} 
 \index{Simulation Options@{Simulation Options}!swmm\+\_\+get\+Simulation\+Unit@{swmm\+\_\+get\+Simulation\+Unit}}
@@ -142,11 +142,11 @@ Gets Simulation Unit.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: type = simulation unit type Output\+: enum representation of units Returns\+: A\+PI Error Purpose\+: get simulation unit types 
 
-
-Definition at line 154 of file toolkit\+A\+P\+I.\+c.
+Definition at line 152 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___simulation_settings_ga2539c5004593b674f972e757828a0759}\label{group___simulation_settings_ga2539c5004593b674f972e757828a0759}} 
 \index{Simulation Options@{Simulation Options}!swmm\+\_\+set\+Simulation\+Date\+Time@{swmm\+\_\+set\+Simulation\+Date\+Time}}
@@ -160,15 +160,15 @@ Set simulation datetime information.
 
 
 \begin{DoxyParams}[1]{Parameters}
- & {\em Param} & timetype The property type code (See \hyperlink{toolkit_a_p_i_8h_ac563914fcc472c280a0710be9d75b2a7}{S\+M\+\_\+\+Time\+Propety}) \\
+ & {\em timetype} & The property type code (See \hyperlink{toolkit_a_p_i_8h_ac563914fcc472c280a0710be9d75b2a7}{S\+M\+\_\+\+Time\+Propety}) \\
 \hline
 \mbox{\tt out}  & {\em dtimestr} & The current datetime. dtimestr must be pre-\/allocated by the caller. This will copy 19 characters. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: timetype = time type to return Date\+Time String Return\+: A\+PI Error Purpose\+: Get the simulation start, end and report date times 
 
-
-Definition at line 94 of file toolkit\+A\+P\+I.\+c.
+Definition at line 92 of file toolkit\+A\+P\+I.\+c.
 

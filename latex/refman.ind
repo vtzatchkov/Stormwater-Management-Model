@@ -1,0 +1,259 @@
+\begin{theindex}
+
+  \item {Authors at Open Water Analytics}, \hyperpage{23}
+
+  \indexspace
+
+  \item {C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/swmm5.\+h}, 
+		\hyperpage{55}
+  \item {C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/toolkit\+A\+P\+I.\+h}, 
+		\hyperpage{61}
+  \item {C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/src/toolkit\+A\+P\+I.\+c}, 
+		\hyperpage{74}
+
+  \indexspace
+
+  \item {free\+Array}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{76}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{71}
+
+  \indexspace
+
+  \item {M\+I\+T-\/\+License}, \hyperpage{24}
+
+  \indexspace
+
+  \item {Network Info}, \hyperpage{25}
+    \subitem {swmm\+\_\+count\+Objects}, \hyperpage{25}
+    \subitem {swmm\+\_\+get\+Link\+Connections}, \hyperpage{26}
+    \subitem {swmm\+\_\+get\+Link\+Direction}, \hyperpage{26}
+    \subitem {swmm\+\_\+get\+Link\+Param}, \hyperpage{27}
+    \subitem {swmm\+\_\+get\+Link\+Type}, \hyperpage{27}
+    \subitem {swmm\+\_\+get\+Node\+Param}, \hyperpage{28}
+    \subitem {swmm\+\_\+get\+Node\+Type}, \hyperpage{28}
+    \subitem {swmm\+\_\+get\+Object\+Id}, \hyperpage{29}
+    \subitem {swmm\+\_\+get\+Subcatch\+Out\+Connection}, \hyperpage{29}
+    \subitem {swmm\+\_\+get\+Subcatch\+Param}, \hyperpage{30}
+    \subitem {swmm\+\_\+set\+Link\+Param}, \hyperpage{30}
+    \subitem {swmm\+\_\+set\+Node\+Param}, \hyperpage{31}
+    \subitem {swmm\+\_\+set\+Subcatch\+Param}, \hyperpage{31}
+  \item {new\+Double\+Array}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{76}
+
+  \indexspace
+
+  \item {S\+M\+\_\+\+Gage\+Precip}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{64}
+  \item {S\+M\+\_\+\+Link\+Property}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{65}
+  \item {S\+M\+\_\+\+Link\+Result}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{65}
+  \item {S\+M\+\_\+\+Link\+Stats}, \hyperpage{47}
+  \item {S\+M\+\_\+\+Link\+Type}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{66}
+  \item {S\+M\+\_\+\+Node\+Property}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{66}
+  \item {S\+M\+\_\+\+Node\+Result}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{66}
+  \item {S\+M\+\_\+\+Node\+Stats}, \hyperpage{48}
+  \item {S\+M\+\_\+\+Node\+Type}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{67}
+  \item {S\+M\+\_\+\+Object\+Type}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{67}
+  \item {S\+M\+\_\+\+Outfall\+Stats}, \hyperpage{48}
+  \item {S\+M\+\_\+\+Pump\+Stats}, \hyperpage{49}
+  \item {S\+M\+\_\+\+Routing\+Totals}, \hyperpage{50}
+  \item {S\+M\+\_\+\+Runoff\+Totals}, \hyperpage{51}
+  \item {S\+M\+\_\+\+Sim\+Option}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{68}
+  \item {S\+M\+\_\+\+Sim\+Setting}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{68}
+  \item {S\+M\+\_\+\+Storage\+Stats}, \hyperpage{51}
+  \item {S\+M\+\_\+\+Subc\+Pollut}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{69}
+  \item {S\+M\+\_\+\+Subc\+Property}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{69}
+  \item {S\+M\+\_\+\+Subc\+Result}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{69}
+  \item {S\+M\+\_\+\+Subcatch\+Stats}, \hyperpage{52}
+  \item {S\+M\+\_\+\+Time\+Propety}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{70}
+  \item {S\+M\+\_\+\+Units}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{70}
+  \item {Simulation Options}, \hyperpage{33}
+    \subitem {swmm\+\_\+get\+A\+P\+I\+Error}, \hyperpage{33}
+    \subitem {swmm\+\_\+get\+Simulation\+Analysis\+Setting}, 
+		\hyperpage{33}
+    \subitem {swmm\+\_\+get\+Simulation\+Date\+Time}, \hyperpage{34}
+    \subitem {swmm\+\_\+get\+Simulation\+Param}, \hyperpage{34}
+    \subitem {swmm\+\_\+get\+Simulation\+Unit}, \hyperpage{35}
+    \subitem {swmm\+\_\+set\+Simulation\+Date\+Time}, \hyperpage{35}
+  \item {swmm5.\+h}
+    \subitem {swmm\+\_\+close}, \hyperpage{56}
+    \subitem {swmm\+\_\+end}, \hyperpage{56}
+    \subitem {swmm\+\_\+get\+Mass\+Bal\+Err}, \hyperpage{56}
+    \subitem {swmm\+\_\+get\+Sem\+Version}, \hyperpage{58}
+    \subitem {swmm\+\_\+get\+Version}, \hyperpage{58}
+    \subitem {swmm\+\_\+get\+Version\+Info}, \hyperpage{58}
+    \subitem {swmm\+\_\+open}, \hyperpage{59}
+    \subitem {swmm\+\_\+report}, \hyperpage{59}
+    \subitem {swmm\+\_\+run}, \hyperpage{59}
+    \subitem {swmm\+\_\+start}, \hyperpage{60}
+    \subitem {swmm\+\_\+step}, \hyperpage{60}
+  \item {swmm\+\_\+close}
+    \subitem {swmm5.\+h}, \hyperpage{56}
+  \item {swmm\+\_\+count\+Objects}
+    \subitem {Network Info}, \hyperpage{25}
+  \item {swmm\+\_\+end}
+    \subitem {swmm5.\+h}, \hyperpage{56}
+  \item {swmm\+\_\+free\+Outfall\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{37}
+  \item {swmm\+\_\+get\+A\+P\+I\+Error}
+    \subitem {Simulation Options}, \hyperpage{33}
+  \item {swmm\+\_\+get\+Current\+Date\+Time\+Str}
+    \subitem {Toolkit Functions}, \hyperpage{38}
+  \item {swmm\+\_\+get\+Gage\+Precip}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{77}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{71}
+  \item {swmm\+\_\+get\+Link\+Connections}
+    \subitem {Network Info}, \hyperpage{26}
+  \item {swmm\+\_\+get\+Link\+Direction}
+    \subitem {Network Info}, \hyperpage{26}
+  \item {swmm\+\_\+get\+Link\+Param}
+    \subitem {Network Info}, \hyperpage{27}
+  \item {swmm\+\_\+get\+Link\+Result}
+    \subitem {Toolkit Functions}, \hyperpage{38}
+  \item {swmm\+\_\+get\+Link\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{39}
+  \item {swmm\+\_\+get\+Link\+Type}
+    \subitem {Network Info}, \hyperpage{27}
+  \item {swmm\+\_\+get\+Mass\+Bal\+Err}
+    \subitem {swmm5.\+h}, \hyperpage{56}
+  \item {swmm\+\_\+get\+Node\+Param}
+    \subitem {Network Info}, \hyperpage{28}
+  \item {swmm\+\_\+get\+Node\+Result}
+    \subitem {Toolkit Functions}, \hyperpage{39}
+  \item {swmm\+\_\+get\+Node\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{40}
+  \item {swmm\+\_\+get\+Node\+Total\+Inflow}
+    \subitem {Toolkit Functions}, \hyperpage{40}
+  \item {swmm\+\_\+get\+Node\+Type}
+    \subitem {Network Info}, \hyperpage{28}
+  \item {swmm\+\_\+get\+Object\+Id}
+    \subitem {Network Info}, \hyperpage{29}
+  \item {swmm\+\_\+get\+Object\+Index}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{77}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{71}
+  \item {swmm\+\_\+get\+Outfall\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{41}
+  \item {swmm\+\_\+get\+Pump\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{41}
+  \item {swmm\+\_\+get\+Sem\+Version}
+    \subitem {swmm5.\+h}, \hyperpage{58}
+  \item {swmm\+\_\+get\+Simulation\+Analysis\+Setting}
+    \subitem {Simulation Options}, \hyperpage{33}
+  \item {swmm\+\_\+get\+Simulation\+Date\+Time}
+    \subitem {Simulation Options}, \hyperpage{34}
+  \item {swmm\+\_\+get\+Simulation\+Param}
+    \subitem {Simulation Options}, \hyperpage{34}
+  \item {swmm\+\_\+get\+Simulation\+Unit}
+    \subitem {Simulation Options}, \hyperpage{35}
+  \item {swmm\+\_\+get\+Storage\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{42}
+  \item {swmm\+\_\+get\+Subcatch\+Out\+Connection}
+    \subitem {Network Info}, \hyperpage{29}
+  \item {swmm\+\_\+get\+Subcatch\+Param}
+    \subitem {Network Info}, \hyperpage{30}
+  \item {swmm\+\_\+get\+Subcatch\+Pollut}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{77}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{73}
+  \item {swmm\+\_\+get\+Subcatch\+Result}
+    \subitem {Toolkit Functions}, \hyperpage{42}
+  \item {swmm\+\_\+get\+Subcatch\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{43}
+  \item {swmm\+\_\+get\+System\+Routing\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{43}
+  \item {swmm\+\_\+get\+System\+Runoff\+Stats}
+    \subitem {Toolkit Functions}, \hyperpage{43}
+  \item {swmm\+\_\+get\+Version}
+    \subitem {swmm5.\+h}, \hyperpage{58}
+  \item {swmm\+\_\+get\+Version\+Info}
+    \subitem {swmm5.\+h}, \hyperpage{58}
+  \item {swmm\+\_\+open}
+    \subitem {swmm5.\+h}, \hyperpage{59}
+  \item {swmm\+\_\+report}
+    \subitem {swmm5.\+h}, \hyperpage{59}
+  \item {swmm\+\_\+run}
+    \subitem {swmm5.\+h}, \hyperpage{59}
+  \item {swmm\+\_\+set\+Gage\+Precip}
+    \subitem {toolkit\+A\+P\+I.\+c}, \hyperpage{77}
+    \subitem {toolkit\+A\+P\+I.\+h}, \hyperpage{73}
+  \item {swmm\+\_\+set\+Link\+Param}
+    \subitem {Network Info}, \hyperpage{30}
+  \item {swmm\+\_\+set\+Link\+Setting}
+    \subitem {Toolkit Functions}, \hyperpage{44}
+  \item {swmm\+\_\+set\+Node\+Inflow}
+    \subitem {Toolkit Functions}, \hyperpage{44}
+  \item {swmm\+\_\+set\+Node\+Param}
+    \subitem {Network Info}, \hyperpage{31}
+  \item {swmm\+\_\+set\+Outfall\+Stage}
+    \subitem {Toolkit Functions}, \hyperpage{45}
+  \item {swmm\+\_\+set\+Simulation\+Date\+Time}
+    \subitem {Simulation Options}, \hyperpage{35}
+  \item {swmm\+\_\+set\+Subcatch\+Param}
+    \subitem {Network Info}, \hyperpage{31}
+  \item {swmm\+\_\+start}
+    \subitem {swmm5.\+h}, \hyperpage{60}
+  \item {swmm\+\_\+step}
+    \subitem {swmm5.\+h}, \hyperpage{60}
+
+  \indexspace
+
+  \item {Toolkit Functions}, \hyperpage{37}
+    \subitem {swmm\+\_\+free\+Outfall\+Stats}, \hyperpage{37}
+    \subitem {swmm\+\_\+get\+Current\+Date\+Time\+Str}, \hyperpage{38}
+    \subitem {swmm\+\_\+get\+Link\+Result}, \hyperpage{38}
+    \subitem {swmm\+\_\+get\+Link\+Stats}, \hyperpage{39}
+    \subitem {swmm\+\_\+get\+Node\+Result}, \hyperpage{39}
+    \subitem {swmm\+\_\+get\+Node\+Stats}, \hyperpage{40}
+    \subitem {swmm\+\_\+get\+Node\+Total\+Inflow}, \hyperpage{40}
+    \subitem {swmm\+\_\+get\+Outfall\+Stats}, \hyperpage{41}
+    \subitem {swmm\+\_\+get\+Pump\+Stats}, \hyperpage{41}
+    \subitem {swmm\+\_\+get\+Storage\+Stats}, \hyperpage{42}
+    \subitem {swmm\+\_\+get\+Subcatch\+Result}, \hyperpage{42}
+    \subitem {swmm\+\_\+get\+Subcatch\+Stats}, \hyperpage{43}
+    \subitem {swmm\+\_\+get\+System\+Routing\+Stats}, \hyperpage{43}
+    \subitem {swmm\+\_\+get\+System\+Runoff\+Stats}, \hyperpage{43}
+    \subitem {swmm\+\_\+set\+Link\+Setting}, \hyperpage{44}
+    \subitem {swmm\+\_\+set\+Node\+Inflow}, \hyperpage{44}
+    \subitem {swmm\+\_\+set\+Outfall\+Stage}, \hyperpage{45}
+  \item {toolkit\+A\+P\+I.\+c}
+    \subitem {free\+Array}, \hyperpage{76}
+    \subitem {new\+Double\+Array}, \hyperpage{76}
+    \subitem {swmm\+\_\+get\+Gage\+Precip}, \hyperpage{77}
+    \subitem {swmm\+\_\+get\+Object\+Index}, \hyperpage{77}
+    \subitem {swmm\+\_\+get\+Subcatch\+Pollut}, \hyperpage{77}
+    \subitem {swmm\+\_\+set\+Gage\+Precip}, \hyperpage{77}
+  \item {toolkit\+A\+P\+I.\+h}
+    \subitem {free\+Array}, \hyperpage{71}
+    \subitem {S\+M\+\_\+\+Gage\+Precip}, \hyperpage{64}
+    \subitem {S\+M\+\_\+\+Link\+Property}, \hyperpage{65}
+    \subitem {S\+M\+\_\+\+Link\+Result}, \hyperpage{65}
+    \subitem {S\+M\+\_\+\+Link\+Type}, \hyperpage{66}
+    \subitem {S\+M\+\_\+\+Node\+Property}, \hyperpage{66}
+    \subitem {S\+M\+\_\+\+Node\+Result}, \hyperpage{66}
+    \subitem {S\+M\+\_\+\+Node\+Type}, \hyperpage{67}
+    \subitem {S\+M\+\_\+\+Object\+Type}, \hyperpage{67}
+    \subitem {S\+M\+\_\+\+Sim\+Option}, \hyperpage{68}
+    \subitem {S\+M\+\_\+\+Sim\+Setting}, \hyperpage{68}
+    \subitem {S\+M\+\_\+\+Subc\+Pollut}, \hyperpage{69}
+    \subitem {S\+M\+\_\+\+Subc\+Property}, \hyperpage{69}
+    \subitem {S\+M\+\_\+\+Subc\+Result}, \hyperpage{69}
+    \subitem {S\+M\+\_\+\+Time\+Propety}, \hyperpage{70}
+    \subitem {S\+M\+\_\+\+Units}, \hyperpage{70}
+    \subitem {swmm\+\_\+get\+Gage\+Precip}, \hyperpage{71}
+    \subitem {swmm\+\_\+get\+Object\+Index}, \hyperpage{71}
+    \subitem {swmm\+\_\+get\+Subcatch\+Pollut}, \hyperpage{73}
+    \subitem {swmm\+\_\+set\+Gage\+Precip}, \hyperpage{73}
+
+\end{theindex}

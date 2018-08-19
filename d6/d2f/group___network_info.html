@@ -87,9 +87,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gac390c83be7f7f0e2cd9c6f1126a226aa"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/group___network_info.html#gac390c83be7f7f0e2cd9c6f1126a226aa">swmm_getLinkDirection</a> (int index, signed char *value)</td></tr>
 <tr class="memdesc:gac390c83be7f7f0e2cd9c6f1126a226aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the link flow direction (see <a class="el" href="../../d6/d2f/group___network_info.html#gacf4d0ca8a3ced3c1b8797f3f09fff1d0">swmm_getLinkType()</a> for notes.  <a href="#gac390c83be7f7f0e2cd9c6f1126a226aa">More...</a><br /></td></tr>
 <tr class="separator:gac390c83be7f7f0e2cd9c6f1126a226aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga680f272c435f20efed35fd2725be4a08"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/group___network_info.html#ga680f272c435f20efed35fd2725be4a08">swmm_getSubcatchOutConnection</a> (int index, int *type, int *Index)</td></tr>
-<tr class="memdesc:ga680f272c435f20efed35fd2725be4a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Subcatchment connection. Subcatchments can load to a node, another subcatchment, or itself.  <a href="#ga680f272c435f20efed35fd2725be4a08">More...</a><br /></td></tr>
-<tr class="separator:ga680f272c435f20efed35fd2725be4a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5bf84d942a741d62d12b87dbdb2c49b4"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/group___network_info.html#ga5bf84d942a741d62d12b87dbdb2c49b4">swmm_getSubcatchOutConnection</a> (int index, int *type, int *out_index)</td></tr>
+<tr class="memdesc:ga5bf84d942a741d62d12b87dbdb2c49b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Subcatchment connection. Subcatchments can load to a node, another subcatchment, or itself.  <a href="#ga5bf84d942a741d62d12b87dbdb2c49b4">More...</a><br /></td></tr>
+<tr class="separator:ga5bf84d942a741d62d12b87dbdb2c49b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga90d0d4c48e2cbeaea1bd43ba095a6672"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/group___network_info.html#ga90d0d4c48e2cbeaea1bd43ba095a6672">swmm_getNodeParam</a> (int index, int Param, double *value)</td></tr>
 <tr class="memdesc:ga90d0d4c48e2cbeaea1bd43ba095a6672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property value for specified node.  <a href="#ga90d0d4c48e2cbeaea1bd43ba095a6672">More...</a><br /></td></tr>
 <tr class="separator:ga90d0d4c48e2cbeaea1bd43ba095a6672"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,9 +145,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: type = object type (Based on SM_ObjectType enum) Output: count = pointer to integer Returns: API Error Purpose: uses Object Count table to find number of elements of an object </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00281">281</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00279">279</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -192,9 +193,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID Output: Node1 and Node2 indeces Return: API Error Purpose: Gets link Connection ID Indeces </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00429">429</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00427">427</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -232,9 +234,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID Output: Link Direction (Only changes is slope &lt; 0) Return: API Error Purpose: Gets Link Direction </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00457">457</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00455">455</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -279,9 +282,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_LinkProperty) Output: value = value to be output Return: API Error Purpose: Gets Link Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00569">569</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00567">567</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -319,9 +323,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID Ltype = Link type (Based on enum SM_LinkType) Return: API Error Purpose: Gets Link Type </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00405">405</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00403">403</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -366,9 +371,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_NodeProperty) Output: value = value to be output Return: API Error Purpose: Gets Node Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00483">483</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00481">481</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -406,9 +412,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID Ntype = Node type (Based on enum SM_NodeType) Return: API Error Purpose: Gets Node Type </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00381">381</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00379">379</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -453,14 +460,15 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: type = object type (Based on SM_ObjectType enum) index = Index of desired ID Output: id = pointer to id pass by reference Return: API Error Purpose: Gets ID for any object </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00317">317</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00315">315</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
-<a id="ga680f272c435f20efed35fd2725be4a08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga680f272c435f20efed35fd2725be4a08">&#9670;&nbsp;</a></span>swmm_getSubcatchOutConnection()</h2>
+<a id="ga5bf84d942a741d62d12b87dbdb2c49b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5bf84d942a741d62d12b87dbdb2c49b4">&#9670;&nbsp;</a></span>swmm_getSubcatchOutConnection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -481,7 +489,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>Index</em>&#160;</td>
+          <td class="paramname"><em>out_index</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -496,13 +504,14 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a Subcatchment </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">type</td><td>The type of object loading (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a1c1a5cece690c3dbb5d743336b88e0e4">SM_ObjectType</a>) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">Index</td><td>The object index </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_index</td><td>The object index </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID (Subcatchments can load to Node or another Subcatchment) Output: Type of Object Index of Object Return: API Error Purpose: Gets Subcatchment Connection ID Indeces for either Node or Subcatchment </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00762">762</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00760">760</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -547,9 +556,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_SubcProperty) Output: value = value to be output Return: API Error Purpose: Gets Subcatchment Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00671">671</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00669">669</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -594,9 +604,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_LinkProperty) value = value to be output Return: API Error Purpose: Sets Link Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00613">613</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00611">611</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -641,9 +652,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_NodeProperty) value = value to be input Return: API Error Purpose: Sets Node Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00523">523</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00521">521</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -688,9 +700,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID param = Parameter desired (Based on enum SM_SubcProperty) value = value to be output Return: API Error Purpose: Sets Subcatchment Parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00711">711</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00709">709</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>

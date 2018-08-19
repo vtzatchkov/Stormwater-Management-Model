@@ -1,5 +1,5 @@
-\hypertarget{toolkit_a_p_i_8h}{}\section{C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/toolkit\+A\+PI.h File Reference}
-\label{toolkit_a_p_i_8h}\index{C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/toolkit\+A\+P\+I.\+h@{C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/toolkit\+A\+P\+I.\+h}}
+\hypertarget{toolkit_a_p_i_8h}{}\section{include/toolkit\+A\+PI.h File Reference}
+\label{toolkit_a_p_i_8h}\index{include/toolkit\+A\+P\+I.\+h@{include/toolkit\+A\+P\+I.\+h}}
 
 
 Exportable Functions for Toolkit A\+PI.  
@@ -10,19 +10,19 @@ Exportable Functions for Toolkit A\+PI.
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_s_m___node_stats}{S\+M\+\_\+\+Node\+Stats}
-\begin{DoxyCompactList}\small\item\em Node stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Node Statatistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___storage_stats}{S\+M\+\_\+\+Storage\+Stats}
-\begin{DoxyCompactList}\small\item\em Storage stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Storage Statatistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats}
-\begin{DoxyCompactList}\small\item\em Outfall stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Outfall Statatistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___link_stats}{S\+M\+\_\+\+Link\+Stats}
-\begin{DoxyCompactList}\small\item\em Link stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Link Statatistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___pump_stats}{S\+M\+\_\+\+Pump\+Stats}
-\begin{DoxyCompactList}\small\item\em Pump stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Pump Statistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}
-\begin{DoxyCompactList}\small\item\em Subcatchment stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Subcatchment Statistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals}
-\begin{DoxyCompactList}\small\item\em System routing stats structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em System Flow Routing Statistics. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals}
 \begin{DoxyCompactList}\small\item\em System runoff stats structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
@@ -72,7 +72,7 @@ enum \hyperlink{toolkit_a_p_i_8h_ac563914fcc472c280a0710be9d75b2a7}{S\+M\+\_\+\+
 \item 
 enum \hyperlink{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869}{S\+M\+\_\+\+Units} \{ \hyperlink{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869aaa53d684524e2678b83cbbbd7049aac0}{S\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+U\+N\+IT} = 0, 
 \hyperlink{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869a1b4b695ce21152d7dd0852295d6d5f7c}{S\+M\+\_\+\+F\+L\+O\+W\+U\+N\+IT} = 1
- \}
+ \}\begin{DoxyCompactList}\small\item\em Simulation Unit Codes. \end{DoxyCompactList}
 \item 
 enum \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7}{S\+M\+\_\+\+Sim\+Option} \{ \newline
 \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7ad8806fd8edc9d27cb8230afa13e9681a}{S\+M\+\_\+\+A\+L\+L\+O\+W\+P\+O\+ND} = 0, 
@@ -84,7 +84,7 @@ enum \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7}{S\+M\+\_\+\+
 \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7a056be1dabf31df74bfb46003b159887c}{S\+M\+\_\+\+I\+G\+N\+O\+R\+E\+GW} = 5, 
 \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7a786f9cadebb7c0d242a77e3f25b5042b}{S\+M\+\_\+\+I\+G\+N\+O\+R\+E\+R\+O\+U\+TE} = 6, 
 \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7a958ea04da58edcc4469d69f09d9619c1}{S\+M\+\_\+\+I\+G\+N\+O\+R\+E\+R\+Q\+U\+AL} = 7
- \}
+ \}\begin{DoxyCompactList}\small\item\em Simulation Options. \end{DoxyCompactList}
 \item 
 enum \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7}{S\+M\+\_\+\+Sim\+Setting} \{ \newline
 \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7a024c8050faac676b5a5cc473c045ee6f}{S\+M\+\_\+\+R\+O\+U\+T\+E\+S\+T\+EP} = 0, 
@@ -104,7 +104,7 @@ enum \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7}{S\+M\+\_\+\+
 \newline
 \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7aa6d734f10c900e5ebcb3f2049cdba8b8}{S\+M\+\_\+\+S\+Y\+S\+F\+L\+O\+W\+T\+OL} = 12, 
 \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7a7a74cce30dad6b6b27f5b38344220db3}{S\+M\+\_\+\+L\+A\+T\+F\+L\+O\+W\+T\+OL} = 13
- \}
+ \}\begin{DoxyCompactList}\small\item\em Simulation Settings. \end{DoxyCompactList}
 \item 
 enum \hyperlink{toolkit_a_p_i_8h_a122269e6da4f1f6d61e0e30299c41828}{S\+M\+\_\+\+Node\+Property} \{ \newline
 \hyperlink{toolkit_a_p_i_8h_a122269e6da4f1f6d61e0e30299c41828ad26075fa3684f106bbcea6ef76e91e3c}{S\+M\+\_\+\+I\+N\+V\+E\+R\+T\+EL} = 0, 
@@ -203,7 +203,7 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gaebf8dfaeb171add708
 \begin{DoxyCompactList}\small\item\em Get the link Connection Node Indeces. If the conduit has a negative slope, the dynamic wave solver will automatically reverse the nodes. To check the direction, call \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction()}. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction} (int index, signed char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get the link flow direction (see \hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type()} for notes. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga680f272c435f20efed35fd2725be4a08}{swmm\+\_\+get\+Subcatch\+Out\+Connection} (int index, int $\ast$type, int $\ast$Index)
+int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}{swmm\+\_\+get\+Subcatch\+Out\+Connection} (int index, int $\ast$type, int $\ast$out\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Get the Subcatchment connection. Subcatchments can load to a node, another subcatchment, or itself. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}{swmm\+\_\+get\+Node\+Param} (int index, int Param, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get a property value for specified node. \end{DoxyCompactList}\item 
@@ -217,7 +217,7 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga20fcc911e1b6dbf439
 \begin{DoxyCompactList}\small\item\em Get a property value for specified subcatchment. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga8bfeda2cf3547d526da6cb7926ee7519}{swmm\+\_\+set\+Subcatch\+Param} (int index, int Param, double value)
 \begin{DoxyCompactList}\small\item\em Set a property value for specified subcatchment. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gaccc662920215c153b43181055c1f3c8f}{swmm\+\_\+get\+Simulation\+Date\+Time} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$seconds)
+int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}{swmm\+\_\+get\+Simulation\+Date\+Time} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$second)
 \begin{DoxyCompactList}\small\item\em Get the current simulation datetime information. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga2539c5004593b674f972e757828a0759}{swmm\+\_\+set\+Simulation\+Date\+Time} (int timetype, char $\ast$dtimestr)
 \begin{DoxyCompactList}\small\item\em Set simulation datetime information. \end{DoxyCompactList}\item 
@@ -434,7 +434,7 @@ S\+M\+\_\+\+O\+U\+T\+L\+ET&Outlet \\
 \end{DoxyEnumFields}
 
 
-Definition at line 64 of file toolkit\+A\+P\+I.\+h.
+Definition at line 61 of file toolkit\+A\+P\+I.\+h.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a122269e6da4f1f6d61e0e30299c41828}\label{toolkit_a_p_i_8h_a122269e6da4f1f6d61e0e30299c41828}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Node\+Property@{S\+M\+\_\+\+Node\+Property}}
@@ -550,7 +550,7 @@ S\+M\+\_\+\+D\+I\+V\+I\+D\+ER&Divider \\
 \end{DoxyEnumFields}
 
 
-Definition at line 56 of file toolkit\+A\+P\+I.\+h.
+Definition at line 53 of file toolkit\+A\+P\+I.\+h.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}\label{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Object\+Type@{S\+M\+\_\+\+Object\+Type}}
@@ -630,13 +630,17 @@ S\+M\+\_\+\+L\+ID&L\+ID treatment units \\
 \end{DoxyEnumFields}
 
 
-Definition at line 36 of file toolkit\+A\+P\+I.\+h.
+Definition at line 33 of file toolkit\+A\+P\+I.\+h.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7}\label{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Sim\+Option@{S\+M\+\_\+\+Sim\+Option}}
 \index{S\+M\+\_\+\+Sim\+Option@{S\+M\+\_\+\+Sim\+Option}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
 \subsubsection{\texorpdfstring{S\+M\+\_\+\+Sim\+Option}{SM\_SimOption}}
 {\footnotesize\ttfamily enum \hyperlink{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7}{S\+M\+\_\+\+Sim\+Option}}
+
+
+
+Simulation Options. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+A\+L\+L\+O\+W\+P\+O\+ND@{S\+M\+\_\+\+A\+L\+L\+O\+W\+P\+O\+ND}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+A\+L\+L\+O\+W\+P\+O\+ND@{S\+M\+\_\+\+A\+L\+L\+O\+W\+P\+O\+ND}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7ad8806fd8edc9d27cb8230afa13e9681a}\label{toolkit_a_p_i_8h_aa5352c0310761792b765a439995cd1c7ad8806fd8edc9d27cb8230afa13e9681a}} 
@@ -674,13 +678,17 @@ S\+M\+\_\+\+I\+G\+N\+O\+R\+E\+R\+Q\+U\+AL&Ignore Quality \\
 \end{DoxyEnumFields}
 
 
-Definition at line 84 of file toolkit\+A\+P\+I.\+h.
+Definition at line 83 of file toolkit\+A\+P\+I.\+h.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7}\label{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Sim\+Setting@{S\+M\+\_\+\+Sim\+Setting}}
 \index{S\+M\+\_\+\+Sim\+Setting@{S\+M\+\_\+\+Sim\+Setting}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
 \subsubsection{\texorpdfstring{S\+M\+\_\+\+Sim\+Setting}{SM\_SimSetting}}
 {\footnotesize\ttfamily enum \hyperlink{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7}{S\+M\+\_\+\+Sim\+Setting}}
+
+
+
+Simulation Settings. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+R\+O\+U\+T\+E\+S\+T\+EP@{S\+M\+\_\+\+R\+O\+U\+T\+E\+S\+T\+EP}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+R\+O\+U\+T\+E\+S\+T\+EP@{S\+M\+\_\+\+R\+O\+U\+T\+E\+S\+T\+EP}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7a024c8050faac676b5a5cc473c045ee6f}\label{toolkit_a_p_i_8h_a412c2966ae21bca5060e1dc9a69d9ac7a024c8050faac676b5a5cc473c045ee6f}} 
@@ -870,13 +878,17 @@ S\+M\+\_\+\+R\+E\+P\+O\+R\+T\+D\+A\+TE&Simulation Report Start Date \\
 \end{DoxyEnumFields}
 
 
-Definition at line 73 of file toolkit\+A\+P\+I.\+h.
+Definition at line 70 of file toolkit\+A\+P\+I.\+h.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869}\label{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+Units@{S\+M\+\_\+\+Units}}
 \index{S\+M\+\_\+\+Units@{S\+M\+\_\+\+Units}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}
 \subsubsection{\texorpdfstring{S\+M\+\_\+\+Units}{SM\_Units}}
 {\footnotesize\ttfamily enum \hyperlink{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869}{S\+M\+\_\+\+Units}}
+
+
+
+Simulation Unit Codes. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{S\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+U\+N\+IT@{S\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+U\+N\+IT}!toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}}\index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!S\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+U\+N\+IT@{S\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+U\+N\+IT}}}\mbox{\Hypertarget{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869aaa53d684524e2678b83cbbbd7049aac0}\label{toolkit_a_p_i_8h_a02dd11b0f69dbe75c7228feb070c8869aaa53d684524e2678b83cbbbd7049aac0}} 
@@ -890,7 +902,7 @@ S\+M\+\_\+\+F\+L\+O\+W\+U\+N\+IT&Flow Units \\
 \end{DoxyEnumFields}
 
 
-Definition at line 79 of file toolkit\+A\+P\+I.\+h.
+Definition at line 77 of file toolkit\+A\+P\+I.\+h.
 
 
 
@@ -910,9 +922,12 @@ Helper function to free memory array allocated in S\+W\+MM.
 {\em array} & The pointer to the array \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void.
+\end{DoxyReturn}
+Helper function used to free array allocated memory by A\+PI. 
 
-
-Definition at line 1569 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1571 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_ae618b633fecd1b9d1df93b013f93153e}\label{toolkit_a_p_i_8h_ae618b633fecd1b9d1df93b013f93153e}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Gage\+Precip@{swmm\+\_\+get\+Gage\+Precip}}
@@ -928,15 +943,15 @@ Get precipitation rates for a gage.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of gage \\
 \hline
-\mbox{\tt out}  & {\em Gage} & precipitation rates array \mbox{[}total, rainfall, snowfall\mbox{]} \\
+\mbox{\tt out}  & {\em Gage\+Array} & precipitation rates array \mbox{[}total, rainfall, snowfall\mbox{]} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID Output\+: Gage\+Array pointer (three elements) Return\+: A\+PI Error Purpose\+: Gets the precipitation value in the gage. 
 
-
-Definition at line 1034 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1032 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a158e2086f5dc8e4515637cad0a15f7b5}\label{toolkit_a_p_i_8h_a158e2086f5dc8e4515637cad0a15f7b5}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Object\+Index@{swmm\+\_\+get\+Object\+Index}}
@@ -952,17 +967,17 @@ Gets Object ID Index.
 \begin{DoxyParams}[1]{Parameters}
  & {\em type} & Option code (see \hyperlink{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}{S\+M\+\_\+\+Object\+Type}) \\
 \hline
- & {\em id} & of the Object \\
+\mbox{\tt out}  & {\em id} & of the Object \\
 \hline
-\mbox{\tt out}  & {\em Error} & code \\
+\mbox{\tt out}  & {\em errcode} & Error Code \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Object Injdex 
+Object Injdex
 \end{DoxyReturn}
+Input\+: type = object type (Based on S\+M\+\_\+\+Object\+Type enum) char$\ast$ = ID name Output\+: errorcode = pointer to error code Return\+: Object Index Purpose\+: Gets object id index 
 
-
-Definition at line 294 of file toolkit\+A\+P\+I.\+c.
+Definition at line 292 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a6af9dbfcd63cd844d58b62f2b137d937}\label{toolkit_a_p_i_8h_a6af9dbfcd63cd844d58b62f2b137d937}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+get\+Subcatch\+Pollut@{swmm\+\_\+get\+Subcatch\+Pollut}}
@@ -978,17 +993,17 @@ Gets pollutant values for a specified subcatchment.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of a subcatchment \\
 \hline
- & {\em result} & The property type code (see \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}{S\+M\+\_\+\+Subc\+Pollut}) \\
+ & {\em type} & The property type code (see \hyperlink{toolkit_a_p_i_8h_ab825b92697a44853475c632bc1c2e907}{S\+M\+\_\+\+Subc\+Pollut}) \\
 \hline
-\mbox{\tt out}  & {\em Pollutant} & result array \\
+\mbox{\tt out}  & {\em Pollut\+Array} & result array \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID type = Result Type (S\+M\+\_\+\+Subc\+Pollut) Output\+: Pollut\+Array pointer (pollutant data desired, byref) Return\+: A\+PI Error Purpose\+: Gets Subcatchment Simulated Pollutant Value at Current Time 
 
-
-Definition at line 980 of file toolkit\+A\+P\+I.\+c.
+Definition at line 978 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8h_a900b152b178db57bd6bd48fd4423a22c}\label{toolkit_a_p_i_8h_a900b152b178db57bd6bd48fd4423a22c}} 
 \index{toolkit\+A\+P\+I.\+h@{toolkit\+A\+P\+I.\+h}!swmm\+\_\+set\+Gage\+Precip@{swmm\+\_\+set\+Gage\+Precip}}
@@ -1008,9 +1023,9 @@ Set a total precipitation intensity to the gage.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID total\+\_\+precip = rainfall intensity to be set Return\+: A\+PI Error Purpose\+: Sets the precipitation in from the external database 
 
-
-Definition at line 1518 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1520 of file toolkit\+A\+P\+I.\+c.
 

@@ -1,0 +1,19 @@
+<map id="src/toolkitAPI.c" name="src/toolkitAPI.c">
+<area shape="rect" id="node5" href="$da/d13/headers_8h_source.html" title="headers.h" alt="" coords="407,80,486,107"/>
+<area shape="rect" id="node20" href="$d1/dd1/swmm5_8h.html" title="Prototypes for SWMM5 functions exported to swmm5.dll. " alt="" coords="510,80,589,107"/>
+<area shape="rect" id="node21" href="$db/dfb/hash_8h_source.html" title="hash.h" alt="" coords="613,80,675,107"/>
+<area shape="rect" id="node6" href="$d8/db5/consts_8h_source.html" title="consts.h" alt="" coords="91,155,163,181"/>
+<area shape="rect" id="node7" href="$de/d3c/macros_8h_source.html" title="macros.h" alt="" coords="187,155,263,181"/>
+<area shape="rect" id="node8" href="$d0/d0b/enums_8h_source.html" title="enums.h" alt="" coords="288,155,360,181"/>
+<area shape="rect" id="node9" href="$da/d41/error_8h_source.html" title="error.h" alt="" coords="384,155,443,181"/>
+<area shape="rect" id="node10" href="$de/d1b/datetime_8h_source.html" title="datetime.h" alt="" coords="609,304,692,331"/>
+<area shape="rect" id="node11" href="$df/d91/objects_8h_source.html" title="objects.h" alt="" coords="517,155,592,181"/>
+<area shape="rect" id="node15" href="$d1/d96/funcs_8h_source.html" title="funcs.h" alt="" coords="616,155,680,181"/>
+<area shape="rect" id="node17" href="$d9/dcc/text_8h_source.html" title="text.h" alt="" coords="705,155,759,181"/>
+<area shape="rect" id="node18" href="$d2/db7/keywords_8h_source.html" title="keywords.h" alt="" coords="784,155,872,181"/>
+<area shape="rect" id="node19" href="$d5/d87/globals_8h_source.html" title="globals.h" alt="" coords="896,155,971,181"/>
+<area shape="rect" id="node12" href="$df/d7c/mathexpr_8h_source.html" title="mathexpr.h" alt="" coords="514,229,601,256"/>
+<area shape="rect" id="node13" href="$d4/ddc/infil_8h_source.html" title="infil.h" alt="" coords="625,229,677,256"/>
+<area shape="rect" id="node14" href="$d2/d47/exfil_8h_source.html" title="exfil.h" alt="" coords="701,229,757,256"/>
+<area shape="rect" id="node16" href="$dc/dce/toolkit_a_p_i_8h.html" title="Exportable Functions for Toolkit API. " alt="" coords="782,229,871,256"/>
+</map>

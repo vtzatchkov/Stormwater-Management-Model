@@ -81,9 +81,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3f3a35c715f9d618efabb85bed6e2d08"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d78/group___simulation_settings.html#ga3f3a35c715f9d618efabb85bed6e2d08">swmm_getSimulationParam</a> (int type, double *value)</td></tr>
 <tr class="memdesc:ga3f3a35c715f9d618efabb85bed6e2d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets Simulation Analysis Setting.  <a href="#ga3f3a35c715f9d618efabb85bed6e2d08">More...</a><br /></td></tr>
 <tr class="separator:ga3f3a35c715f9d618efabb85bed6e2d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaccc662920215c153b43181055c1f3c8f"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d78/group___simulation_settings.html#gaccc662920215c153b43181055c1f3c8f">swmm_getSimulationDateTime</a> (int timetype, int *year, int *month, int *day, int *hour, int *minute, int *seconds)</td></tr>
-<tr class="memdesc:gaccc662920215c153b43181055c1f3c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current simulation datetime information.  <a href="#gaccc662920215c153b43181055c1f3c8f">More...</a><br /></td></tr>
-<tr class="separator:gaccc662920215c153b43181055c1f3c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac261f5224debc1ed0e92c725a1d35213"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d78/group___simulation_settings.html#gac261f5224debc1ed0e92c725a1d35213">swmm_getSimulationDateTime</a> (int timetype, int *year, int *month, int *day, int *hour, int *minute, int *second)</td></tr>
+<tr class="memdesc:gac261f5224debc1ed0e92c725a1d35213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current simulation datetime information.  <a href="#gac261f5224debc1ed0e92c725a1d35213">More...</a><br /></td></tr>
+<tr class="separator:gac261f5224debc1ed0e92c725a1d35213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2539c5004593b674f972e757828a0759"><td class="memItemLeft" align="right" valign="top">int DLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d78/group___simulation_settings.html#ga2539c5004593b674f972e757828a0759">swmm_setSimulationDateTime</a> (int timetype, char *dtimestr)</td></tr>
 <tr class="memdesc:ga2539c5004593b674f972e757828a0759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set simulation datetime information.  <a href="#ga2539c5004593b674f972e757828a0759">More...</a><br /></td></tr>
 <tr class="separator:ga2539c5004593b674f972e757828a0759"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,12 +120,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">errcode</td><td>The error code </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>The error string represented by the code </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>The error string represented by the code</td></tr>
   </table>
   </dd>
 </dl>
+<p>Input: errcode = error code Output: errmessage String Return: API Error Purpose: Get an error message </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00042">42</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00040">40</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -163,14 +164,15 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: type = analysis type Output: setting True or False Returns: API Error Purpose: get simulation analysis setting </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00186">186</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00184">184</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
-<a id="gaccc662920215c153b43181055c1f3c8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaccc662920215c153b43181055c1f3c8f">&#9670;&nbsp;</a></span>swmm_getSimulationDateTime()</h2>
+<a id="gac261f5224debc1ed0e92c725a1d35213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac261f5224debc1ed0e92c725a1d35213">&#9670;&nbsp;</a></span>swmm_getSimulationDateTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +217,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>seconds</em>&#160;</td>
+          <td class="paramname"><em>second</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,19 +230,20 @@ Functions</h2></td></tr>
 <p>Get the current simulation datetime information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">Param</td><td>timetype The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ac563914fcc472c280a0710be9d75b2a7">SM_TimePropety</a>) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timetype</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ac563914fcc472c280a0710be9d75b2a7">SM_TimePropety</a>) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">year</td><td>The year </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">month</td><td>The month </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">day</td><td>The day </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">hour</td><td>The hour </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">minute</td><td>The minute </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">seconds</td><td>The seconds </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">second</td><td>The seconds </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: timetype = time type to return Output: year, month, day, hours, minutes, seconds = int Return: API Error Purpose: Get the simulation start, end and report date times </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00053">53</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00051">51</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -278,9 +281,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: type = analysis type Output: Simulation Parameter Returns: error code Purpose: Get simulation analysis parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00227">227</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00225">225</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -318,9 +322,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: type = simulation unit type Output: enum representation of units Returns: API Error Purpose: get simulation unit types </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00154">154</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00152">152</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -353,14 +358,15 @@ Functions</h2></td></tr>
 <p>Set simulation datetime information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">Param</td><td>timetype The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ac563914fcc472c280a0710be9d75b2a7">SM_TimePropety</a>) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timetype</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ac563914fcc472c280a0710be9d75b2a7">SM_TimePropety</a>) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">dtimestr</td><td>The current datetime. dtimestr must be pre-allocated by the caller. This will copy 19 characters. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: timetype = time type to return DateTime String Return: API Error Purpose: Get the simulation start, end and report date times </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00094">94</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00092">92</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>

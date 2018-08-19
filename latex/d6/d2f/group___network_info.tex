@@ -15,7 +15,7 @@ int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gaebf8dfaeb171add708
 \begin{DoxyCompactList}\small\item\em Get the link Connection Node Indeces. If the conduit has a negative slope, the dynamic wave solver will automatically reverse the nodes. To check the direction, call \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction()}. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction} (int index, signed char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get the link flow direction (see \hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type()} for notes. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga680f272c435f20efed35fd2725be4a08}{swmm\+\_\+get\+Subcatch\+Out\+Connection} (int index, int $\ast$type, int $\ast$Index)
+int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}{swmm\+\_\+get\+Subcatch\+Out\+Connection} (int index, int $\ast$type, int $\ast$out\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Get the Subcatchment connection. Subcatchments can load to a node, another subcatchment, or itself. \end{DoxyCompactList}\item 
 int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}{swmm\+\_\+get\+Node\+Param} (int index, int Param, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get a property value for specified node. \end{DoxyCompactList}\item 
@@ -53,11 +53,11 @@ Gets Object Count.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: type = object type (Based on S\+M\+\_\+\+Object\+Type enum) Output\+: count = pointer to integer Returns\+: A\+PI Error Purpose\+: uses Object Count table to find number of elements of an object 
 
-
-Definition at line 281 of file toolkit\+A\+P\+I.\+c.
+Definition at line 279 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gaebf8dfaeb171add70860fbdd99f768be}\label{group___network_info_gaebf8dfaeb171add70860fbdd99f768be}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Link\+Connections@{swmm\+\_\+get\+Link\+Connections}}
@@ -79,11 +79,11 @@ Get the link Connection Node Indeces. If the conduit has a negative slope, the d
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID Output\+: Node1 and Node2 indeces Return\+: A\+PI Error Purpose\+: Gets link Connection ID Indeces 
 
-
-Definition at line 429 of file toolkit\+A\+P\+I.\+c.
+Definition at line 427 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}\label{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Link\+Direction@{swmm\+\_\+get\+Link\+Direction}}
@@ -103,11 +103,11 @@ Get the link flow direction (see \hyperlink{group___network_info_gacf4d0ca8a3ced
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID Output\+: Link Direction (Only changes is slope $<$ 0) Return\+: A\+PI Error Purpose\+: Gets Link Direction 
 
-
-Definition at line 457 of file toolkit\+A\+P\+I.\+c.
+Definition at line 455 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gaab21d9f5a8789ab41c981a90e1240cc5}\label{group___network_info_gaab21d9f5a8789ab41c981a90e1240cc5}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Link\+Param@{swmm\+\_\+get\+Link\+Param}}
@@ -129,11 +129,11 @@ Get a property value for specified link.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Link\+Property) Output\+: value = value to be output Return\+: A\+PI Error Purpose\+: Gets Link Parameter 
 
-
-Definition at line 569 of file toolkit\+A\+P\+I.\+c.
+Definition at line 567 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}\label{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Link\+Type@{swmm\+\_\+get\+Link\+Type}}
@@ -153,11 +153,11 @@ Get the type of link with specified index.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID Ltype = Link type (Based on enum S\+M\+\_\+\+Link\+Type) Return\+: A\+PI Error Purpose\+: Gets Link Type 
 
-
-Definition at line 405 of file toolkit\+A\+P\+I.\+c.
+Definition at line 403 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}\label{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Node\+Param@{swmm\+\_\+get\+Node\+Param}}
@@ -179,11 +179,11 @@ Get a property value for specified node.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Node\+Property) Output\+: value = value to be output Return\+: A\+PI Error Purpose\+: Gets Node Parameter 
 
-
-Definition at line 483 of file toolkit\+A\+P\+I.\+c.
+Definition at line 481 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gae66a64aee207928c902cb399222cf418}\label{group___network_info_gae66a64aee207928c902cb399222cf418}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Node\+Type@{swmm\+\_\+get\+Node\+Type}}
@@ -203,11 +203,11 @@ Get the type of node with specified index.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID Ntype = Node type (Based on enum S\+M\+\_\+\+Node\+Type) Return\+: A\+PI Error Purpose\+: Gets Node Type 
 
-
-Definition at line 381 of file toolkit\+A\+P\+I.\+c.
+Definition at line 379 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_ga8bad91e436bc64458cf0958b722781a0}\label{group___network_info_ga8bad91e436bc64458cf0958b722781a0}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Object\+Id@{swmm\+\_\+get\+Object\+Id}}
@@ -229,17 +229,17 @@ Gets Object ID.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: type = object type (Based on S\+M\+\_\+\+Object\+Type enum) index = Index of desired ID Output\+: id = pointer to id pass by reference Return\+: A\+PI Error Purpose\+: Gets ID for any object 
 
+Definition at line 315 of file toolkit\+A\+P\+I.\+c.
 
-Definition at line 317 of file toolkit\+A\+P\+I.\+c.
-
-\mbox{\Hypertarget{group___network_info_ga680f272c435f20efed35fd2725be4a08}\label{group___network_info_ga680f272c435f20efed35fd2725be4a08}} 
+\mbox{\Hypertarget{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}\label{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Subcatch\+Out\+Connection@{swmm\+\_\+get\+Subcatch\+Out\+Connection}}
 \index{swmm\+\_\+get\+Subcatch\+Out\+Connection@{swmm\+\_\+get\+Subcatch\+Out\+Connection}!Network Info@{Network Info}}
 \subsubsection{\texorpdfstring{swmm\+\_\+get\+Subcatch\+Out\+Connection()}{swmm\_getSubcatchOutConnection()}}
-{\footnotesize\ttfamily int swmm\+\_\+get\+Subcatch\+Out\+Connection (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int $\ast$}]{type,  }\item[{int $\ast$}]{Index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int swmm\+\_\+get\+Subcatch\+Out\+Connection (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int $\ast$}]{type,  }\item[{int $\ast$}]{out\+\_\+index }\end{DoxyParamCaption})}
 
 
 
@@ -251,15 +251,15 @@ Get the Subcatchment connection. Subcatchments can load to a node, another subca
 \hline
 \mbox{\tt out}  & {\em type} & The type of object loading (See \hyperlink{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}{S\+M\+\_\+\+Object\+Type}) \\
 \hline
-\mbox{\tt out}  & {\em Index} & The object index \\
+\mbox{\tt out}  & {\em out\+\_\+index} & The object index \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID (Subcatchments can load to Node or another Subcatchment) Output\+: Type of Object Index of Object Return\+: A\+PI Error Purpose\+: Gets Subcatchment Connection ID Indeces for either Node or Subcatchment 
 
-
-Definition at line 762 of file toolkit\+A\+P\+I.\+c.
+Definition at line 760 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_ga20fcc911e1b6dbf4393a8e404d840963}\label{group___network_info_ga20fcc911e1b6dbf4393a8e404d840963}} 
 \index{Network Info@{Network Info}!swmm\+\_\+get\+Subcatch\+Param@{swmm\+\_\+get\+Subcatch\+Param}}
@@ -281,11 +281,11 @@ Get a property value for specified subcatchment.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Subc\+Property) Output\+: value = value to be output Return\+: A\+PI Error Purpose\+: Gets Subcatchment Parameter 
 
-
-Definition at line 671 of file toolkit\+A\+P\+I.\+c.
+Definition at line 669 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gabc0f1352a99581c17d038597b99d17c5}\label{group___network_info_gabc0f1352a99581c17d038597b99d17c5}} 
 \index{Network Info@{Network Info}!swmm\+\_\+set\+Link\+Param@{swmm\+\_\+set\+Link\+Param}}
@@ -307,11 +307,11 @@ Set a property value for specified link.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Link\+Property) value = value to be output Return\+: A\+PI Error Purpose\+: Sets Link Parameter 
 
-
-Definition at line 613 of file toolkit\+A\+P\+I.\+c.
+Definition at line 611 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_gaa0bc371349ae8f593722e0c3bb0abf31}\label{group___network_info_gaa0bc371349ae8f593722e0c3bb0abf31}} 
 \index{Network Info@{Network Info}!swmm\+\_\+set\+Node\+Param@{swmm\+\_\+set\+Node\+Param}}
@@ -333,11 +333,11 @@ Set a property value for specified node.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Node\+Property) value = value to be input Return\+: A\+PI Error Purpose\+: Sets Node Parameter 
 
-
-Definition at line 523 of file toolkit\+A\+P\+I.\+c.
+Definition at line 521 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group___network_info_ga8bfeda2cf3547d526da6cb7926ee7519}\label{group___network_info_ga8bfeda2cf3547d526da6cb7926ee7519}} 
 \index{Network Info@{Network Info}!swmm\+\_\+set\+Subcatch\+Param@{swmm\+\_\+set\+Subcatch\+Param}}
@@ -359,9 +359,9 @@ Set a property value for specified subcatchment.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID param = Parameter desired (Based on enum S\+M\+\_\+\+Subc\+Property) value = value to be output Return\+: A\+PI Error Purpose\+: Sets Subcatchment Parameter 
 
-
-Definition at line 711 of file toolkit\+A\+P\+I.\+c.
+Definition at line 709 of file toolkit\+A\+P\+I.\+c.
 

@@ -2,22 +2,112 @@
 \label{struct_s_m___storage_stats}\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
 
 
-Storage stats structure.  
+Storage Statatistics.  
 
 
 
 
 {\ttfamily \#include $<$toolkit\+A\+P\+I.\+h$>$}
 
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{struct_s_m___storage_stats_acdb84b3495ce673cdb2a0ce99c95484d}{init\+Vol}
+\item 
+double \hyperlink{struct_s_m___storage_stats_a9c5f7d0519c38ef53aba14d673e56008}{avg\+Vol}
+\item 
+double \hyperlink{struct_s_m___storage_stats_a4e178bd9894a08b39d615b68b788e09e}{max\+Vol}
+\item 
+double \hyperlink{struct_s_m___storage_stats_a4d84bca5454f3903c44fe865e44674f5}{max\+Flow}
+\item 
+double \hyperlink{struct_s_m___storage_stats_a26f9ddf7a3fa4cc0e243386380eec7a4}{evap\+Losses}
+\item 
+double \hyperlink{struct_s_m___storage_stats_adcd5d7e08a26246b15048680595f4581}{exfil\+Losses}
+\item 
+Date\+Time \hyperlink{struct_s_m___storage_stats_aa1b855c3609187dd317a0d75169769ab}{max\+Vol\+Date}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Storage stats structure. 
+Storage Statatistics. 
 
-Definition at line 211 of file toolkit\+A\+P\+I.\+h.
+Definition at line 259 of file toolkit\+A\+P\+I.\+h.
+
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{struct_s_m___storage_stats_a9c5f7d0519c38ef53aba14d673e56008}\label{struct_s_m___storage_stats_a9c5f7d0519c38ef53aba14d673e56008}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!avg\+Vol@{avg\+Vol}}
+\index{avg\+Vol@{avg\+Vol}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{avg\+Vol}{avgVol}}
+{\footnotesize\ttfamily avg\+Vol}
+
+average volume (volume) (from routing step) 
+
+Definition at line 262 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_a26f9ddf7a3fa4cc0e243386380eec7a4}\label{struct_s_m___storage_stats_a26f9ddf7a3fa4cc0e243386380eec7a4}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!evap\+Losses@{evap\+Losses}}
+\index{evap\+Losses@{evap\+Losses}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{evap\+Losses}{evapLosses}}
+{\footnotesize\ttfamily evap\+Losses}
+
+evaporation losses (volume) 
+
+Definition at line 265 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_adcd5d7e08a26246b15048680595f4581}\label{struct_s_m___storage_stats_adcd5d7e08a26246b15048680595f4581}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!exfil\+Losses@{exfil\+Losses}}
+\index{exfil\+Losses@{exfil\+Losses}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{exfil\+Losses}{exfilLosses}}
+{\footnotesize\ttfamily exfil\+Losses}
+
+exfiltration losses (volume) 
+
+Definition at line 266 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_acdb84b3495ce673cdb2a0ce99c95484d}\label{struct_s_m___storage_stats_acdb84b3495ce673cdb2a0ce99c95484d}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!init\+Vol@{init\+Vol}}
+\index{init\+Vol@{init\+Vol}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{init\+Vol}{initVol}}
+{\footnotesize\ttfamily init\+Vol}
+
+initial volume (volume) 
+
+Definition at line 261 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_a4d84bca5454f3903c44fe865e44674f5}\label{struct_s_m___storage_stats_a4d84bca5454f3903c44fe865e44674f5}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!max\+Flow@{max\+Flow}}
+\index{max\+Flow@{max\+Flow}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{max\+Flow}{maxFlow}}
+{\footnotesize\ttfamily max\+Flow}
+
+maximum total inflow (flowrate) (from routing step) 
+
+Definition at line 264 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_a4e178bd9894a08b39d615b68b788e09e}\label{struct_s_m___storage_stats_a4e178bd9894a08b39d615b68b788e09e}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!max\+Vol@{max\+Vol}}
+\index{max\+Vol@{max\+Vol}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{max\+Vol}{maxVol}}
+{\footnotesize\ttfamily max\+Vol}
+
+maximum volume (volume) (from routing step) 
+
+Definition at line 263 of file toolkit\+A\+P\+I.\+h.
+
+\mbox{\Hypertarget{struct_s_m___storage_stats_aa1b855c3609187dd317a0d75169769ab}\label{struct_s_m___storage_stats_aa1b855c3609187dd317a0d75169769ab}} 
+\index{S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}!max\+Vol\+Date@{max\+Vol\+Date}}
+\index{max\+Vol\+Date@{max\+Vol\+Date}!S\+M\+\_\+\+Storage\+Stats@{S\+M\+\_\+\+Storage\+Stats}}
+\subsubsection{\texorpdfstring{max\+Vol\+Date}{maxVolDate}}
+{\footnotesize\ttfamily max\+Vol\+Date}
+
+date of maximum volume 
+
+Definition at line 267 of file toolkit\+A\+P\+I.\+h.
 
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+P\+R\+O\+J\+E\+C\+T\+C\+O\+D\+E/\+Stormwater-\/\+Management-\/\+Model/include/\hyperlink{toolkit_a_p_i_8h}{toolkit\+A\+P\+I.\+h}\end{DoxyCompactItemize}
+include/\hyperlink{toolkit_a_p_i_8h}{toolkit\+A\+P\+I.\+h}\end{DoxyCompactItemize}

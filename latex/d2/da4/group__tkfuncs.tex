@@ -59,11 +59,11 @@ Free outfall statistics structure.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Return\+: A\+PI Error Purpose\+: Frees Outfall Node Stats and Converts Units Note\+: A\+PI user is responsible for calling swmm\+\_\+free\+Outfall\+Stats since this function performs a memory allocation. 
 
-
-Definition at line 1193 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1191 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}\label{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Current\+Date\+Time\+Str@{swmm\+\_\+get\+Current\+Date\+Time\+Str}}
@@ -81,11 +81,11 @@ Get the simulation current datetime as a string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Date\+Time String Return\+: A\+PI Error Purpose\+: Get the current simulation time 
 
-
-Definition at line 810 of file toolkit\+A\+P\+I.\+c.
+Definition at line 808 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga578a49668d519c8b4cdcab2227f8119b}\label{group__tkfuncs_ga578a49668d519c8b4cdcab2227f8119b}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Link\+Result@{swmm\+\_\+get\+Link\+Result}}
@@ -101,17 +101,17 @@ Get a result value for specified link.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of a link \\
 \hline
- & {\em result} & The property type code (See \hyperlink{toolkit_a_p_i_8h_a6b2929ec971b52f4695d06d956149d87}{S\+M\+\_\+\+Link\+Result}) \\
+ & {\em type} & The property type code (See \hyperlink{toolkit_a_p_i_8h_a6b2929ec971b52f4695d06d956149d87}{S\+M\+\_\+\+Link\+Result}) \\
 \hline
-\mbox{\tt out}  & {\em value} & The value of the link\textquotesingle{}s property \\
+\mbox{\tt out}  & {\em result} & The result of the link\textquotesingle{}s property \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID type = Result Type (S\+M\+\_\+\+Link\+Result) Output\+: result = result data desired (byref) Return\+: A\+PI Error Purpose\+: Gets Link Simulated Value at Current Time 
 
-
-Definition at line 890 of file toolkit\+A\+P\+I.\+c.
+Definition at line 888 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga4895dbf445e9abd6d7e9eb72515c49e0}\label{group__tkfuncs_ga4895dbf445e9abd6d7e9eb72515c49e0}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Link\+Stats@{swmm\+\_\+get\+Link\+Stats}}
@@ -131,11 +131,11 @@ Get link statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Link Stats Structure (\hyperlink{struct_s_m___link_stats}{S\+M\+\_\+\+Link\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Link Stats and Converts Units 
 
-
-Definition at line 1205 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1203 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}\label{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Node\+Result@{swmm\+\_\+get\+Node\+Result}}
@@ -151,17 +151,17 @@ Get a result value for specified node.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of a node \\
 \hline
- & {\em result} & The property type code (See \hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2}{S\+M\+\_\+\+Node\+Result}) \\
+ & {\em type} & The property type code (See \hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2}{S\+M\+\_\+\+Node\+Result}) \\
 \hline
-\mbox{\tt out}  & {\em value} & The value of the node\textquotesingle{}s property \\
+\mbox{\tt out}  & {\em result} & The result of the node\textquotesingle{}s property \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID type = Result Type (S\+M\+\_\+\+Node\+Result) Output\+: result = result data desired (byref) Return\+: A\+PI Error Purpose\+: Gets Node Simulated Value at Current Time 
 
-
-Definition at line 842 of file toolkit\+A\+P\+I.\+c.
+Definition at line 840 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}\label{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Node\+Stats@{swmm\+\_\+get\+Node\+Stats}}
@@ -181,11 +181,11 @@ Get a node statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Node Stats Structure (\hyperlink{struct_s_m___node_stats}{S\+M\+\_\+\+Node\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Node Stats and Converts Units 
 
-
-Definition at line 1073 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1071 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}\label{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Node\+Total\+Inflow@{swmm\+\_\+get\+Node\+Total\+Inflow}}
@@ -205,11 +205,11 @@ Get the cumulative inflow for a node.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: Node Index Output\+: Node Total inflow Volume. Return\+: A\+PI Error Purpose\+: Get Node Total Inflow Volume. 
 
-
-Definition at line 1109 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1107 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}\label{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Outfall\+Stats@{swmm\+\_\+get\+Outfall\+Stats}}
@@ -229,11 +229,11 @@ Get outfall statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Outfall Stats Structure (\hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Outfall Node Stats and Converts Units Note\+: Caller is responsible for calling swmm\+\_\+free\+Outfall\+Stats to free the pollutants array. 
 
-
-Definition at line 1154 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1152 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}\label{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Pump\+Stats@{swmm\+\_\+get\+Pump\+Stats}}
@@ -253,11 +253,11 @@ Get pump statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Pump Link Stats Structure (\hyperlink{struct_s_m___pump_stats}{S\+M\+\_\+\+Pump\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Pump Link Stats and Converts Units 
 
-
-Definition at line 1243 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1241 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}\label{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Storage\+Stats@{swmm\+\_\+get\+Storage\+Stats}}
@@ -277,11 +277,11 @@ Get a storage statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Storage Node Stats Structure (\hyperlink{struct_s_m___storage_stats}{S\+M\+\_\+\+Storage\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Storage Node Stats and Converts Units 
 
-
-Definition at line 1127 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1125 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}\label{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Subcatch\+Result@{swmm\+\_\+get\+Subcatch\+Result}}
@@ -297,17 +297,17 @@ Get a result value for specified subcatchment.
 \begin{DoxyParams}[1]{Parameters}
  & {\em index} & The index of a subcatchment \\
 \hline
- & {\em result} & The property type code (See \hyperlink{toolkit_a_p_i_8h_ab8ea3904bf690674e03651e94ea79095}{S\+M\+\_\+\+Subc\+Result}) \\
+ & {\em type} & The property type code (See \hyperlink{toolkit_a_p_i_8h_ab8ea3904bf690674e03651e94ea79095}{S\+M\+\_\+\+Subc\+Result}) \\
 \hline
-\mbox{\tt out}  & {\em value} & The value of the subcatchment\textquotesingle{}s property \\
+\mbox{\tt out}  & {\em result} & The result of the subcatchment\textquotesingle{}s property \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID type = Result Type (S\+M\+\_\+\+Subc\+Result) Output\+: result = result data desired (byref) Return\+: A\+PI Error Purpose\+: Gets Subcatchment Simulated Value at Current Time 
 
-
-Definition at line 937 of file toolkit\+A\+P\+I.\+c.
+Definition at line 935 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga07cf0c633357b86bfcd0886fed0ae2fb}\label{group__tkfuncs_ga07cf0c633357b86bfcd0886fed0ae2fb}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+Subcatch\+Stats@{swmm\+\_\+get\+Subcatch\+Stats}}
@@ -327,11 +327,11 @@ Get subcatchment statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: Subcatchment Stats Structure (\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}) Return\+: A\+PI Error Purpose\+: Gets Subcatchment Stats and Converts Units 
 
-
-Definition at line 1274 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1272 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}\label{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+System\+Routing\+Stats@{swmm\+\_\+get\+System\+Routing\+Stats}}
@@ -349,11 +349,11 @@ Get system routing statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: System Routing Totals Structure (\hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals}) Return\+: A\+PI Error Purpose\+: Gets System Flow Routing Totals and Converts Units 
 
-
-Definition at line 1304 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1302 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}\label{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+get\+System\+Runoff\+Stats@{swmm\+\_\+get\+System\+Runoff\+Stats}}
@@ -371,11 +371,11 @@ Get system runoff statistics.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Output\+: System Runoff Totals Structure (\hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals}) Return\+: A\+PI Error Purpose\+: Gets System Runoff Totals and Converts Units 
 
-
-Definition at line 1339 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1337 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}\label{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Link\+Setting@{swmm\+\_\+set\+Link\+Setting}}
@@ -395,11 +395,11 @@ Set a link setting (pump, orifice, or weir). Setting for an orifice and a weir s
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID value = New Target Setting Output\+: returns A\+PI Error Purpose\+: Sets Link open fraction (Weir, Orifice, Pump, and Outlet) 
 
-
-Definition at line 1379 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1381 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}\label{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Node\+Inflow@{swmm\+\_\+set\+Node\+Inflow}}
@@ -419,11 +419,11 @@ Set an inflow rate to a node. The inflow rate is held constant until the caller 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired ID value = New Inflow Rate Output\+: returns A\+PI Error Purpose\+: Sets new node inflow rate and holds until set again 
 
-
-Definition at line 1422 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1424 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}\label{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}} 
 \index{Toolkit Functions@{Toolkit Functions}!swmm\+\_\+set\+Outfall\+Stage@{swmm\+\_\+set\+Outfall\+Stage}}
@@ -443,9 +443,9 @@ Set outfall stage.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error code 
+Error code
 \end{DoxyReturn}
+Input\+: index = Index of desired outfall stage = New outfall stage (head) Output\+: returns A\+PI Error Purpose\+: Sets new outfall stage and holds until set again. 
 
-
-Definition at line 1483 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1485 of file toolkit\+A\+P\+I.\+c.
 

@@ -146,9 +146,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Return: API Error Purpose: Frees Outfall Node Stats and Converts Units Note: API user is responsible for calling swmm_freeOutfallStats since this function performs a memory allocation. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01193">1193</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01191">1191</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -175,9 +176,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: DateTime String Return: API Error Purpose: Get the current simulation time </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00810">810</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00808">808</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -217,14 +219,15 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a link </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">result</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a6b2929ec971b52f4695d06d956149d87">SM_LinkResult</a>) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>The value of the link's property </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">type</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#a6b2929ec971b52f4695d06d956149d87">SM_LinkResult</a>) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>The result of the link's property </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID type = Result Type (SM_LinkResult) Output: result = result data desired (byref) Return: API Error Purpose: Gets Link Simulated Value at Current Time </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00890">890</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00888">888</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -262,9 +265,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Link Stats Structure (<a class="el" href="../../d2/d2a/struct_s_m___link_stats.html" title="Link Statatistics. ">SM_LinkStats</a>) Return: API Error Purpose: Gets Link Stats and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01205">1205</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01203">1203</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -304,14 +308,15 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a node </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">result</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#aa5c50a52f0aa8cb1bcbb5130e8fa64e2">SM_NodeResult</a>) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>The value of the node's property </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">type</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#aa5c50a52f0aa8cb1bcbb5130e8fa64e2">SM_NodeResult</a>) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>The result of the node's property </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID type = Result Type (SM_NodeResult) Output: result = result data desired (byref) Return: API Error Purpose: Gets Node Simulated Value at Current Time </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00842">842</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00840">840</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -349,9 +354,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Node Stats Structure (<a class="el" href="../../df/df5/struct_s_m___node_stats.html" title="Node Statatistics. ">SM_NodeStats</a>) Return: API Error Purpose: Gets Node Stats and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01073">1073</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01071">1071</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -389,9 +395,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: Node Index Output: Node Total inflow Volume. Return: API Error Purpose: Get Node Total Inflow Volume. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01109">1109</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01107">1107</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -425,13 +432,14 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a outfall node </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">outfallStats</td><td>The outfall Stats struct (see <a class="el" href="../../d9/d94/struct_s_m___outfall_stats.html">SM_OutfallStats</a>). pre-allocated by the caller. Caller is also responsible for freeing the <a class="el" href="../../d9/d94/struct_s_m___outfall_stats.html" title="Outfall stats structure. ">SM_OutfallStats</a> structure using <a class="el" href="../../d2/da4/group__tkfuncs.html#ga24874b7dc37c161521f0c14899c2157d" title="Free outfall statistics structure. ">swmm_freeOutfallStats()</a>. This frees any pollutants array. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">outfallStats</td><td>The outfall Stats struct (see <a class="el" href="../../d9/d94/struct_s_m___outfall_stats.html">SM_OutfallStats</a>). pre-allocated by the caller. Caller is also responsible for freeing the <a class="el" href="../../d9/d94/struct_s_m___outfall_stats.html" title="Outfall Statatistics. ">SM_OutfallStats</a> structure using <a class="el" href="../../d2/da4/group__tkfuncs.html#ga24874b7dc37c161521f0c14899c2157d" title="Free outfall statistics structure. ">swmm_freeOutfallStats()</a>. This frees any pollutants array. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Outfall Stats Structure (<a class="el" href="../../d9/d94/struct_s_m___outfall_stats.html" title="Outfall Statatistics. ">SM_OutfallStats</a>) Return: API Error Purpose: Gets Outfall Node Stats and Converts Units Note: Caller is responsible for calling swmm_freeOutfallStats to free the pollutants array. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01154">1154</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01152">1152</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -469,9 +477,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Pump Link Stats Structure (<a class="el" href="../../d5/dc1/struct_s_m___pump_stats.html" title="Pump Statistics. ">SM_PumpStats</a>) Return: API Error Purpose: Gets Pump Link Stats and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01243">1243</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01241">1241</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -509,9 +518,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Storage Node Stats Structure (<a class="el" href="../../d3/d68/struct_s_m___storage_stats.html" title="Storage Statatistics. ">SM_StorageStats</a>) Return: API Error Purpose: Gets Storage Node Stats and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01127">1127</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01125">1125</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -551,14 +561,15 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a subcatchment </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">result</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab8ea3904bf690674e03651e94ea79095">SM_SubcResult</a>) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>The value of the subcatchment's property </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">type</td><td>The property type code (See <a class="el" href="../../dc/dce/toolkit_a_p_i_8h.html#ab8ea3904bf690674e03651e94ea79095">SM_SubcResult</a>) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>The result of the subcatchment's property </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID type = Result Type (SM_SubcResult) Output: result = result data desired (byref) Return: API Error Purpose: Gets Subcatchment Simulated Value at Current Time </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00937">937</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l00935">935</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -592,13 +603,14 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">index</td><td>The index of a subcatchment </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">subcatchStats</td><td>The link Stats struct (see <a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html">SM_SubcatchStats</a>). pre-allocated by the caller. Caller is also responsible for freeing the <a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html" title="Subcatchment stats structure. ">SM_SubcatchStats</a> structure using swmm_freeSubcatchStats(). This frees any pollutants array. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">subcatchStats</td><td>The link Stats struct (see <a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html">SM_SubcatchStats</a>). pre-allocated by the caller. Caller is also responsible for freeing the <a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html" title="Subcatchment Statistics. ">SM_SubcatchStats</a> structure using swmm_freeSubcatchStats(). This frees any pollutants array. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: Subcatchment Stats Structure (<a class="el" href="../../d8/d26/struct_s_m___subcatch_stats.html" title="Subcatchment Statistics. ">SM_SubcatchStats</a>) Return: API Error Purpose: Gets Subcatchment Stats and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01274">1274</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01272">1272</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -625,9 +637,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: System Routing Totals Structure (<a class="el" href="../../d3/d17/struct_s_m___routing_totals.html" title="System Flow Routing Statistics. ">SM_RoutingTotals</a>) Return: API Error Purpose: Gets System Flow Routing Totals and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01304">1304</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01302">1302</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -654,9 +667,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Output: System Runoff Totals Structure (<a class="el" href="../../d4/d56/struct_s_m___runoff_totals.html" title="System runoff stats structure. ">SM_RunoffTotals</a>) Return: API Error Purpose: Gets System Runoff Totals and Converts Units </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01339">1339</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01337">1337</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -694,9 +708,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID value = New Target Setting Output: returns API Error Purpose: Sets Link open fraction (Weir, Orifice, Pump, and Outlet) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01379">1379</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01381">1381</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -734,9 +749,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired ID value = New Inflow Rate Output: returns API Error Purpose: Sets new node inflow rate and holds until set again </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01422">1422</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01424">1424</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
@@ -774,9 +790,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code</dd></dl>
+<p>Input: index = Index of desired outfall stage = New outfall stage (head) Output: returns API Error Purpose: Sets new outfall stage and holds until set again. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01483">1483</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html#l01485">1485</a> of file <a class="el" href="../../dd/d40/toolkit_a_p_i_8c_source.html">toolkitAPI.c</a>.</p>
 
 </div>
 </div>
