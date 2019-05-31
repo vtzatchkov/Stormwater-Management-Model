@@ -1,88 +1,87 @@
 The Programmer\textquotesingle{}s Toolkit application programming interface (A\+PI) is an extension of the S\+W\+MM simulation package. Through the A\+PI, a developer can programmatically talk to S\+W\+MM before, during, and after a simulation. The A\+PI exposes S\+W\+MM\textquotesingle{}s data model which enables new possibility. When a hydraulic network is initialized, a network is most generally comprised of nodes, link, and runoff surfaces. Nodes and Links are normally manholes and conduits, and runoff surfaces are a hydrologic representation of rainfall catchment surfaces that send flow into the hydraulic network.
 
-The Toolkit A\+PI provides a series of functions that allow programmers to customize the use of S\+W\+MM\textquotesingle{}s hydraulic and water quality solution engine to their own applications. Before using the Toolkit one should become familiar with the way that S\+W\+MM represents the hydrologic surfaces and hydraulic network and the design and operating information it requires to perform a simulation. This information can be obtained from reading S\+W\+MM\textquotesingle{}s Users Manuals \href{https://www.epa.gov/water-research/storm-water-management-model-swmm}{\tt U\+S\+E\+PA Link}.
+The Toolkit A\+PI provides a series of functions that allow programmers to customize the use of S\+W\+MM\textquotesingle{}s hydraulic and water quality solution engine to their own applications. Before using the Toolkit one should become familiar with the way that S\+W\+MM represents the hydrologic surfaces and hydraulic network and the design and operating information it requires to perform a simulation. This information can be obtained from reading S\+W\+MM\textquotesingle{}s Users Manuals \href{https://www.epa.gov/water-research/storm-water-management-model-swmm}{\texttt{ U\+S\+E\+PA Link}}.
 
 A typical usage of the Toolkit functions to analyze a stormwater network might look as follows\+:
 
 
 \begin{DoxyEnumerate}
-\item Use the \hyperlink{swmm5_8h_a2da4baa38e451ef2a978f1366898948e}{swmm\+\_\+open} function to open the Toolkit system, along with a S\+W\+MM \mbox{[}Input file\mbox{]}(Input-\/\+File).
+\item Use the \mbox{\hyperlink{swmm5_8h_a2da4baa38e451ef2a978f1366898948e}{swmm\+\_\+open}} function to open the Toolkit system, along with a S\+W\+MM \mbox{[}Input file\mbox{]}(Input-\/\+File).
 \item Use the {\ttfamily swmm\+\_\+setxxx\+Param} to update parameters before beginning a simulation
-\item Use the \hyperlink{swmm5_8h_a06eb7b28597a24f892edfc303e12b2d7}{swmm\+\_\+start} function to start the simulation.
-\item Iterator over the simlation using \hyperlink{swmm5_8h_a20624449e77d94d71c0e61d7f58558b5}{swmm\+\_\+step} function and exit the loop when a 0 is returned. While the simlation is running, use the {\ttfamily swmm\+\_\+getxxx\+Result} or swmm\+\_\+getxxx\+Stats` to read results.
-\item Use the \hyperlink{swmm5_8h_a8e69e10ab4948522041deb92fc4b43c0}{swmm\+\_\+end} function to end a simulation and save the results.
-\item Use the \hyperlink{swmm5_8h_a76dac918844d9551a1b39432284b70ef}{swmm\+\_\+close} function to close the simulation and free the memory allocated from the simulation.
+\item Use the \mbox{\hyperlink{swmm5_8h_a06eb7b28597a24f892edfc303e12b2d7}{swmm\+\_\+start}} function to start the simulation.
+\item Iterator over the simlation using \mbox{\hyperlink{swmm5_8h_a20624449e77d94d71c0e61d7f58558b5}{swmm\+\_\+step}} function and exit the loop when a 0 is returned. While the simlation is running, use the {\ttfamily swmm\+\_\+getxxx\+Result} or swmm\+\_\+getxxx\+Stats\`{} to read results.
+\item Use the \mbox{\hyperlink{swmm5_8h_a8e69e10ab4948522041deb92fc4b43c0}{swmm\+\_\+end}} function to end a simulation and save the results.
+\item Use the \mbox{\hyperlink{swmm5_8h_a76dac918844d9551a1b39432284b70ef}{swmm\+\_\+close}} function to close the simulation and free the memory allocated from the simulation.
 \end{DoxyEnumerate}
 \begin{DoxyItemize}
-\item \hyperlink{how-to-use}{How to Use the Toolkit} 
+\item \mbox{\hyperlink{how-to-use}{How to Use the Toolkit}} 
 \end{DoxyItemize}\hypertarget{how-to-use}{}\section{How to Use the Toolkit}\label{how-to-use}
-Full Function collection can be found \hyperlink{toolkit_a_p_i_8h}{toolkit\+A\+P\+I.\+h}
+Full Function collection can be found \mbox{\hyperlink{toolkit_a_p_i_8h}{toolkit\+A\+P\+I.\+h}}
 
 
-\begin{DoxyCode}
-\textcolor{preprocessor}{#include <stdio.h>}
-\textcolor{preprocessor}{#include <stdlib.h>}
-\textcolor{preprocessor}{#include <string.h>}
-
-\textcolor{preprocessor}{#include "\hyperlink{swmm5_8h}{swmm5.h}"}
-\textcolor{preprocessor}{#include "\hyperlink{toolkit_a_p_i_8h}{toolkitAPI.h}"}
-
-\textcolor{keywordtype}{long} newHour, oldHour = 0;
-\textcolor{keywordtype}{long} theDay, theHour;
-\textcolor{keywordtype}{double} elapsedTime = 0.0;
-
-\textcolor{keywordtype}{char} *inputFile;
-\textcolor{keywordtype}{char} *reportFile;
-\textcolor{keywordtype}{char} *binaryFile;
-
-inputFile = \textcolor{stringliteral}{"<path2>/inputfile.inp"};
-reportFile = \textcolor{stringliteral}{"<path2>/reportfile.rpt"};
-binaryFile = \textcolor{stringliteral}{"<path2>/outputfile.out"};
-
-\textcolor{comment}{// Open the files & read input data}
-ErrorCode = \hyperlink{swmm5_8h_a2da4baa38e451ef2a978f1366898948e}{swmm\_open}(inputFile, reportFile, binaryFile);
-
-\textcolor{comment}{// Run the simulation if input data OK}
-\textcolor{keywordflow}{if} ( !ErrorCode )
-\{
-    \textcolor{keywordtype}{int} ndType;
-    \textcolor{keywordtype}{double} depth = 0;
-
-    \hyperlink{group___network_info_gae66a64aee207928c902cb399222cf418}{swmm\_getNodeType}(0, &ndType);
-
-    printf(\textcolor{stringliteral}{"Node Type: %d"}, ndType); \(\backslash\)\(\backslash\) Print node type (See \hyperlink{toolkit_a_p_i_8h_a10b2a8f7c7f2a84ec03332d6cf963cf1}{SM\_NodeType})
-
-    \textcolor{comment}{// Initialize values and Start the Simulation}
-    ErrorCode = \hyperlink{swmm5_8h_a06eb7b28597a24f892edfc303e12b2d7}{swmm\_start}(TRUE);
-
-    \textcolor{comment}{// Execute each time step until elapsed time is re-set to 0}
-    \textcolor{keywordflow}{if} ( !ErrorCode )
-    \{
-        \textcolor{keywordflow}{do}
-        \{
-            ErrorCode = \hyperlink{swmm5_8h_a20624449e77d94d71c0e61d7f58558b5}{swmm\_step}(&elapsedTime);
-
-            \hyperlink{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}{swmm\_getNodeResult}(0, \hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2a36c502c185c63b612ddc65ad469d027f}{SM\_NODEDEPTH}, &depth) \(\backslash\)\(\backslash\) Stream Results!
-
-            printf(\textcolor{stringliteral}{"Node Depth %lf"}, depth); \(\backslash\)\(\backslash\) Print node result (See 
-      \hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2}{SM\_NodeResult})
-
-        \} \textcolor{keywordflow}{while} ( elapsedTime > 0.0 && !ErrorCode );
-    \}
-    \textcolor{comment}{// Clean up}
-    ErrorCode = \hyperlink{swmm5_8h_a8e69e10ab4948522041deb92fc4b43c0}{swmm\_end}();
-\}
-
-\textcolor{comment}{// Get Stats for Node}
-\hyperlink{struct_s_m___node_stats}{SM\_NodeStats}* Node0Stats;
-\hyperlink{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}{swmm\_getNodeStats}(0, &Node0Stats);
-
-printf(\textcolor{stringliteral}{"Node Max Depth %lf"}, Node0Stats->\hyperlink{struct_s_m___node_stats_a230b577dcfb5e235aa9e9a3248f6982b}{avgDepth});
-
-\textcolor{comment}{// Report results}
-\hyperlink{swmm5_8h_aa19010a1a938610a22ef3e256a1e8604}{swmm\_report}();
-
-\textcolor{comment}{// Close the system}
-\hyperlink{swmm5_8h_a76dac918844d9551a1b39432284b70ef}{swmm\_close}();
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{swmm5_8h}{swmm5.h}}"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{toolkit_a_p_i_8h}{toolkitAPI.h}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{long} newHour, oldHour = 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{long} theDay, theHour;}
+\DoxyCodeLine{\textcolor{keywordtype}{double} elapsedTime = 0.0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char} *inputFile;}
+\DoxyCodeLine{\textcolor{keywordtype}{char} *reportFile;}
+\DoxyCodeLine{\textcolor{keywordtype}{char} *binaryFile;}
+\DoxyCodeLine{}
+\DoxyCodeLine{inputFile = \textcolor{stringliteral}{"<path2>/inputfile.inp"};}
+\DoxyCodeLine{reportFile = \textcolor{stringliteral}{"<path2>/reportfile.rpt"};}
+\DoxyCodeLine{binaryFile = \textcolor{stringliteral}{"<path2>/outputfile.out"};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Open the files \& read input data}}
+\DoxyCodeLine{ErrorCode = \mbox{\hyperlink{swmm5_8h_a2da4baa38e451ef2a978f1366898948e}{swmm\_open}}(inputFile, reportFile, binaryFile);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Run the simulation if input data OK}}
+\DoxyCodeLine{\textcolor{keywordflow}{if} ( !ErrorCode )}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ndType;}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} depth = 0;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \mbox{\hyperlink{group___network_info_gae66a64aee207928c902cb399222cf418}{swmm\_getNodeType}}(0, \&ndType);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"Node Type: \%d"}, ndType); \(\backslash\)\(\backslash\) Print node type (See \mbox{\hyperlink{toolkit_a_p_i_8h_a10b2a8f7c7f2a84ec03332d6cf963cf1}{SM\_NodeType}})}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{// Initialize values and Start the Simulation}}
+\DoxyCodeLine{    ErrorCode = \mbox{\hyperlink{swmm5_8h_a06eb7b28597a24f892edfc303e12b2d7}{swmm\_start}}(TRUE);}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{// Execute each time step until elapsed time is re-set to 0}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} ( !ErrorCode )}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{do}}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            ErrorCode = \mbox{\hyperlink{swmm5_8h_a20624449e77d94d71c0e61d7f58558b5}{swmm\_step}}(\&elapsedTime);}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            \mbox{\hyperlink{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}{swmm\_getNodeResult}}(0, \mbox{\hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2a36c502c185c63b612ddc65ad469d027f}{SM\_NODEDEPTH}}, \&depth) \(\backslash\)\(\backslash\) Stream Results!}
+\DoxyCodeLine{}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"Node Depth \%lf"}, depth); \(\backslash\)\(\backslash\) Print node result (See \mbox{\hyperlink{toolkit_a_p_i_8h_aa5c50a52f0aa8cb1bcbb5130e8fa64e2}{SM\_NodeResult}})}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \} \textcolor{keywordflow}{while} ( elapsedTime > 0.0 \&\& !ErrorCode );}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{comment}{// Clean up}}
+\DoxyCodeLine{    ErrorCode = \mbox{\hyperlink{swmm5_8h_a8e69e10ab4948522041deb92fc4b43c0}{swmm\_end}}();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Get Stats for Node}}
+\DoxyCodeLine{\mbox{\hyperlink{struct_s_m___node_stats}{SM\_NodeStats}}* Node0Stats;}
+\DoxyCodeLine{\mbox{\hyperlink{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}{swmm\_getNodeStats}}(0, \&Node0Stats);}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"Node Max Depth \%lf"}, Node0Stats->avgDepth);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Report results}}
+\DoxyCodeLine{\mbox{\hyperlink{swmm5_8h_aa19010a1a938610a22ef3e256a1e8604}{swmm\_report}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Close the system}}
+\DoxyCodeLine{\mbox{\hyperlink{swmm5_8h_a76dac918844d9551a1b39432284b70ef}{swmm\_close}}();}
 \end{DoxyCode}
  

@@ -1,5 +1,5 @@
 \hypertarget{toolkit_a_p_i_8c}{}\section{src/toolkit\+A\+PI.c File Reference}
-\label{toolkit_a_p_i_8c}\index{src/toolkit\+A\+P\+I.\+c@{src/toolkit\+A\+P\+I.\+c}}
+\label{toolkit_a_p_i_8c}\index{src/toolkitAPI.c@{src/toolkitAPI.c}}
 
 
 Exportable Functions for Toolkit A\+PI.  
@@ -8,95 +8,121 @@ Exportable Functions for Toolkit A\+PI.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}headers.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}swmm5.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}toolkit\+A\+P\+I.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}hash.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double $\ast$ \hyperlink{toolkit_a_p_i_8c_af09662eaa728a889748acc6f8c0666ef}{new\+Double\+Array} (int n)
+double $\ast$ \mbox{\hyperlink{toolkit_a_p_i_8c_af09662eaa728a889748acc6f8c0666ef}{new\+Double\+Array}} (int n)
 \item 
-void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gad0599614140f8c3edb3e44fa4ce6914b}{swmm\+\_\+get\+A\+P\+I\+Error} (int errcode, char $\ast$s)
+void D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_gad0599614140f8c3edb3e44fa4ce6914b}{swmm\+\_\+get\+A\+P\+I\+Error}} (int errcode, char $\ast$s)
 \begin{DoxyCompactList}\small\item\em Get the text of an error code. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}{swmm\+\_\+get\+Simulation\+Date\+Time} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$second)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a246d853015ba744893602a3cae08bf71}{swmm\+\_\+project\+\_\+find\+Object}} (int type, char $\ast$id, int $\ast$index)
+\begin{DoxyCompactList}\small\item\em Finds the index of an object given its ID. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_gac261f5224debc1ed0e92c725a1d35213}{swmm\+\_\+get\+Simulation\+Date\+Time}} (int timetype, int $\ast$year, int $\ast$month, int $\ast$day, int $\ast$hour, int $\ast$minute, int $\ast$second)
 \begin{DoxyCompactList}\small\item\em Get the current simulation datetime information. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga2539c5004593b674f972e757828a0759}{swmm\+\_\+set\+Simulation\+Date\+Time} (int timetype, char $\ast$dtimestr)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_ga2539c5004593b674f972e757828a0759}{swmm\+\_\+set\+Simulation\+Date\+Time}} (int timetype, char $\ast$dtimestr)
 \begin{DoxyCompactList}\small\item\em Set simulation datetime information. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga2c45b28a68a6661f55dd108d0ee22950}{swmm\+\_\+get\+Simulation\+Unit} (int type, int $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_ga2c45b28a68a6661f55dd108d0ee22950}{swmm\+\_\+get\+Simulation\+Unit}} (int type, int $\ast$value)
 \begin{DoxyCompactList}\small\item\em Gets Simulation Unit. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga9ec64a873071a584734f8202582dbe2c}{swmm\+\_\+get\+Simulation\+Analysis\+Setting} (int type, int $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_ga9ec64a873071a584734f8202582dbe2c}{swmm\+\_\+get\+Simulation\+Analysis\+Setting}} (int type, int $\ast$value)
 \begin{DoxyCompactList}\small\item\em Gets Simulation Analysis Setting. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___simulation_settings_ga3f3a35c715f9d618efabb85bed6e2d08}{swmm\+\_\+get\+Simulation\+Param} (int type, double $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___simulation_settings_ga3f3a35c715f9d618efabb85bed6e2d08}{swmm\+\_\+get\+Simulation\+Param}} (int type, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Gets Simulation Analysis Setting. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gae1abeab9f6ff81750c80460e48f5dd20}{swmm\+\_\+count\+Objects} (int type, int $\ast$count)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gae1abeab9f6ff81750c80460e48f5dd20}{swmm\+\_\+count\+Objects}} (int type, int $\ast$count)
 \begin{DoxyCompactList}\small\item\em Gets Object Count. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_a158e2086f5dc8e4515637cad0a15f7b5}{swmm\+\_\+get\+Object\+Index} (int type, char $\ast$id, int $\ast$errcode)
-\begin{DoxyCompactList}\small\item\em Gets Object ID Index. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga8bad91e436bc64458cf0958b722781a0}{swmm\+\_\+get\+Object\+Id} (int type, int index, char $\ast$id)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_aee092989ee5c7c327ccaef2a2f7c1373}{swmm\+\_\+get\+Object\+Index}} (\mbox{\hyperlink{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}{S\+M\+\_\+\+Object\+Type}} type, char $\ast$id, int $\ast$index)
+\begin{DoxyCompactList}\small\item\em Gets Object Index. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_ga8bad91e436bc64458cf0958b722781a0}{swmm\+\_\+get\+Object\+Id}} (int type, int index, char $\ast$id)
 \begin{DoxyCompactList}\small\item\em Gets Object ID. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gae66a64aee207928c902cb399222cf418}{swmm\+\_\+get\+Node\+Type} (int index, int $\ast$Ntype)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gae66a64aee207928c902cb399222cf418}{swmm\+\_\+get\+Node\+Type}} (int index, int $\ast$Ntype)
 \begin{DoxyCompactList}\small\item\em Get the type of node with specified index. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type} (int index, int $\ast$Ltype)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type}} (int index, int $\ast$Ltype)
 \begin{DoxyCompactList}\small\item\em Get the type of link with specified index. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gaebf8dfaeb171add70860fbdd99f768be}{swmm\+\_\+get\+Link\+Connections} (int index, int $\ast$Node1, int $\ast$Node2)
-\begin{DoxyCompactList}\small\item\em Get the link Connection Node Indeces. If the conduit has a negative slope, the dynamic wave solver will automatically reverse the nodes. To check the direction, call \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction()}. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction} (int index, signed char $\ast$value)
-\begin{DoxyCompactList}\small\item\em Get the link flow direction (see \hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type()} for notes. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}{swmm\+\_\+get\+Node\+Param} (int index, int Param, double $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gaebf8dfaeb171add70860fbdd99f768be}{swmm\+\_\+get\+Link\+Connections}} (int index, int $\ast$Node1, int $\ast$Node2)
+\begin{DoxyCompactList}\small\item\em Get the link Connection Node Indeces. If the conduit has a negative slope, the dynamic wave solver will automatically reverse the nodes. To check the direction, call \mbox{\hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction()}}. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gac390c83be7f7f0e2cd9c6f1126a226aa}{swmm\+\_\+get\+Link\+Direction}} (int index, signed char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Get the link flow direction (see \mbox{\hyperlink{group___network_info_gacf4d0ca8a3ced3c1b8797f3f09fff1d0}{swmm\+\_\+get\+Link\+Type()}} for notes. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_ga90d0d4c48e2cbeaea1bd43ba095a6672}{swmm\+\_\+get\+Node\+Param}} (int index, int Param, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get a property value for specified node. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gaa0bc371349ae8f593722e0c3bb0abf31}{swmm\+\_\+set\+Node\+Param} (int index, int Param, double value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gaa0bc371349ae8f593722e0c3bb0abf31}{swmm\+\_\+set\+Node\+Param}} (int index, int Param, double value)
 \begin{DoxyCompactList}\small\item\em Set a property value for specified node. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gaab21d9f5a8789ab41c981a90e1240cc5}{swmm\+\_\+get\+Link\+Param} (int index, int Param, double $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gaab21d9f5a8789ab41c981a90e1240cc5}{swmm\+\_\+get\+Link\+Param}} (int index, int Param, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get a property value for specified link. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_gabc0f1352a99581c17d038597b99d17c5}{swmm\+\_\+set\+Link\+Param} (int index, int Param, double value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_gabc0f1352a99581c17d038597b99d17c5}{swmm\+\_\+set\+Link\+Param}} (int index, int Param, double value)
 \begin{DoxyCompactList}\small\item\em Set a property value for specified link. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga20fcc911e1b6dbf4393a8e404d840963}{swmm\+\_\+get\+Subcatch\+Param} (int index, int Param, double $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_ga20fcc911e1b6dbf4393a8e404d840963}{swmm\+\_\+get\+Subcatch\+Param}} (int index, int Param, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get a property value for specified subcatchment. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga8bfeda2cf3547d526da6cb7926ee7519}{swmm\+\_\+set\+Subcatch\+Param} (int index, int Param, double value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_ga8bfeda2cf3547d526da6cb7926ee7519}{swmm\+\_\+set\+Subcatch\+Param}} (int index, int Param, double value)
 \begin{DoxyCompactList}\small\item\em Set a property value for specified subcatchment. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}{swmm\+\_\+get\+Subcatch\+Out\+Connection} (int index, int $\ast$type, int $\ast$out\+\_\+index)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group___network_info_ga5bf84d942a741d62d12b87dbdb2c49b4}{swmm\+\_\+get\+Subcatch\+Out\+Connection}} (int index, int $\ast$type, int $\ast$out\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Get the Subcatchment connection. Subcatchments can load to a node, another subcatchment, or itself. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}{swmm\+\_\+get\+Current\+Date\+Time\+Str} (char $\ast$dtimestr)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_ae79873791bcad7aa119b51023cde61df}{swmm\+\_\+get\+Lid\+U\+Count}} (int index, int $\ast$value)
+\begin{DoxyCompactList}\small\item\em Get the number of lid units on a subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a661ef839393d4ea281e844d5abd15ec8}{swmm\+\_\+get\+Lid\+U\+Param}} (int index, int lid\+Index, int param, double $\ast$value)
+\begin{DoxyCompactList}\small\item\em Get a property value for a specified lid unit on a specified subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_ae4880c30378a05249fd553df3319a2a4}{swmm\+\_\+set\+Lid\+U\+Param}} (int index, int lid\+Index, int Param, double value)
+\begin{DoxyCompactList}\small\item\em Set a property value for a specified lid unit on a specified subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a62cfa576659e008349b2678ca15888c3}{swmm\+\_\+get\+Lid\+U\+Option}} (int index, int lid\+Index, int param, int $\ast$value)
+\begin{DoxyCompactList}\small\item\em Get the lid option for a specified lid unit on a specified subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a2b753f8c9ccf878cb84a2416699ef892}{swmm\+\_\+set\+Lid\+U\+Option}} (int index, int lid\+Index, int param, int value)
+\begin{DoxyCompactList}\small\item\em Set the lid option for a specified lid unit on a specified subcatchment. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_af88dcf0d0b389c8bd7ea9619e9a8a445}{swmm\+\_\+get\+Lid\+C\+Overflow}} (int lid\+Control\+Index, char $\ast$condition)
+\begin{DoxyCompactList}\small\item\em Get the lid control surface immediate overflow condition. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a5c932be2a2838af1c950a2bfe675a51f}{swmm\+\_\+get\+Lid\+C\+Param}} (int lid\+Control\+Index, int layer\+Index, int param, double $\ast$value)
+\begin{DoxyCompactList}\small\item\em Get a property value for specified lid control. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_af6c5b2cd4a93e643fc780e5d7a5a02ea}{swmm\+\_\+set\+Lid\+C\+Param}} (int lid\+Control\+Index, int layer\+Index, int param, double value)
+\begin{DoxyCompactList}\small\item\em Set a property value for specified lid control. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga1035b4f45546c1c90da4dafda7e3677d}{swmm\+\_\+get\+Current\+Date\+Time\+Str}} (char $\ast$dtimestr)
 \begin{DoxyCompactList}\small\item\em Get the simulation current datetime as a string. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}{swmm\+\_\+get\+Node\+Result} (int index, int type, double $\ast$result)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gacef44d121a8f9a646f4e6f108b494373}{swmm\+\_\+get\+Node\+Result}} (int index, int type, double $\ast$result)
 \begin{DoxyCompactList}\small\item\em Get a result value for specified node. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga578a49668d519c8b4cdcab2227f8119b}{swmm\+\_\+get\+Link\+Result} (int index, int type, double $\ast$result)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga578a49668d519c8b4cdcab2227f8119b}{swmm\+\_\+get\+Link\+Result}} (int index, int type, double $\ast$result)
 \begin{DoxyCompactList}\small\item\em Get a result value for specified link. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}{swmm\+\_\+get\+Subcatch\+Result} (int index, int type, double $\ast$result)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga32311167c22094c1eb9aa69edee29d63}{swmm\+\_\+get\+Subcatch\+Result}} (int index, int type, double $\ast$result)
 \begin{DoxyCompactList}\small\item\em Get a result value for specified subcatchment. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_a6af9dbfcd63cd844d58b62f2b137d937}{swmm\+\_\+get\+Subcatch\+Pollut} (int index, int type, double $\ast$$\ast$Pollut\+Array)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a6af9dbfcd63cd844d58b62f2b137d937}{swmm\+\_\+get\+Subcatch\+Pollut}} (int index, int type, double $\ast$$\ast$Pollut\+Array)
 \begin{DoxyCompactList}\small\item\em Gets pollutant values for a specified subcatchment. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_ae618b633fecd1b9d1df93b013f93153e}{swmm\+\_\+get\+Gage\+Precip} (int index, double $\ast$$\ast$Gage\+Array)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_ae618b633fecd1b9d1df93b013f93153e}{swmm\+\_\+get\+Gage\+Precip}} (int index, double $\ast$$\ast$Gage\+Array)
 \begin{DoxyCompactList}\small\item\em Get precipitation rates for a gage. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}{swmm\+\_\+get\+Node\+Stats} (int index, \hyperlink{struct_s_m___node_stats}{S\+M\+\_\+\+Node\+Stats} $\ast$node\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga0d52d8f1b900a0ef3d3df309c5df21f8}{swmm\+\_\+get\+Node\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___node_stats}{S\+M\+\_\+\+Node\+Stats}} $\ast$node\+Stats)
 \begin{DoxyCompactList}\small\item\em Get a node statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}{swmm\+\_\+get\+Node\+Total\+Inflow} (int index, double $\ast$value)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gab5d65643b9dddba000e2ae1f62ec3c59}{swmm\+\_\+get\+Node\+Total\+Inflow}} (int index, double $\ast$value)
 \begin{DoxyCompactList}\small\item\em Get the cumulative inflow for a node. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}{swmm\+\_\+get\+Storage\+Stats} (int index, \hyperlink{struct_s_m___storage_stats}{S\+M\+\_\+\+Storage\+Stats} $\ast$storage\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gaec84d7c193dff925aa02505b0977868d}{swmm\+\_\+get\+Storage\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___storage_stats}{S\+M\+\_\+\+Storage\+Stats}} $\ast$storage\+Stats)
 \begin{DoxyCompactList}\small\item\em Get a storage statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}{swmm\+\_\+get\+Outfall\+Stats} (int index, \hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats} $\ast$outfall\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga290977608917eaf93fa259aeb080880a}{swmm\+\_\+get\+Outfall\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats}} $\ast$outfall\+Stats)
 \begin{DoxyCompactList}\small\item\em Get outfall statistics. \end{DoxyCompactList}\item 
-void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga24874b7dc37c161521f0c14899c2157d}{swmm\+\_\+free\+Outfall\+Stats} (\hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats} $\ast$outfall\+Stats)
+void D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga24874b7dc37c161521f0c14899c2157d}{swmm\+\_\+free\+Outfall\+Stats}} (\mbox{\hyperlink{struct_s_m___outfall_stats}{S\+M\+\_\+\+Outfall\+Stats}} $\ast$outfall\+Stats)
 \begin{DoxyCompactList}\small\item\em Free outfall statistics structure. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga4895dbf445e9abd6d7e9eb72515c49e0}{swmm\+\_\+get\+Link\+Stats} (int index, \hyperlink{struct_s_m___link_stats}{S\+M\+\_\+\+Link\+Stats} $\ast$link\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga4895dbf445e9abd6d7e9eb72515c49e0}{swmm\+\_\+get\+Link\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___link_stats}{S\+M\+\_\+\+Link\+Stats}} $\ast$link\+Stats)
 \begin{DoxyCompactList}\small\item\em Get link statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}{swmm\+\_\+get\+Pump\+Stats} (int index, \hyperlink{struct_s_m___pump_stats}{S\+M\+\_\+\+Pump\+Stats} $\ast$pump\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gafb2a5a295fb4a038edb2a36eab8c576d}{swmm\+\_\+get\+Pump\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___pump_stats}{S\+M\+\_\+\+Pump\+Stats}} $\ast$pump\+Stats)
 \begin{DoxyCompactList}\small\item\em Get pump statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga07cf0c633357b86bfcd0886fed0ae2fb}{swmm\+\_\+get\+Subcatch\+Stats} (int index, \hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats} $\ast$subcatch\+Stats)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a0f22e99f42efff4ac2a29ed57b67ba4d}{swmm\+\_\+get\+Subcatch\+Stats}} (int index, \mbox{\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}} $\ast$$\ast$subcatch\+Stats)
 \begin{DoxyCompactList}\small\item\em Get subcatchment statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}{swmm\+\_\+get\+System\+Routing\+Stats} (\hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals} $\ast$routing\+Tot)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga8e4dcd4d9243ac428633e7cdabf0712a}{swmm\+\_\+get\+System\+Routing\+Stats}} (\mbox{\hyperlink{struct_s_m___routing_totals}{S\+M\+\_\+\+Routing\+Totals}} $\ast$routing\+Tot)
 \begin{DoxyCompactList}\small\item\em Get system routing statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}{swmm\+\_\+get\+System\+Runoff\+Stats} (\hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals} $\ast$runoff\+Tot)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gabf3ea290e2af763289e18db435ea2ccd}{swmm\+\_\+get\+System\+Runoff\+Stats}} (\mbox{\hyperlink{struct_s_m___runoff_totals}{S\+M\+\_\+\+Runoff\+Totals}} $\ast$runoff\+Tot)
 \begin{DoxyCompactList}\small\item\em Get system runoff statistics. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}{swmm\+\_\+set\+Link\+Setting} (int index, double setting)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a7e94117cf8b578c907422986a772f31b}{swmm\+\_\+get\+Lid\+U\+Flux\+Rates}} (int index, int lid\+Index, int layer\+Index, double $\ast$result)
+\begin{DoxyCompactList}\small\item\em Get the lid unit water balance simulated value at current time. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a34c1887e16eac5dd30131d3b74d61fb9}{swmm\+\_\+get\+Lid\+G\+Result}} (int index, int type, double $\ast$result)
+\begin{DoxyCompactList}\small\item\em Get the lid group of a specified subcatchment result at current time. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a45dcde0c5d3718ac7aebac22d27a7ec7}{swmm\+\_\+get\+Lid\+U\+Result}} (int index, int lid\+Index, int type, double $\ast$result)
+\begin{DoxyCompactList}\small\item\em Get the lid unit of a specified subcatchment result at current time. \end{DoxyCompactList}\item 
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_gab44d2b1c21a6f750b0ce4c48ba16be81}{swmm\+\_\+set\+Link\+Setting}} (int index, double setting)
 \begin{DoxyCompactList}\small\item\em Set a link setting (pump, orifice, or weir). Setting for an orifice and a weir should be \mbox{[}0, 1\mbox{]}. A setting for a pump can range from \mbox{[}0, inf). However, if a pump is set to 1, it will pump at its maximum curve setting. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}{swmm\+\_\+set\+Node\+Inflow} (int index, double flowrate)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga6438a8a45d7712b8b02ba630cd8e1db3}{swmm\+\_\+set\+Node\+Inflow}} (int index, double flowrate)
 \begin{DoxyCompactList}\small\item\em Set an inflow rate to a node. The inflow rate is held constant until the caller changes it. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}{swmm\+\_\+set\+Outfall\+Stage} (int index, double stage)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{group__tkfuncs_ga80d902400625073d8ff2c392365fde9b}{swmm\+\_\+set\+Outfall\+Stage}} (int index, double stage)
 \begin{DoxyCompactList}\small\item\em Set outfall stage. \end{DoxyCompactList}\item 
-int D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_a900b152b178db57bd6bd48fd4423a22c}{swmm\+\_\+set\+Gage\+Precip} (int index, double total\+\_\+precip)
+int D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_a900b152b178db57bd6bd48fd4423a22c}{swmm\+\_\+set\+Gage\+Precip}} (int index, double total\+\_\+precip)
 \begin{DoxyCompactList}\small\item\em Set a total precipitation intensity to the gage. \end{DoxyCompactList}\item 
-void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_aed442d4e735bf98dc735c4e3e0662d3f}{free\+Array} (void $\ast$$\ast$array)
+void D\+L\+L\+E\+X\+P\+O\+RT \mbox{\hyperlink{toolkit_a_p_i_8c_aed442d4e735bf98dc735c4e3e0662d3f}{free\+Array}} (void $\ast$$\ast$array)
 \begin{DoxyCompactList}\small\item\em Helper function to free memory array allocated in S\+W\+MM. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -104,21 +130,21 @@ void D\+L\+L\+E\+X\+P\+O\+RT \hyperlink{toolkit_a_p_i_8c_aed442d4e735bf98dc735c4
 Exportable Functions for Toolkit A\+PI. 
 
 \begin{DoxySeeAlso}{See also}
-\href{http://github.com/openwateranalytics/stormwater-management-model}{\tt http\+://github.\+com/openwateranalytics/stormwater-\/management-\/model}
+\href{http://github.com/openwateranalytics/stormwater-management-model}{\texttt{ http\+://github.\+com/openwateranalytics/stormwater-\/management-\/model}}
 \end{DoxySeeAlso}
-\hyperlink{toolkit_a_p_i_8c}{toolkit\+A\+P\+I.\+c} \begin{DoxyDate}{Date}
+\mbox{\hyperlink{toolkit_a_p_i_8c}{toolkit\+A\+P\+I.\+c}} \begin{DoxyDate}{Date}
 08/30/2016 (First Contribution) 
 \end{DoxyDate}
 \begin{DoxyAuthor}{Authors}
-B. Mc\+Donnell (Em\+Net L\+LC), Open\+Water\+Analytics members\+: see \href{https://github.com/OpenWaterAnalytics/Stormwater-Management-Model/blob/develop/AUTHORS}{\tt A\+U\+T\+H\+O\+RS}. 
+B. Mc\+Donnell (Em\+Net L\+LC), Open\+Water\+Analytics members\+: see \href{https://github.com/OpenWaterAnalytics/Stormwater-Management-Model/blob/develop/AUTHORS}{\texttt{ A\+U\+T\+H\+O\+RS}}. 
 \end{DoxyAuthor}
 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{toolkit_a_p_i_8c_aed442d4e735bf98dc735c4e3e0662d3f}\label{toolkit_a_p_i_8c_aed442d4e735bf98dc735c4e3e0662d3f}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!free\+Array@{free\+Array}}
-\index{free\+Array@{free\+Array}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{free\+Array()}{freeArray()}}
+\index{toolkitAPI.c@{toolkitAPI.c}!freeArray@{freeArray}}
+\index{freeArray@{freeArray}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{freeArray()}{freeArray()}}
 {\footnotesize\ttfamily void D\+L\+L\+E\+X\+P\+O\+RT free\+Array (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{array }\end{DoxyParamCaption})}
 
 
@@ -127,22 +153,22 @@ Helper function to free memory array allocated in S\+W\+MM.
 
 Helper function used to free array allocated memory by A\+PI. 
 
-Definition at line 1571 of file toolkit\+A\+P\+I.\+c.
+Definition at line 2502 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8c_af09662eaa728a889748acc6f8c0666ef}\label{toolkit_a_p_i_8c_af09662eaa728a889748acc6f8c0666ef}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!new\+Double\+Array@{new\+Double\+Array}}
-\index{new\+Double\+Array@{new\+Double\+Array}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{new\+Double\+Array()}{newDoubleArray()}}
+\index{toolkitAPI.c@{toolkitAPI.c}!newDoubleArray@{newDoubleArray}}
+\index{newDoubleArray@{newDoubleArray}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{newDoubleArray()}{newDoubleArray()}}
 {\footnotesize\ttfamily double $\ast$ new\+Double\+Array (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
 Warning\+: Caller must free memory allocated by this function. 
 
-Definition at line 1562 of file toolkit\+A\+P\+I.\+c.
+Definition at line 2493 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8c_ae618b633fecd1b9d1df93b013f93153e}\label{toolkit_a_p_i_8c_ae618b633fecd1b9d1df93b013f93153e}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!swmm\+\_\+get\+Gage\+Precip@{swmm\+\_\+get\+Gage\+Precip}}
-\index{swmm\+\_\+get\+Gage\+Precip@{swmm\+\_\+get\+Gage\+Precip}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{swmm\+\_\+get\+Gage\+Precip()}{swmm\_getGagePrecip()}}
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getGagePrecip@{swmm\_getGagePrecip}}
+\index{swmm\_getGagePrecip@{swmm\_getGagePrecip}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getGagePrecip()}{swmm\_getGagePrecip()}}
 {\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Gage\+Precip (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{double $\ast$$\ast$}]{Gage\+Array }\end{DoxyParamCaption})}
 
 
@@ -151,26 +177,242 @@ Get precipitation rates for a gage.
 
 Input\+: index = Index of desired ID Output\+: Gage\+Array pointer (three elements) Return\+: A\+PI Error Purpose\+: Gets the precipitation value in the gage. 
 
-Definition at line 1032 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1741 of file toolkit\+A\+P\+I.\+c.
 
-\mbox{\Hypertarget{toolkit_a_p_i_8c_a158e2086f5dc8e4515637cad0a15f7b5}\label{toolkit_a_p_i_8c_a158e2086f5dc8e4515637cad0a15f7b5}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!swmm\+\_\+get\+Object\+Index@{swmm\+\_\+get\+Object\+Index}}
-\index{swmm\+\_\+get\+Object\+Index@{swmm\+\_\+get\+Object\+Index}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{swmm\+\_\+get\+Object\+Index()}{swmm\_getObjectIndex()}}
-{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Object\+Index (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{char $\ast$}]{id,  }\item[{int $\ast$}]{errcode }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{toolkit_a_p_i_8c_af88dcf0d0b389c8bd7ea9619e9a8a445}\label{toolkit_a_p_i_8c_af88dcf0d0b389c8bd7ea9619e9a8a445}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidCOverflow@{swmm\_getLidCOverflow}}
+\index{swmm\_getLidCOverflow@{swmm\_getLidCOverflow}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidCOverflow()}{swmm\_getLidCOverflow()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+C\+Overflow (\begin{DoxyParamCaption}\item[{int}]{lid\+Control\+Index,  }\item[{char $\ast$}]{condition }\end{DoxyParamCaption})}
 
 
 
-Gets Object ID Index. 
+Get the lid control surface immediate overflow condition. 
 
-Input\+: type = object type (Based on S\+M\+\_\+\+Object\+Type enum) char$\ast$ = ID name Output\+: errorcode = pointer to error code Return\+: Object Index Purpose\+: Gets object id index 
 
-Definition at line 292 of file toolkit\+A\+P\+I.\+c.
+\begin{DoxyParams}[1]{Parameters}
+ & {\em lid\+Control\+Index} & The index of specified lid control \\
+\hline
+\mbox{\texttt{ out}}  & {\em condition} & The value of surface immediate overflow condition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 1089 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a5c932be2a2838af1c950a2bfe675a51f}\label{toolkit_a_p_i_8c_a5c932be2a2838af1c950a2bfe675a51f}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidCParam@{swmm\_getLidCParam}}
+\index{swmm\_getLidCParam@{swmm\_getLidCParam}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidCParam()}{swmm\_getLidCParam()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+C\+Param (\begin{DoxyParamCaption}\item[{int}]{lid\+Control\+Index,  }\item[{int}]{layer\+Index,  }\item[{int}]{Param,  }\item[{double $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Get a property value for specified lid control. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em lid\+Control\+Index} & The index of specified lid control \\
+\hline
+ & {\em layer\+Index} & The index of specified lid layer (See \mbox{\hyperlink{toolkit_a_p_i_8h_a6c94e919fef092cf645783c80730d886}{S\+M\+\_\+\+Lid\+Layer}}) \\
+\hline
+ & {\em Param} & The property type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_a2fc92b52aee6ed82ebd7d1fd8374ae0c}{S\+M\+\_\+\+Lid\+Layer\+Property}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em value} & The value of lid control\textquotesingle{}s property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 1121 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a34c1887e16eac5dd30131d3b74d61fb9}\label{toolkit_a_p_i_8c_a34c1887e16eac5dd30131d3b74d61fb9}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidGResult@{swmm\_getLidGResult}}
+\index{swmm\_getLidGResult@{swmm\_getLidGResult}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidGResult()}{swmm\_getLidGResult()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+G\+Result (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{type,  }\item[{double $\ast$}]{result }\end{DoxyParamCaption})}
+
+
+
+Get the lid group of a specified subcatchment result at current time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em type} & The result type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_a69f13b90ea39130df2b3fa4f405dfc6e}{S\+M\+\_\+\+Lid\+Result}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em result} & The result for the specified lid group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 2160 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_ae79873791bcad7aa119b51023cde61df}\label{toolkit_a_p_i_8c_ae79873791bcad7aa119b51023cde61df}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidUCount@{swmm\_getLidUCount}}
+\index{swmm\_getLidUCount@{swmm\_getLidUCount}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidUCount()}{swmm\_getLidUCount()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+U\+Count (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Get the number of lid units on a subcatchment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+\mbox{\texttt{ out}}  & {\em value} & The number of lid units on a subcatchment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 824 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a7e94117cf8b578c907422986a772f31b}\label{toolkit_a_p_i_8c_a7e94117cf8b578c907422986a772f31b}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidUFluxRates@{swmm\_getLidUFluxRates}}
+\index{swmm\_getLidUFluxRates@{swmm\_getLidUFluxRates}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidUFluxRates()}{swmm\_getLidUFluxRates()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+U\+Flux\+Rates (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{layer\+Index,  }\item[{double $\ast$}]{result }\end{DoxyParamCaption})}
+
+
+
+Get the lid unit water balance simulated value at current time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em lid\+Index} & The index of specified lid unit \\
+\hline
+ & {\em layer\+Index} & The index of specified lid layer (See \mbox{\hyperlink{toolkit_a_p_i_8h_a6c94e919fef092cf645783c80730d886}{S\+M\+\_\+\+Lid\+Layer}}) \\
+\hline
+ & {\em Param} & The result type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_a69f13b90ea39130df2b3fa4f405dfc6e}{S\+M\+\_\+\+Lid\+Result}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em result} & The result for the specified lid unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 2109 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a62cfa576659e008349b2678ca15888c3}\label{toolkit_a_p_i_8c_a62cfa576659e008349b2678ca15888c3}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidUOption@{swmm\_getLidUOption}}
+\index{swmm\_getLidUOption@{swmm\_getLidUOption}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidUOption()}{swmm\_getLidUOption()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+U\+Option (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{Param,  }\item[{int $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Get the lid option for a specified lid unit on a specified subcatchment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em lid\+Index} & The index of specified lid unit \\
+\hline
+ & {\em Param} & The lid option type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_ac401c1fa6bd36523dfa1a16cc45dd0fb}{S\+M\+\_\+\+Lid\+U\+Options}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em value} & The value of the option for the lid unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 970 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a661ef839393d4ea281e844d5abd15ec8}\label{toolkit_a_p_i_8c_a661ef839393d4ea281e844d5abd15ec8}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidUParam@{swmm\_getLidUParam}}
+\index{swmm\_getLidUParam@{swmm\_getLidUParam}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidUParam()}{swmm\_getLidUParam()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+U\+Param (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{Param,  }\item[{double $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Get a property value for a specified lid unit on a specified subcatchment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em lid\+Index} & The index of specified lid unit \\
+\hline
+ & {\em Param} & The property type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_abe1882b31a9822d9dd053d8b1cc7e7a8}{S\+M\+\_\+\+Lid\+U\+Property}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em value} & The value of the lid unit\textquotesingle{}s property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 851 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a45dcde0c5d3718ac7aebac22d27a7ec7}\label{toolkit_a_p_i_8c_a45dcde0c5d3718ac7aebac22d27a7ec7}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getLidUResult@{swmm\_getLidUResult}}
+\index{swmm\_getLidUResult@{swmm\_getLidUResult}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getLidUResult()}{swmm\_getLidUResult()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Lid\+U\+Result (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{type,  }\item[{double $\ast$}]{result }\end{DoxyParamCaption})}
+
+
+
+Get the lid unit of a specified subcatchment result at current time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em index} & The index of a subcatchment \\
+\hline
+ & {\em lid\+Index} & The index of specified lid unit \\
+\hline
+ & {\em type} & The result type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_a69f13b90ea39130df2b3fa4f405dfc6e}{S\+M\+\_\+\+Lid\+Result}}) \\
+\hline
+\mbox{\texttt{ out}}  & {\em result} & The result for the specified lid unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 2209 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_aee092989ee5c7c327ccaef2a2f7c1373}\label{toolkit_a_p_i_8c_aee092989ee5c7c327ccaef2a2f7c1373}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getObjectIndex@{swmm\_getObjectIndex}}
+\index{swmm\_getObjectIndex@{swmm\_getObjectIndex}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getObjectIndex()}{swmm\_getObjectIndex()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Object\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{toolkit_a_p_i_8h_a1c1a5cece690c3dbb5d743336b88e0e4}{S\+M\+\_\+\+Object\+Type}}}]{type,  }\item[{char $\ast$}]{id,  }\item[{int $\ast$}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets Object Index. 
+
+Input\+: type = object type (Based on S\+M\+\_\+\+Object\+Type enum) char$\ast$ = ID name Output\+: object index Return\+: error Purpose\+: Gets object id index 
+
+Definition at line 310 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8c_a6af9dbfcd63cd844d58b62f2b137d937}\label{toolkit_a_p_i_8c_a6af9dbfcd63cd844d58b62f2b137d937}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!swmm\+\_\+get\+Subcatch\+Pollut@{swmm\+\_\+get\+Subcatch\+Pollut}}
-\index{swmm\+\_\+get\+Subcatch\+Pollut@{swmm\+\_\+get\+Subcatch\+Pollut}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{swmm\+\_\+get\+Subcatch\+Pollut()}{swmm\_getSubcatchPollut()}}
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getSubcatchPollut@{swmm\_getSubcatchPollut}}
+\index{swmm\_getSubcatchPollut@{swmm\_getSubcatchPollut}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getSubcatchPollut()}{swmm\_getSubcatchPollut()}}
 {\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Subcatch\+Pollut (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{type,  }\item[{double $\ast$$\ast$}]{Pollut\+Array }\end{DoxyParamCaption})}
 
 
@@ -179,12 +421,52 @@ Gets pollutant values for a specified subcatchment.
 
 Input\+: index = Index of desired ID type = Result Type (S\+M\+\_\+\+Subc\+Pollut) Output\+: Pollut\+Array pointer (pollutant data desired, byref) Return\+: A\+PI Error Purpose\+: Gets Subcatchment Simulated Pollutant Value at Current Time 
 
-Definition at line 978 of file toolkit\+A\+P\+I.\+c.
+Definition at line 1687 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a0f22e99f42efff4ac2a29ed57b67ba4d}\label{toolkit_a_p_i_8c_a0f22e99f42efff4ac2a29ed57b67ba4d}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_getSubcatchStats@{swmm\_getSubcatchStats}}
+\index{swmm\_getSubcatchStats@{swmm\_getSubcatchStats}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_getSubcatchStats()}{swmm\_getSubcatchStats()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+get\+Subcatch\+Stats (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}} $\ast$$\ast$}]{subcatch\+Stats }\end{DoxyParamCaption})}
+
+
+
+Get subcatchment statistics. 
+
+Output\+: Subcatchment Stats Structure (\mbox{\hyperlink{struct_s_m___subcatch_stats}{S\+M\+\_\+\+Subcatch\+Stats}}) Return\+: A\+PI Error Purpose\+: Gets Subcatchment Stats and Converts Units 
+
+Definition at line 1981 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a246d853015ba744893602a3cae08bf71}\label{toolkit_a_p_i_8c_a246d853015ba744893602a3cae08bf71}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_project\_findObject@{swmm\_project\_findObject}}
+\index{swmm\_project\_findObject@{swmm\_project\_findObject}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_project\_findObject()}{swmm\_project\_findObject()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+project\+\_\+find\+Object (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{char $\ast$}]{id,  }\item[{int $\ast$}]{index }\end{DoxyParamCaption})}
+
+
+
+Finds the index of an object given its ID. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em type} & An object type \\
+\hline
+ & {\em id} & The object ID \\
+\hline
+\mbox{\texttt{ out}}  & {\em index} & The objects index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file toolkit\+A\+P\+I.\+c.
 
 \mbox{\Hypertarget{toolkit_a_p_i_8c_a900b152b178db57bd6bd48fd4423a22c}\label{toolkit_a_p_i_8c_a900b152b178db57bd6bd48fd4423a22c}} 
-\index{toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}!swmm\+\_\+set\+Gage\+Precip@{swmm\+\_\+set\+Gage\+Precip}}
-\index{swmm\+\_\+set\+Gage\+Precip@{swmm\+\_\+set\+Gage\+Precip}!toolkit\+A\+P\+I.\+c@{toolkit\+A\+P\+I.\+c}}
-\subsubsection{\texorpdfstring{swmm\+\_\+set\+Gage\+Precip()}{swmm\_setGagePrecip()}}
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_setGagePrecip@{swmm\_setGagePrecip}}
+\index{swmm\_setGagePrecip@{swmm\_setGagePrecip}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_setGagePrecip()}{swmm\_setGagePrecip()}}
 {\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+set\+Gage\+Precip (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{double}]{total\+\_\+precip }\end{DoxyParamCaption})}
 
 
@@ -193,5 +475,89 @@ Set a total precipitation intensity to the gage.
 
 Input\+: index = Index of desired ID total\+\_\+precip = rainfall intensity to be set Return\+: A\+PI Error Purpose\+: Sets the precipitation in from the external database 
 
-Definition at line 1520 of file toolkit\+A\+P\+I.\+c.
+Definition at line 2451 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_af6c5b2cd4a93e643fc780e5d7a5a02ea}\label{toolkit_a_p_i_8c_af6c5b2cd4a93e643fc780e5d7a5a02ea}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_setLidCParam@{swmm\_setLidCParam}}
+\index{swmm\_setLidCParam@{swmm\_setLidCParam}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_setLidCParam()}{swmm\_setLidCParam()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+set\+Lid\+C\+Param (\begin{DoxyParamCaption}\item[{int}]{lid\+Control\+Index,  }\item[{int}]{layer\+Index,  }\item[{int}]{Param,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Set a property value for specified lid control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lid\+Control\+Index} & The index of specified lid control \\
+\hline
+{\em layer\+Index} & The index of specified lid layer (See \mbox{\hyperlink{toolkit_a_p_i_8h_a6c94e919fef092cf645783c80730d886}{S\+M\+\_\+\+Lid\+Layer}}) \\
+\hline
+{\em Param} & The property type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_a2fc92b52aee6ed82ebd7d1fd8374ae0c}{S\+M\+\_\+\+Lid\+Layer\+Property}}) \\
+\hline
+{\em value} & The new value for the lid control\textquotesingle{}s property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 1304 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_a2b753f8c9ccf878cb84a2416699ef892}\label{toolkit_a_p_i_8c_a2b753f8c9ccf878cb84a2416699ef892}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_setLidUOption@{swmm\_setLidUOption}}
+\index{swmm\_setLidUOption@{swmm\_setLidUOption}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_setLidUOption()}{swmm\_setLidUOption()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+set\+Lid\+U\+Option (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{Param,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Set the lid option for a specified lid unit on a specified subcatchment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of a subcatchment \\
+\hline
+{\em lid\+Index} & The index of specified lid unit \\
+\hline
+{\em Param} & The lid option type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_ac401c1fa6bd36523dfa1a16cc45dd0fb}{S\+M\+\_\+\+Lid\+U\+Options}}) \\
+\hline
+{\em value} & The new value of the option for the lid unit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 1022 of file toolkit\+A\+P\+I.\+c.
+
+\mbox{\Hypertarget{toolkit_a_p_i_8c_ae4880c30378a05249fd553df3319a2a4}\label{toolkit_a_p_i_8c_ae4880c30378a05249fd553df3319a2a4}} 
+\index{toolkitAPI.c@{toolkitAPI.c}!swmm\_setLidUParam@{swmm\_setLidUParam}}
+\index{swmm\_setLidUParam@{swmm\_setLidUParam}!toolkitAPI.c@{toolkitAPI.c}}
+\subsubsection{\texorpdfstring{swmm\_setLidUParam()}{swmm\_setLidUParam()}}
+{\footnotesize\ttfamily int D\+L\+L\+E\+X\+P\+O\+RT swmm\+\_\+set\+Lid\+U\+Param (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{lid\+Index,  }\item[{int}]{Param,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Set a property value for a specified lid unit on a specified subcatchment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of a subcatchment \\
+\hline
+{\em lid\+Index} & The index of specified lid unit \\
+\hline
+{\em Param} & The property type code (See \mbox{\hyperlink{toolkit_a_p_i_8h_abe1882b31a9822d9dd053d8b1cc7e7a8}{S\+M\+\_\+\+Lid\+U\+Property}}) \\
+\hline
+{\em value} & The new value of the lid unit\textquotesingle{}s property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code 
+\end{DoxyReturn}
+
+
+Definition at line 905 of file toolkit\+A\+P\+I.\+c.
 

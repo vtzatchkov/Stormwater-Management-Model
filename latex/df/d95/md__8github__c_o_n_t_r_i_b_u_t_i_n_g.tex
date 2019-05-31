@@ -39,17 +39,17 @@ Before the project can be built the required tools must be installed. The O\+WA 
 
 Our current benchmark platform and compiler is Windows 32-\/bit Visual Studio 10 2010. Older versions of Visual Studio are available for download here\+:
 
-\href{https://www.visualstudio.com/vs/older-downloads/}{\tt https\+://www.\+visualstudio.\+com/vs/older-\/downloads/}
+\href{https://www.visualstudio.com/vs/older-downloads/}{\texttt{ https\+://www.\+visualstudio.\+com/vs/older-\/downloads/}}
 
 A service pack for Visual Studio 10 2010 is available here\+:
 
-\href{https://www.microsoft.com/en-us/download/details.aspx?id=34677}{\tt https\+://www.\+microsoft.\+com/en-\/us/download/details.\+aspx?id=34677}
+\href{https://www.microsoft.com/en-us/download/details.aspx?id=34677}{\texttt{ https\+://www.\+microsoft.\+com/en-\/us/download/details.\+aspx?id=34677}}
 
 \subparagraph*{Install Boost}
 
 Boost binaries for Windows offer a convenient installation solution. Be sure to select download the boost installer exe that corresponds to the version of Visual Studio you have installed.
 
-\href{https://sourceforge.net/projects/boost/files/boost-binaries/1.58.0/}{\tt https\+://sourceforge.\+net/projects/boost/files/boost-\/binaries/1.\+58.\+0/}
+\href{https://sourceforge.net/projects/boost/files/boost-binaries/1.58.0/}{\texttt{ https\+://sourceforge.\+net/projects/boost/files/boost-\/binaries/1.\+58.\+0/}}
 
 Although newer version of Boost are available, a link to Boost 1.\+58 is provided. This is the library version that the unit tests have been written against. Older versions of Boost may not work. The default install location for the Boost
 
@@ -59,15 +59,15 @@ Libraries is {\ttfamily C\+:\textbackslash{}local\textbackslash{}boost\+\_\+1\+\
 
 Chocolatey is a Windows package manager that makes installing some of these dependencies a little easier. When working with Chocolatey it is useful to have local admin privileges. Chocolatey is available here\+:
 
-\href{https://chocolatey.org/install}{\tt https\+://chocolatey.\+org/install}
+\href{https://chocolatey.org/install}{\texttt{ https\+://chocolatey.\+org/install}}
 
 Once Chocolately is installed, from a command prompt running with admin privileges issue the following commands
 
 
-\begin{DoxyCode}
-\(\backslash\)>choco install -y cmake --installargs 'ADD\_CMAKE\_TO\_PATH=User'
-\(\backslash\)>choco install -y git --installargs /GitOnlyOnPath
-\(\backslash\)>refreshenv
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>choco install -y cmake --installargs 'ADD\_CMAKE\_TO\_PATH=User'}
+\DoxyCodeLine{\(\backslash\)>choco install -y git --installargs /GitOnlyOnPath}
+\DoxyCodeLine{\(\backslash\)>refreshenv}
 \end{DoxyCode}
 
 
@@ -82,26 +82,26 @@ As administrator open a Visual Studio 2010 Command Prompt. Change directories to
 \subparagraph*{Clone the S\+W\+MM Repository}
 
 
-\begin{DoxyCode}
-\(\backslash\)>mkdir OWA
-\(\backslash\)>cd OWA
-\(\backslash\)>git clone https://github.com/OpenWaterAnalytics/Stormwater-Management-Model.git
-\(\backslash\)>cd Stormwater-Management-Model
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>mkdir OWA}
+\DoxyCodeLine{\(\backslash\)>cd OWA}
+\DoxyCodeLine{\(\backslash\)>git clone https://github.com/OpenWaterAnalytics/Stormwater-Management-Model.git}
+\DoxyCodeLine{\(\backslash\)>cd Stormwater-Management-Model}
 \end{DoxyCode}
 
 
-The present working directory is now the project root S\+W\+MM. The directory contains the same files that are visibly present in the Git\+Hub Repo by browsing to the U\+RL \href{https://github.com/OpenWaterAnalytics/stormwater-management-model/tree/develop}{\tt https\+://github.\+com/\+Open\+Water\+Analytics/stormwater-\/management-\/model/tree/develop} .
+The present working directory is now the project root S\+W\+MM. The directory contains the same files that are visibly present in the Git\+Hub Repo by browsing to the U\+RL \href{https://github.com/OpenWaterAnalytics/stormwater-management-model/tree/develop}{\texttt{ https\+://github.\+com/\+Open\+Water\+Analytics/stormwater-\/management-\/model/tree/develop}} .
 
 Now we will create a build products directory and generate the platform build file using cmake.
 
 \subparagraph*{Generate the build files}
 
 
-\begin{DoxyCode}
-\(\backslash\)>mkdir buildprod
-\(\backslash\)>cd buildprod
-\(\backslash\)>set BOOST\_ROOT=C:\(\backslash\)local\(\backslash\)boost\_1\_58\_0
-\(\backslash\)>cmake -G "Visual Studio 10 2010" -DBOOST\_ROOT="%BOOST\_ROOT%" -DBoost\_USE\_STATIC\_LIBS="ON" ..
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>mkdir buildprod}
+\DoxyCodeLine{\(\backslash\)>cd buildprod}
+\DoxyCodeLine{\(\backslash\)>set BOOST\_ROOT=C:\(\backslash\)local\(\backslash\)boost\_1\_58\_0}
+\DoxyCodeLine{\(\backslash\)>cmake -G "Visual Studio 10 2010" -DBOOST\_ROOT="\%BOOST\_ROOT\%" -DBoost\_USE\_STATIC\_LIBS="ON" ..}
 \end{DoxyCode}
 
 
@@ -110,8 +110,8 @@ Now that the dependencies have been installed and the build system has been gene
 \subparagraph*{Build S\+W\+MM}
 
 
-\begin{DoxyCode}
-\(\backslash\)>cmake --build . --config Debug
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>cmake --build . --config Debug}
 \end{DoxyCode}
 
 
@@ -126,9 +126,9 @@ Unit Testing uses Boost Unit Test library and C\+Make ctest as the test runner. 
 \subparagraph*{Unit Testing}
 
 
-\begin{DoxyCode}
-\(\backslash\)>cd tests
-\(\backslash\)>ctest -C Debug
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>cd tests}
+\DoxyCodeLine{\(\backslash\)>ctest -C Debug}
 \end{DoxyCode}
 
 
@@ -139,11 +139,11 @@ Regression testing is somewhat more complicated because it relies on Python to e
 \subparagraph*{Installing Regression Testing Dependencies}
 
 
-\begin{DoxyCode}
-cd ..\(\backslash\)..
-\(\backslash\)>choco install -y miniconda --installargs '/AddToPath=1'
-\(\backslash\)>refreshenv
-\(\backslash\)>pip install -r tools/requirements-appveyor.txt
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd ..\(\backslash\)..}
+\DoxyCodeLine{\(\backslash\)>choco install -y miniconda --installargs '/AddToPath=1'}
+\DoxyCodeLine{\(\backslash\)>refreshenv}
+\DoxyCodeLine{\(\backslash\)>pip install -r tools/requirements-appveyor.txt}
 \end{DoxyCode}
 
 
@@ -154,9 +154,9 @@ To run the executable under test, nrtest needs the absolute path to it and a uni
 \subparagraph*{Regression Testing}
 
 
-\begin{DoxyCode}
-\(\backslash\)>tools/gen-config.cmd <Absolute path to exe under test> > tests/apps/swmm-<build id>.json
-\(\backslash\)>tools/run-nrtest.cmd <Absolute path to python scripts> /tests/swmm-nrtestsuite <build id>
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\(\backslash\)>tools/gen-config.cmd <Absolute path to exe under test> > tests/apps/swmm-<build id>.json}
+\DoxyCodeLine{\(\backslash\)>tools/run-nrtest.cmd <Absolute path to python scripts> /tests/swmm-nrtestsuite <build id>}
 \end{DoxyCode}
 
 
@@ -168,4 +168,14 @@ That concludes this tutorial on building O\+WA S\+W\+MM from source on Windows. 
 
 \subsubsection*{Further Reading}
 
-Visual Studio -\/ \href{https://msdn.microsoft.com/en-us/library/dd831853(v=vs.100).aspx}{\tt https\+://msdn.\+microsoft.\+com/en-\/us/library/dd831853(v=vs.\+100).\+aspx} C\+Make -\/ \href{https://cmake.org/documentation/}{\tt https\+://cmake.\+org/documentation/} Boost -\/ \href{http://www.boost.org/doc/}{\tt http\+://www.\+boost.\+org/doc/} git -\/ \href{https://git-scm.com/doc}{\tt https\+://git-\/scm.\+com/doc} Miniconda -\/ \href{https://conda.io/docs/user-guide/index.html}{\tt https\+://conda.\+io/docs/user-\/guide/index.\+html} nrtest -\/ \href{https://nrtest.readthedocs.io/en/latest/}{\tt https\+://nrtest.\+readthedocs.\+io/en/latest/} 
+Visual Studio -\/ \href{https://msdn.microsoft.com/en-us/library/dd831853(v=vs.100).aspx}{\texttt{ https\+://msdn.\+microsoft.\+com/en-\/us/library/dd831853(v=vs.\+100).\+aspx}}
+
+C\+Make -\/ \href{https://cmake.org/documentation/}{\texttt{ https\+://cmake.\+org/documentation/}}
+
+Boost -\/ \href{http://www.boost.org/doc/}{\texttt{ http\+://www.\+boost.\+org/doc/}}
+
+git -\/ \href{https://git-scm.com/doc}{\texttt{ https\+://git-\/scm.\+com/doc}}
+
+Miniconda -\/ \href{https://conda.io/docs/user-guide/index.html}{\texttt{ https\+://conda.\+io/docs/user-\/guide/index.\+html}}
+
+nrtest -\/ \href{https://nrtest.readthedocs.io/en/latest/}{\texttt{ https\+://nrtest.\+readthedocs.\+io/en/latest/}} 
