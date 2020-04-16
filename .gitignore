@@ -21,14 +21,24 @@
 
 
 # Build files
+buildprod*/
 /build/
 *.o
-
-
-*.orig
 /Debug/
+/build-linux/
+
+
+# Git merge files
+*.orig
+
 
 # Testing
+nrtestsuite/
 performance.json
 stderr.log
 stdout.log
+tests/data/*_test.*
+
+# Generated files
+*_export.h
+/.vscode

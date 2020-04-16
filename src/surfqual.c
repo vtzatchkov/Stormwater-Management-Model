@@ -70,6 +70,8 @@ void surfqual_initState(int j)
         Subcatch[j].oldQual[p] = 0.0;
         Subcatch[j].newQual[p] = 0.0;
         Subcatch[j].pondedQual[p] = 0.0;
+        Subcatch[j].concPonded[p] = 0.0;
+        Subcatch[j].surfaceBuildup[p] = 0.0;
     }
 
     // --- initialize pollutant buildup
@@ -253,11 +255,12 @@ void  surfqual_getWashoff(int j, double runoff, double tStep)
         if ( vOut1 > 0.0 ) cOut = OutflowLoad[p] / vOut1;
 
         // --- assign any difference between pre- and post-LID
-        //     loads (with LID return flow included) to BMP removal
+        //     subcatchment outflow loads to BMP removal
         if ( Subcatch[j].lidArea > 0.0 )
         {    
-            massLoad = cOut * (vOut1 - vOut2 - VlidReturn) * Pollut[p].mcf;
-            massbal_updateLoadingTotals(BMP_REMOVAL_LOAD, p, massLoad);
+            massLoad = cOut * (vOut1 - vOut2) * Pollut[p].mcf;
+            if (massLoad > 0.0)
+                massbal_updateLoadingTotals(BMP_REMOVAL_LOAD, p, massLoad);
         }
 
         // --- update subcatchment's cumulative runoff load in lbs (or kg)
@@ -277,6 +280,9 @@ void  surfqual_getWashoff(int j, double runoff, double tStep)
         // --- save new washoff concentration
         if ( !hasOutflow ) cOut = 0.0;
         Subcatch[j].newQual[p] = cOut / LperFT3;
+        
+        // --- update surface buildup loads (in lbs or kg)
+        Subcatch[j].surfaceBuildup[p] = subcatch_getBuildup( j, p );
     }
 
     // --- add contribution of LID drain flows to mass balance 
@@ -307,7 +313,7 @@ void findPondedLoads(int j, double tStep)
 //
 //  Input:   j = subcatchment index
 //           tStep = time step (sec)
-//  Output:  updates pondedQual and OutflowLoad 
+//  Output:  updates pondedQual, concPonded and OutflowLoad 
 //  Purpose: mixes wet deposition and runon pollutant loading with existing
 //           ponded pollutant mass to compute an ouflow loading.
 //
@@ -373,6 +379,7 @@ void findPondedLoads(int j, double tStep)
 
             // --- update ponded mass (using newly computed ponded depth)
             Subcatch[j].pondedQual[p] = cPonded * subcatch_getDepth(j) * nonLidArea;
+            Subcatch[j].concPonded[p] = cPonded;
             OutflowLoad[p] += wOutflow;
         }
     }

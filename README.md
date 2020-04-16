@@ -11,7 +11,8 @@ ORD Stormwater Management Model (aka "SWMM")
 ## Build status
 [![Build status](https://ci.appveyor.com/api/projects/status/heoi23kwjh15od04/branch/develop?svg=true)](https://ci.appveyor.com/project/OpenWaterAnalytics/stormwater-management-model/branch/develop)
 [![Build Status](https://travis-ci.org/OpenWaterAnalytics/Stormwater-Management-Model.svg?branch=develop)](https://travis-ci.org/OpenWaterAnalytics/Stormwater-Management-Model)
-<!--[![CircleCI](https://circleci.com/gh/OpenWaterAnalytics/Stormwater-Management-Model/tree/develop.svg?style=shield)](https://circleci.com/gh/OpenWaterAnalytics/Stormwater-Management-Model/tree/develop)-->
+
+[![codecov](https://codecov.io/gh/OpenWaterAnalytics/Stormwater-Management-Model/branch/develop/graph/badge.svg)](https://codecov.io/gh/OpenWaterAnalytics/Stormwater-Management-Model)
 
 # Introduction
 This is the open source SWMM source code repository maintained by the Open
@@ -30,7 +31,7 @@ See [CONTRIBUTING.md](https://github.com/OpenWaterAnalytics/Stormwater-Managemen
 
 # Regression Testing
 
-To run the test suite for please refer to the [tests/README.md](https://github.com/OpenWaterAnalytics/Stormwater-Management-Model/blob/develop/tests/README.md)
+To run the test suite for please refer to the [REGRESSION_TESTING.md](https://github.com/OpenWaterAnalytics/Stormwater-Management-Model/blob/develop/.github/REGRESSION_TESTING.md)
 
 # Code of conduct
 
