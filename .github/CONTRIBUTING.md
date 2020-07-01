@@ -11,7 +11,9 @@ Building OWA's fork of SWMM from source is a basic skill that all developers int
 1. how to configure your machine to build the project locally; 
 2. how to obtain the project files using git; 
 3. how to use cmake to generate build files and build the project; and 
-4. how to use ctest and nrtest to perform unit and regression testing on the build artifacts produced. Be advised, you will need local admin privileges on your machine to follow this tutorial. Let’s begin! 
+4. how to use ctest and nrtest to perform unit and regression testing on the build artifacts produced. 
+
+Be advised, you will need local admin privileges on your machine to follow this tutorial. Let’s begin! 
 
 ### Dependencies
 
@@ -144,9 +146,9 @@ The nrtest script complains that it can't find manifest files.
 That concludes this tutorial on building OWA SWMM from source on Windows. You have learned how to configure your machine satisfying project dependencies and how to acquire, build, and test SWMM on your local machine. To be sure, there is a lot more to learn, but this is a good start! Learn more by following the links provided below. 
 
 ### Further Reading
-  Visual Studio - https://msdn.microsoft.com/en-us/library/dd831853(v=vs.100).aspx
-  CMake - https://cmake.org/documentation/
-  Boost - http://www.boost.org/doc/
-  git - https://git-scm.com/doc
-  Miniconda - https://conda.io/docs/user-guide/index.html
-  nrtest - https://nrtest.readthedocs.io/en/latest/
+Visual Studio - https://msdn.microsoft.com/en-us/library/dd831853(v=vs.100).aspx  
+CMake - https://cmake.org/documentation/  
+Boost - http://www.boost.org/doc/  
+git - https://git-scm.com/doc  
+Miniconda - https://conda.io/docs/user-guide/index.html  
+nrtest - https://nrtest.readthedocs.io/en/latest/  
