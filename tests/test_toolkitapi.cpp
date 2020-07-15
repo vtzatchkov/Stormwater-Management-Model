@@ -148,6 +148,7 @@ BOOST_AUTO_TEST_CASE(model_not_open) {
 
     error = swmm_getNodePollut(0, 0, &result_array);
     BOOST_CHECK_EQUAL(error, ERR_API_INPUTNOTOPEN);
+
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -190,6 +191,7 @@ BOOST_FIXTURE_TEST_CASE(sim_started_check, FixtureBeforeStep) {
 
     error = swmm_setLinkParam(0, SM_AVELOSS, 1);
     BOOST_CHECK_EQUAL(error, ERR_NONE);
+
 }
 
 
@@ -241,6 +243,7 @@ BOOST_FIXTURE_TEST_CASE(object_bounds_check, FixtureOpenClose) {
     
     error = swmm_getNodePollut(100, 0, &result_array);
     BOOST_CHECK_EQUAL(error, ERR_API_OBJECT_INDEX);
+
 }
 
 
@@ -277,6 +280,7 @@ BOOST_FIXTURE_TEST_CASE(key_bounds_check, FixtureOpenClose) {
 
     error = swmm_setLinkParam(0, 100, 1);
     BOOST_CHECK_EQUAL(error, ERR_API_OUTBOUNDS);
+
 }
 
 
@@ -643,6 +647,42 @@ BOOST_FIXTURE_TEST_CASE(getset_node, FixtureOpenClose) {
     error = swmm_getNodeParam(node_ind, SM_INITDEPTH, &val);
     BOOST_REQUIRE(error == ERR_NONE);
     BOOST_CHECK_SMALL(val - 1, 0.0001);
+
+    // Get/Set Node SM_SURFAREA (Coupling)
+    error = swmm_getNodeParam(node_ind, SM_SURFAREA, &val); //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 0, 0.0001);  //Coupling
+
+    error = swmm_setNodeParam(node_ind, SM_SURFAREA, 1);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+
+    error = swmm_getNodeParam(node_ind, SM_SURFAREA, &val);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 1, 0.0001);  //Coupling
+
+    // Get/Set Node SM_COUPAREA (Coupling)
+    error = swmm_getNodeParam(node_ind, SM_COUPAREA, &val); //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 0, 0.0001);  //Coupling
+
+    error = swmm_setNodeParam(node_ind, SM_COUPAREA, 1);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+
+    error = swmm_getNodeParam(node_ind, SM_COUPAREA, &val);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 1, 0.0001);  //Coupling
+
+    // Get/Set Node SM_OVERLANDDEPTH (Coupling)
+    error = swmm_getNodeParam(node_ind, SM_OVERLANDDEPTH, &val); //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 0, 0.0001);  //Coupling
+
+    error = swmm_setNodeParam(node_ind, SM_SURFAREA, 1);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+
+    error = swmm_getNodeParam(node_ind, SM_SURFAREA, &val);  //Coupling
+    BOOST_REQUIRE(error == ERR_NONE);  //Coupling
+    BOOST_CHECK_SMALL(val - 1, 0.0001);  //Coupling
 }
 
 

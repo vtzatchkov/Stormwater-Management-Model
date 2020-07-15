@@ -1,3 +1,21 @@
+#
+# CMakeLists.txt - CMake configuration file for swmm/tests
+#
+# Created: February 23, 2018
+# Author:  Constantin Savtchenko
+# Ref: http://neyasystems.com/an-engineers-guide-to-unit-testing-cmake-and-boost-unit-tests/
+#
+# Modified by: Michael E. Tryby
+#              US EPA ORD/NRMRL
+# 
+# Modified by: Velitchko G. Tzatchkov
+#              IMTA (Mexican Institute of Water Technology)
+#	       June 29, 2020
+# 
+
+#Setup CMake to run tests
+enable_testing()
+
 # SWMM LIBRARY
 cmake_minimum_required (VERSION 3.0.2)
 
@@ -15,9 +33,9 @@ option(BUILD_COVERAGE "Build library for coverage" OFF)
 # containing root CMakeLists.txt file.
 add_subdirectory(tools/swmm-output)
 
-IF (BUILD_TESTS)
+#IF (BUILD_TESTS)
     add_subdirectory(tests)
-ENDIF (BUILD_TESTS)
+#ENDIF (BUILD_TESTS)
 
 
 # Sets for output directory for executables and libraries.
@@ -84,7 +102,8 @@ endif(OPENMP_FOUND)
 # Set up file groups for exe and lib targets
 file(GLOB SWMM_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} src/*.c)
 list(REMOVE_ITEM SWMM_SOURCES "src/swmm5.c")
-set(SWMM_API_HEADERS include/swmm5.h; include/toolkitAPI.h)
+set(SWMM_API_HEADERS include/swmm5.h; include/toolkitAPI.h ; src/coupling.h)
+#set(SWMM_API_HEADERS include/swmm5.h; include/toolkitAPI.h)
 include_directories(include)
 
 
@@ -114,12 +133,12 @@ add_library(swmm5 SHARED src/swmm5.c $<TARGET_OBJECTS:swmm_objs>)
 target_include_directories(swmm5 PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 # Create export headers for use when linking with MSVC
-#include(GenerateExportHeader)
-#GENERATE_EXPORT_HEADER(swmm5
-#    BASE_NAME swmm5
-#    EXPORT_MACRO_NAME DLLEXPORT
-#    EXPORT_FILE_NAME swmm5_exports.h
-#    STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
+include(GenerateExportHeader)
+GENERATE_EXPORT_HEADER(swmm5
+    BASE_NAME swmm5
+    EXPORT_MACRO_NAME DLLEXPORT
+    EXPORT_FILE_NAME swmm5_exports.h
+    STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
 
 ENDIF (BUILD_COVERAGE)
 

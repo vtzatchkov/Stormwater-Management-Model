@@ -11,28 +11,22 @@
 
 cmake_minimum_required (VERSION 3.0)
 
-
 #Setup CMake to run tests
 enable_testing()
 
-
 # Sets for output directory for executables and libraries. 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
 
 if(UNIX)
     set(CMAKE_CXX_FLAGS "-std=c++11")
 endif(UNIX)
 
-
 #Prep ourselves for compiling boost
 find_package(Boost REQUIRED)
 include_directories (${Boost_INCLUDE_DIRS})
 
-
 # Test files are a separate source directory called tests
 file(GLOB TEST_SRCS . test_*.cpp)
-
 
 #Run through each source
 foreach(testSrc ${TEST_SRCS})

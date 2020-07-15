@@ -62,7 +62,7 @@ before_test:
 test_script:
   # run unit tests
   - cd %BUILD_HOME%\tests
-  - ctest -C Release
+  - ctest -VV -C Release
     # Run regression tests
   - cd %SWMM_HOME%
   - tools\run-nrtest.cmd %REF_BUILD_ID% %SUT_BUILD_ID%

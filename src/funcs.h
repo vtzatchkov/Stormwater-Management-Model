@@ -354,12 +354,18 @@ void    node_getResults(int node, double wt, float x[]);
 //-----------------------------------------------------------------------------
 //   Coupling Methods
 //-----------------------------------------------------------------------------
-int     coupling_setOpening(int j, int idx, int oType, double A, double l,
-                            double Co, double Cfw, double Csw);
+int     coupling_setOpening(int j, int idx, int oType, double A, double l, double Co, double Cfw, double Csw);
+int     opening_findCouplingType(double crestElev, double nodeHead, double overlandHead, double overflowArea, double weirWidth);
+double  opening_findCouplingInflow(int couplingType, double crestElev,
+                                double nodeHead, double overlandHead, double orificeCoeff, 
+                                double freeWeirCoeff, double subWeirCoeff, double overflowArea, 
+                                double weirWidth);
+double coupling_findNodeInflow(int j, double tStep, double Node_invertElev, double Node_fullDepth, double Node_newDepth, double Node_overlandDepth, 
+							   double Node_couplingArea);
 int     coupling_countOpenings(int j);
 int     coupling_openOpening(int j, int idx);
 int     coupling_closeOpening(int j, int idx);
-void    coupling_deleteOpening(int j, int idx);
+int     coupling_deleteOpening(int j, int idx);
 int     coupling_isNodeCoupled(int j);
 void    coupling_execute(double tStep);
 void    coupling_deleteOpenings(int node);
