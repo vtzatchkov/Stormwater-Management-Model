@@ -122,23 +122,6 @@ double opening_findCouplingInflow(int couplingType, double crestElev,
 }
 
 //=============================================================================
-void coupling_adjustInflows(TCoverOpening* opening, double inflowAdjustingFactor)
-//
-//  Input:   opening = pointer to node opening data
-//           inflowAdjustingFactor = an inflow adjusting coefficient
-//  Output:  none
-//  Purpose: adjust the inflow according to an adjusting factor
-//
-{
-    // --- iterate among the openings
-    while ( opening )
-    {
-        opening->newInflow = opening->newInflow * inflowAdjustingFactor;
-        opening = opening->next;
-    }
-}
-
-//=============================================================================
 
 double coupling_findNodeInflow(int j, double tStep, double Node_invertElev, double Node_fullDepth, double Node_newDepth, double Node_overlandDepth, 
 							   double Node_couplingArea)
@@ -156,7 +139,7 @@ double coupling_findNodeInflow(int j, double tStep, double Node_invertElev, doub
 {
     double crestElev, overlandHead, nodeHead;
     double totalCouplingInflow;
-    double rawMaxInflow, maxInflow, inflowAdjustingFactor;
+    double rawMaxInflow, maxInflow;
     int inflow2outflow, outflow2inflow;
 	TCoverOpening* opening;
 	TCoverOpening* First_opening;
@@ -197,21 +180,6 @@ double coupling_findNodeInflow(int j, double tStep, double Node_invertElev, doub
         // --- add inflow to total inflow
         totalCouplingInflow += opening->newInflow;
         opening = opening->next;
-    }
-    // --- inflow cannot drain the overland model
-    if (totalCouplingInflow > 0.0)
-    {
-        rawMaxInflow = (Node_overlandDepth * Node_couplingArea) / tStep;
-        maxInflow = fmin(rawMaxInflow, totalCouplingInflow);
-        inflowAdjustingFactor = maxInflow / totalCouplingInflow;
-        coupling_adjustInflows(First_opening, inflowAdjustingFactor);
-
-        // --- get adjusted inflows
-        while ( opening )
-        {
-            totalCouplingInflow += opening->newInflow;
-            opening = opening->next;
-        }
     }
     return totalCouplingInflow;
 }

@@ -15,7 +15,6 @@ int coupling_countOpenings(int j);
 int coupling_deleteOpening(int j, int idx);
 double coupling_findNodeInflow(int j, double tStep, double Node_invertElev, double Node_fullDepth, double Node_newDepth, double Node_overlandDepth, 
 							   double Node_couplingArea);
-void coupling_adjustInflows(TCoverOpening* opening, double inflowAdjustingFactor);
 int coupling_openOpening(int j, int idx);
 int coupling_closeOpening(int j, int idx);
 void coupling_deleteOpenings(int j);
